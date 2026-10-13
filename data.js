@@ -31,7 +31,7 @@
 
    To SAVE TIME:
 
-   git add . && git commit -m "U2 Review Key" && git push origin main
+   git add . && git commit -m "U2 Extra Review" && git push origin main
 
    ═══════════════════════════════════════════════════════════ */
 
@@ -235,6 +235,7 @@ const COURSE = {
     ]},
     {d:10, iso:"2026-10-13", topic:"Review", flag:"review", noteLabel:"Unit Review", ansLabel:"Answers",
       note:D("1xCAJMXLOJ8KjM-6qnuBchq8Vm_wtm9QU"), ans:D("1KLxKlsFt-hF6EBgDiztsqgsg3GcZpSxU") /* key: D("1KLxKlsFt-hF6EBgDiztsqgsg3GcZpSxU") */, extras:[
+      ["Extra Review (with Solutions)","https://drive.google.com/file/d/1xddZb4Bol5aKVpwC03rCwhafcDd-bYKe/view","doc"],
       ["Sketching Worksheet",D("1sSdTYJEhghFtaq0PIe4S5XSCcEaWsIXf"),"doc"],
       ["Answers",D("1WpZNJWm2l6kGe3Vs-ueBXUkDSgJEnleE"),"ans"],
       ["Dividing Practice",D("1P4UuSqsstKTel3IzAxjE-9C3mHshFncw"),"doc"],
