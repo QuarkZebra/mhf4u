@@ -1,6 +1,6 @@
 # MHF4U — Advanced Functions
 
-Course website for MHF4U (2026–27). Live at **https://quarkzebra.github.io/MHF4U/**
+Course website for MHF4U (2026–27). Live at **https://mathbrown.com/mhf4u/** (the old https://quarkzebra.github.io/MHF4U/ address redirects there)
 
 ## Adding links during the semester
 
