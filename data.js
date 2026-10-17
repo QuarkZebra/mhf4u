@@ -31,7 +31,7 @@
 
    To SAVE TIME:
 
-   git add . && git commit -m "U2 Extra Review" && git push origin main
+   git add . && git commit -m "3.2 Key add" && git push origin main
 
    ═══════════════════════════════════════════════════════════ */
 
@@ -256,7 +256,7 @@ const COURSE = {
       ["Linear Equations","https://www.youtube.com/watch?v=Ft2_QtXAnh8","vid"],
       ["Solving Linear Equations","https://www.youtube.com/watch?v=7DPWeBszNSM","vid"],
     ]},
-    {d:3, iso:"2026-10-19", topic:"Solving Polynomial Inequalities", num:"3.3", note:D("1Yz0o0ChTUnwUrp0iDHSgY5qVajWZKRgH"), ans:"" /* key: D("1xOhb3W0wfflLmWqbAcnUwdIPQQC7Oxhc") */, extras:[
+    {d:3, iso:"2026-10-19", topic:"Solving Polynomial Inequalities", num:"3.3", note:D("1Yz0o0ChTUnwUrp0iDHSgY5qVajWZKRgH"), ans:D("1xOhb3W0wfflLmWqbAcnUwdIPQQC7Oxhc") /* key: D("1xOhb3W0wfflLmWqbAcnUwdIPQQC7Oxhc") */, extras:[
       ["Lesson: Polynomial Inequalities","https://www.youtube.com/watch?v=aTxdx6QKCfo","vid"],
       ["Practice Solving Inequalities","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ec0d30644b3f2d27288491/1642859827148/2.5+hws+solving+inequalities.pdf","doc"],
       ["Answers","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ec0d389e7a884213b9b9b0/1642859833266/2.5+hwt+solving+inequalities.pdf","ans"],
