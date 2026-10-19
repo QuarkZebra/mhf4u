@@ -31,7 +31,7 @@
 
    To SAVE TIME:
 
-   git add . && git commit -m "3.2 Key add" && git push origin main
+   git add . && git commit -m "3.2 Key add actually" && git push origin main
 
    ═══════════════════════════════════════════════════════════ */
 
@@ -252,7 +252,7 @@ const COURSE = {
       ["Answers","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ec0c748922b857abf38641/1642859636816/2.3+hwt+solve+polynomial+equations.pdf","ans"],
       ["Operations with Radicals Worksheet",D("1I9Qe1vW9ThikSeaZGkZXNMGBv0DEL_Xz"),"doc"],
     ]},
-    {d:2, iso:"2026-10-16", topic:"Solving Linear Inequalities", num:"3.2", note:D("18HbeDmFAf7ypYxNaMlxlUNP3bs5b9oNB"), ans:"" /* key: D("1xZJC23dpF0l8DJhYBtqdjjxW3lq9lJHu") */, extras:[
+    {d:2, iso:"2026-10-16", topic:"Solving Linear Inequalities", num:"3.2", note:D("18HbeDmFAf7ypYxNaMlxlUNP3bs5b9oNB"), ans:D("1xZJC23dpF0l8DJhYBtqdjjxW3lq9lJHu") /* key: D("1xZJC23dpF0l8DJhYBtqdjjxW3lq9lJHu") */, extras:[
       ["Linear Equations","https://www.youtube.com/watch?v=Ft2_QtXAnh8","vid"],
       ["Solving Linear Equations","https://www.youtube.com/watch?v=7DPWeBszNSM","vid"],
     ]},
