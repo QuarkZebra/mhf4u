@@ -262,7 +262,7 @@ const COURSE = {
       ["Answers","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ec0d389e7a884213b9b9b0/1642859833266/2.5+hwt+solving+inequalities.pdf","ans"],
     ]},
     {d:4, iso:"2026-10-20", topic:"Challenge Quiz", flag:"quiz",
-      noteLabel:"Challenge Quiz", ansLabel:"Answers", note:D("1qd-WIoGN1solgGV6TcJ0MqHNnjyHv0OA"), ans:"" /* key: D("1OxETkLGCc6AyHxZi8EEGWHxhX5d1MqeI") */, extras:[
+      noteLabel:"Challenge Quiz", ansLabel:"Answers", note:D("1qd-WIoGN1solgGV6TcJ0MqHNnjyHv0OA"), ans:D("1OxETkLGCc6AyHxZi8EEGWHxhX5d1MqeI") /* key: D("1OxETkLGCc6AyHxZi8EEGWHxhX5d1MqeI") */, extras:[
       ["Factorable Polynomials Practice",D("1-YHrHcxBborXOI8-f7tzpKXQnjbOQSpl"),"doc"],
     ]},
     {d:5, iso:"2026-10-21", topic:"Average Rates of Change", num:"3.4", note:D("1fFcwEQMvImukYrouFZfzavJvZSs22PcF"), ans:"" /* key: D("1XnOJJ5mH1pLn3nMVgDczSZVluuqqO7oF") */, extras:[
