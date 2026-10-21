@@ -265,7 +265,7 @@ const COURSE = {
       noteLabel:"Challenge Quiz", ansLabel:"Answers", note:D("1qd-WIoGN1solgGV6TcJ0MqHNnjyHv0OA"), ans:D("1OxETkLGCc6AyHxZi8EEGWHxhX5d1MqeI") /* key: D("1OxETkLGCc6AyHxZi8EEGWHxhX5d1MqeI") */, extras:[
       ["Factorable Polynomials Practice",D("1-YHrHcxBborXOI8-f7tzpKXQnjbOQSpl"),"doc"],
     ]},
-    {d:5, iso:"2026-10-21", topic:"Average Rates of Change", num:"3.4", note:D("1fFcwEQMvImukYrouFZfzavJvZSs22PcF"), ans:"" /* key: D("1XnOJJ5mH1pLn3nMVgDczSZVluuqqO7oF") */, extras:[
+    {d:5, iso:"2026-10-21", topic:"Average Rates of Change", num:"3.4", note:D("1fFcwEQMvImukYrouFZfzavJvZSs22PcF"), ans:D("1XnOJJ5mH1pLn3nMVgDczSZVluuqqO7oF") /* key: D("1XnOJJ5mH1pLn3nMVgDczSZVluuqqO7oF") */, extras:[
       ["Jensen: Average Rate of Change","https://www.youtube.com/watch?v=7nQoJI_bNuk","vid"],
       ["Jensen: Instantaneous ROC","https://www.youtube.com/watch?v=KLTq4Kyo7ZU","vid"],
       ["Practice AROC","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ed5f15caace83d20b3ab15/1642946326039/hw1s++1.5+average+rate+of+change.pdf","doc"],
