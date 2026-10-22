@@ -69,6 +69,9 @@ body.vc #vcur{display:block}
 #vcur.on .ghosts,#vcur.on .theme,#vcur.on .hud{opacity:1}
 #vcur.hid .ghosts,#vcur.hid .theme,#vcur.hid .hud{opacity:0}
 #vcur .lbl{font-family:var(--mono);font-size:10px;font-weight:600;paint-order:stroke;stroke:var(--bg);stroke-width:3px;stroke-linejoin:round;transition:opacity .15s}
+#vcur .skull,#vcur .haz{opacity:0;transition:opacity .12s;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))}
+.page.shake{animation:shake .45s cubic-bezier(.36,.07,.19,.97) both}
+@keyframes shake{10%,90%{transform:translate(-2px,1px)}20%,80%{transform:translate(4px,-2px)}30%,50%,70%{transform:translate(-6px,3px)}40%,60%{transform:translate(6px,-2px)}}
 #vcur .pt{stroke:var(--bg);stroke-width:1.5;transition:transform .12s;transform-origin:center;transform-box:fill-box}
 #vcur.dn .pt{transform:scale(1.5)}
 #vcur .ax{fill:none;stroke-width:1.2;stroke-dasharray:2 3;opacity:.6}
@@ -76,8 +79,6 @@ body.vc #vcur{display:block}
 #vcur .bz{fill:none;stroke-width:1.5;opacity:0}
 #vcur .shock{fill:none;stroke-width:3;opacity:0}
 #vcur .ghosts rect{filter:drop-shadow(0 0 2px currentColor)}
-.page.shake{animation:shake .45s cubic-bezier(.36,.07,.19,.97) both}
-@keyframes shake{10%,90%{transform:translate(-2px,1px)}20%,80%{transform:translate(4px,-2px)}30%,50%,70%{transform:translate(-6px,3px)}40%,60%{transform:translate(6px,-2px)}}
 @media(hover:hover) and (pointer:fine){body.vc,body.vc *{cursor:none!important}body.vc input,body.vc textarea{cursor:auto!important}}
 .page{max-width:1080px;margin:0 auto;padding:2.5rem 1.5rem 4rem;position:relative;z-index:1}
 
@@ -456,7 +457,7 @@ function ico(name,cls){
 }
 
 /* ══════════ Link rendering ══════════ */
-const WARN=ico("skull","skull")+'<span>Do not look if you haven’t done the practice</span><button class="tgo" type="button">Continue</button>';
+const WARN='<span>Do not look if you haven’t done the practice</span><button class="tgo" type="button">Continue</button>';
 function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;")}
 function live(t,url,cls,icon,warn){
   const a=`<a class="dlink ${cls}" href="${esc(url)}" target="_blank" rel="noopener"${warn?' data-warn':''}>${ico(icon)}<span class="lt">${t}</span></a>`;
@@ -612,7 +613,7 @@ function renderEssentials(){
   el.innerHTML=list.map(e=>{
     const[t,url,kind,warn]=e;
     const a=`<a href="${esc(url)}" target="_blank" rel="noopener"${warn?' data-warn':''}>${ico(ICO[kind]||"arrow")}<span>${t}</span></a>`;
-    return warn?`<span class="tipwrap">${a}<span class="tip hazard">${ico("haz","haz")}<span>${esc(warn)}</span><button class="tgo" type="button">Continue</button></span></span>`:a;
+    return warn?`<span class="tipwrap">${a}<span class="tip hazard"><span>${esc(warn)}</span><button class="tgo" type="button">Continue</button></span></span>`:a;
   }).join("");
 }
 
@@ -1253,13 +1254,14 @@ const THEME={
   },
   burst(S){for(let i=0;i<12;i++){const a=i/12*6.283,v=2.2+Math.random();S.drop(S.mx+Math.cos(a)*14,S.my+Math.sin(a)*14,S.c,850,{vx:Math.cos(a)*v,vy:Math.sin(a)*v,burst:true,w:4.6})}},
   frame(S){
-    const e=S.e,{mx,my,c,boost}=S;
+    const e=S.e,{mx,my,c,boost}=S,warn=S.onAns||S.onHaz;
+    e.pt.style.opacity=warn?0:1;e.ax.style.opacity=warn?0:.6;
     if(S.shock&&S.now-S.shock<650){const t=(S.now-S.shock)/650,q=1-Math.pow(1-t,3);e.shock.setAttribute("cx",S.shockX);e.shock.setAttribute("cy",S.shockY);e.shock.setAttribute("r",8+120*q);e.shock.setAttribute("stroke",S.warn);e.shock.setAttribute("stroke-width",6*(1-t)+1);e.shock.style.opacity=(1-t)}
     else e.shock.style.opacity=0;
     e.pt.setAttribute("cx",mx);e.pt.setAttribute("cy",my);e.pt.setAttribute("r",4+1.5*boost);e.pt.setAttribute("fill",c);
     const L=14+14*boost;e.ax.setAttribute("d",`M${mx-L} ${my}H${mx+L}M${mx} ${my-L}V${my+L}`);e.ax.setAttribute("stroke",c);
     /* a link: the point becomes a bullseye */
-    e.bz.forEach((r,i)=>{r.setAttribute("cx",mx);r.setAttribute("cy",my);r.setAttribute("r",(9+7*i)*(0.6+.4*boost));r.setAttribute("stroke",c);r.style.opacity=boost*(.85-.2*i)});
+    e.bz.forEach((r,i)=>{r.setAttribute("cx",mx);r.setAttribute("cy",my);r.setAttribute("r",(9+7*i)*(0.6+.4*boost));r.setAttribute("stroke",c);r.style.opacity=warn?0:boost*(.85-.2*i)});
     /* fast: the secant and the average rate of change */
     if(S.fast>0&&S.samples.length>=6){
       const A=S.samples[0],dx=mx-A.x,dy=A.y-my;
@@ -1305,6 +1307,26 @@ const THEME={
     const name=u?u.querySelector(".utitle").textContent:(t.closest("#hero")&&heroEntry)?COURSE.units[heroEntry.u].name:"";
     return THEME.subject(name);
   }
+  /* warning pointers, shared by every site: a red skull and crossbones over an answer key (and the page shakes on
+     arrival), the warning triangle over a hazard-warned pill such as the calculator list. Themes hide their own glyph
+     while S.onAns or S.onHaz is set. */
+  const ANS='.dlink.ans,.xans,.btn[data-warn]',HAZ='.ess a[data-warn]';
+  S.wp=(()=>{
+    const g=S.el("g","skull"),mk=(parent,tag,attrs)=>{const el=document.createElementNS(NS,tag);for(const a in attrs)el.setAttribute(a,attrs[a]);parent.appendChild(el);return el};
+    const sk={g,body:[mk(g,"rect",{x:-13,y:-2,width:26,height:3.6,rx:1.8,transform:"rotate(45)"}),mk(g,"rect",{x:-13,y:-2,width:26,height:3.6,rx:1.8,transform:"rotate(-45)"}),
+      ...[[-9.2,-9.2],[9.2,9.2],[-9.2,9.2],[9.2,-9.2]].map(([x,y])=>mk(g,"circle",{cx:x,cy:y,r:2.4})),mk(g,"circle",{cx:0,cy:-2.2,r:7.2}),mk(g,"rect",{x:-4.4,y:2.6,width:8.8,height:5.2,rx:1.6})],
+      holes:[mk(g,"circle",{cx:-2.7,cy:-3,r:2}),mk(g,"circle",{cx:2.7,cy:-3,r:2}),mk(g,"path",{d:"M0 0.2L-1.2 2.2H1.2Z"}),mk(g,"rect",{x:-3.2,y:4.6,width:1.1,height:2.4}),mk(g,"rect",{x:-.55,y:4.6,width:1.1,height:2.4}),mk(g,"rect",{x:2.1,y:4.6,width:1.1,height:2.4})]};
+    const h=S.el("g","haz"),hz={g:h,tri:mk(h,"path",{d:"M0 -11.5L12 9.5H-12Z","stroke-linejoin":"round","stroke-width":3}),bar:mk(h,"rect",{x:-1.5,y:-4,width:3,height:7.5,rx:1.2}),dot:mk(h,"circle",{cx:0,cy:6.3,r:1.7})};
+    return{sk,hz,n:0};
+  })();
+  function warnPointers(){
+    const w=S.wp;if(!w.n--){w.n=60;const cs=getComputedStyle(document.documentElement);w.bg=cs.getPropertyValue("--bg").trim();w.red=cs.getPropertyValue("--ans").trim()||"#cc3344";w.amber=cs.getPropertyValue("--haz-fg").trim()||"#9a5a00"}
+    const t=S.tgt;S.onAns=!!(S.on&&t&&t.matches(ANS));S.onHaz=!!(S.on&&t&&t.matches(HAZ));
+    if(S.onAns){w.sk.g.setAttribute("transform",`translate(${S.mx} ${S.my}) scale(1.15)`);w.sk.g.style.opacity=1;w.sk.body.forEach(el=>el.setAttribute("fill",w.red));w.sk.holes.forEach(el=>el.setAttribute("fill",w.bg))}
+    else w.sk.g.style.opacity=0;
+    if(S.onHaz){w.hz.g.setAttribute("transform",`translate(${S.mx} ${S.my})`);w.hz.g.style.opacity=1;w.hz.tri.setAttribute("fill",w.amber);w.hz.tri.setAttribute("stroke",w.amber);w.hz.bar.setAttribute("fill",w.bg);w.hz.dot.setAttribute("fill",w.bg)}
+    else w.hz.g.style.opacity=0;
+  }
   THEME.init(S);
   document.addEventListener("mousemove",e=>{
     S.mx=e.clientX;S.my=e.clientY;
@@ -1320,6 +1342,7 @@ const THEME={
       S.kind=t?subject(t):"";S.entered=performance.now();
       S.mx=e.clientX;S.my=e.clientY;S.now=performance.now();   // the pointer may have jumped here before its move event
       S.tgt=t;if(t&&THEME.enter)THEME.enter(S);
+      if(t&&t.matches(ANS)){const pg=document.querySelector(".page");pg.classList.remove("shake");void pg.offsetWidth;pg.classList.add("shake")}   // an answer key: the page shakes
       if(t&&t.closest("header")){S.now=performance.now();S.mx=e.clientX;S.my=e.clientY;THEME.burst(S)}   // a top-of-page control: the site's burst says hello
     }
   });
@@ -1364,6 +1387,7 @@ const THEME={
       if(g.sample)S.samples.unshift(g);   // oldest first
     }
     S.hide=hide;S.label="";S.labelAt=null;S.labelOp=null;S.labelColor=null;
+    warnPointers();
     THEME.frame(S);
     if(S.label&&(S.labelOp==null||S.labelOp>0)){
       txt.textContent=S.label;const at=S.labelAt||[S.mx+14,S.my-10];
