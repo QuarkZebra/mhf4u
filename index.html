@@ -1232,7 +1232,7 @@ const THEME={
   enter(S){
     const t=S.tgt;if(!t||t.closest("header"))return;   /* the header controls already get the unit-circle burst */
     const {mx,my}=S,R=Math.random;
-    if(t.matches('[data-warn],.dlink.ans,.xans,.ansb')||t.querySelector('[data-warn]')){
+    if(t.matches('.dlink.ans,.xans,.btn[data-warn]')){
       /* a bomb: white flash, fireball, smoke, debris, shockwave, and the page shakes */
       S.drop(mx,my,"rgb(255,250,225)",170,{burst:true,w:44,grow:4,op:1});
       const fire=["rgb(255,225,100)","rgb(255,160,50)","rgb(255,95,45)","rgb(225,45,35)"];
