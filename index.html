@@ -12,7 +12,7 @@
 /* ═══════════ MHF4U — ADVANCED FUNCTIONS ═══════════ */
 
 :root{
-  --bg:#f2eef9;--surface:#ffffff;--hover:#f7f4fb;
+  --bg:#f2eef9;--bgrgb:242,238,249;--surface:#ffffff;--sf:255,255,255;--hover:#f7f4fb;
   --ink:#150e26;--t2:#3f3557;--t3:#7d7194;--t4:#b1a7c4;
   --bdr:#e0d9ee;--bdr2:#cbc0e0;
   --accent:#38127d;--accent-2:#5a2bc0;
@@ -20,15 +20,17 @@
   --ans:#cc3344;--vid:#a8498f;--done:#1f8a63;--skills:#0f8577;
   --haz-bg:#fff6e5;--haz-fg:#9a5a00;--haz-bdr:rgba(190,120,0,.35);
   --warn-bg:#fff0f2;--warn-fg:#b32642;--warn-bdr:rgba(204,51,68,.3);
-  --test-bg:rgba(176,72,84,.06);--quiz-bg:rgba(56,18,125,.05);--review-bg:rgba(20,128,94,.05);
+  --test-bg:rgba(176,72,84,.06);--quiz-bg:rgba(56,18,125,.05);--pquiz-bg:rgba(56,18,125,.05);--review-bg:rgba(20,128,94,.05);
+  --test-fg:#b04854;--test-dim:rgba(176,72,84,.09);--test-bdr:rgba(176,72,84,.35);
   --r:10px;--sh:0 1px 2px rgba(21,14,38,.06);--sh2:0 1px 3px rgba(21,14,38,.06),0 6px 20px rgba(21,14,38,.07);
-  --topbar:rgba(242,238,249,.9);
-  --curve:56,18,125;--curve-a:.1;
+  --topbar:rgba(242,238,249,.8);
+  --curve:56,18,125;--curve-a:.16;--aur:.42;
+  --pal-pu:90,43,192;--pal-tq:14,116,144;--pal-co:214,66,86;--pal-am:196,120,0;--pal-sk:24,100,210;--pal-gn:31,138,99;
   --sans:'Outfit',"Avenir Next","Segoe UI",system-ui,sans-serif;
   --mono:'IBM Plex Mono',"SF Mono",ui-monospace,Menlo,Consolas,monospace;
 }
 :root[data-theme="dark"]{
-  --bg:#0d0916;--surface:#150f24;--hover:#1c1430;
+  --bg:#0d0916;--bgrgb:13,9,22;--surface:#150f24;--sf:21,15,36;--hover:#1c1430;
   --ink:#ddd6ec;--t2:#9d90bc;--t3:#655a86;--t4:#3b3154;
   --bdr:#221936;--bdr2:#30254c;
   --accent:#7d51e6;--accent-2:#9a72f2;
@@ -36,23 +38,48 @@
   --ans:#ff8f9d;--vid:#d576c0;--done:#43c79f;--skills:#3fd2bd;
   --haz-bg:#33260f;--haz-fg:#ffc65c;--haz-bdr:rgba(255,198,92,.35);
   --warn-bg:#351c26;--warn-fg:#ff9fae;--warn-bdr:rgba(255,143,157,.3);
-  --test-bg:rgba(224,122,140,.07);--quiz-bg:rgba(125,81,230,.07);--review-bg:rgba(67,199,159,.06);
+  --test-bg:rgba(224,122,140,.07);--quiz-bg:rgba(125,81,230,.07);--pquiz-bg:rgba(125,81,230,.07);--review-bg:rgba(67,199,159,.06);
+  --test-fg:#e07a8c;--test-dim:rgba(224,122,140,.12);--test-bdr:rgba(224,122,140,.4);
   --sh:0 1px 3px rgba(0,0,0,.3);--sh2:0 2px 8px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
-  --topbar:rgba(13,9,22,.92);
-  --curve:132,92,235;--curve-a:.13;
+  --topbar:rgba(13,9,22,.8);
+  --curve:132,92,235;--curve-a:.15;--aur:.6;
+  --pal-pu:157,114,242;--pal-tq:69,200,224;--pal-co:255,122,135;--pal-am:255,190,80;--pal-sk:100,168,255;--pal-gn:95,207,138;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:var(--bg)}
 body{font-family:var(--sans);color:var(--ink);line-height:1.6;min-height:100vh;
-  background-image:radial-gradient(1000px 520px at 82% -8%,var(--accent-dim),transparent 70%);
+  background-image:radial-gradient(1000px 520px at 82% -8%,var(--accent-dim),transparent 70%),
+    radial-gradient(900px 640px at -6% 104%,rgba(var(--pal-tq),.07),transparent 70%);
   background-repeat:no-repeat;background-attachment:fixed;transition:background .3s,color .3s}
 a{color:inherit;text-decoration:none}
 #bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;animation:fadein 1.4s both}
+/* Aurora: four blurred colour blobs breathing behind the canvas */
+#aurora{position:fixed;inset:-25%;z-index:0;pointer-events:none;filter:blur(70px);opacity:var(--aur);
+  background:radial-gradient(38% 42% at 22% 28%,rgba(var(--pal-pu),.5),transparent 70%),
+    radial-gradient(34% 36% at 78% 22%,rgba(var(--pal-tq),.45),transparent 70%),
+    radial-gradient(40% 38% at 72% 82%,rgba(var(--pal-co),.36),transparent 70%),
+    radial-gradient(30% 32% at 18% 86%,rgba(var(--pal-am),.3),transparent 70%);
+  animation:aurora 52s ease-in-out infinite alternate;transition:opacity .3s}
+@keyframes aurora{0%{transform:translate(0,0) rotate(0deg) scale(1)}50%{transform:translate(4%,-3%) rotate(7deg) scale(1.08)}100%{transform:translate(-3%,3%) rotate(-6deg) scale(1.04)}}
+/* The cursor (see the script at the end): an SVG overlay above everything */
+#vcur{position:fixed;left:0;top:0;width:100vw;height:100vh;z-index:1000;pointer-events:none;overflow:visible;display:none;opacity:0;transition:opacity .2s}
+body.vc #vcur{display:block}
+#vcur.on{opacity:1}
+#vcur.hid{opacity:0}
+#vcur .lbl{font-family:var(--mono);font-size:10px;font-weight:600;paint-order:stroke;stroke:var(--bg);stroke-width:3px;stroke-linejoin:round;transition:opacity .15s}
+#vcur .pt{stroke:var(--bg);stroke-width:1.5;transition:transform .12s;transform-origin:center;transform-box:fill-box}
+#vcur.dn .pt{transform:scale(1.5)}
+#vcur .ax{fill:none;stroke-width:1.2;stroke-dasharray:2 3;opacity:.6}
+#vcur .sec{stroke-width:1.6;stroke-linecap:round;opacity:0}
+#vcur .fcurve{fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;opacity:0}
+#vcur .fbase{stroke-width:1;stroke-dasharray:2 3;opacity:0}
+#vcur .fdot{stroke:var(--bg);stroke-width:1.2;opacity:0}
+@media(hover:hover) and (pointer:fine){body.vc,body.vc *{cursor:none!important}body.vc input,body.vc textarea{cursor:auto!important}}
 .page{max-width:1080px;margin:0 auto;padding:2.5rem 1.5rem 4rem;position:relative;z-index:1}
 
 /* Today hero — click it to jump to that day in the table */
-.hero{background:linear-gradient(135deg,var(--accent-dim),transparent 60%),var(--surface);
+.hero{background:linear-gradient(135deg,var(--accent-dim),transparent 60%),rgba(var(--sf),.9);
   border:1px solid var(--accent-bdr);border-radius:var(--r);padding:.9rem 1.35rem;margin-bottom:1.4rem;
   position:relative;overflow:hidden;box-shadow:var(--sh2);cursor:pointer;
   transition:transform .2s ease,box-shadow .2s ease}
@@ -100,7 +127,7 @@ header{margin-bottom:1.8rem}
 .help .hi .dlink,.help .hi .newp,.help .hi .xans{pointer-events:none}
 .help .hi small{color:var(--t3);font-size:.72rem}
 .help .swatch{width:14px;height:14px;border-radius:4px;background:var(--accent-dim);box-shadow:inset 3px 0 0 var(--accent);flex-shrink:0}
-.hbtn{font-family:var(--mono);font-size:.65rem;color:var(--t3);cursor:pointer;background:var(--surface);
+.hbtn{font-family:var(--mono);font-size:.65rem;color:var(--t3);cursor:pointer;background:rgba(var(--sf),.72);
   border:1px solid var(--bdr);padding:.24rem .7rem;border-radius:100px;transition:all .2s}
 .hbtn:hover{color:var(--t2);border-color:var(--bdr2);background:var(--hover)}
 .hbtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
@@ -110,13 +137,13 @@ header .sub{color:var(--t3);font-size:.88rem;margin-top:.35rem}
 /* Course essentials: the outline, the homework routine and the calculator list, pinned under the title */
 .ess{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.95rem}
 .ess a{display:inline-flex;align-items:center;gap:.42rem;font-size:.78rem;font-weight:600;padding:.42rem .9rem;border-radius:100px;
-  background:var(--surface);border:1px solid var(--bdr2);color:var(--t2);box-shadow:var(--sh);
+  background:rgba(var(--sf),.78);border:1px solid var(--bdr2);color:var(--t2);box-shadow:var(--sh);
   transition:transform .15s,border-color .15s,color .15s,box-shadow .15s}
 .ess a:hover{transform:translateY(-1px);border-color:var(--accent-bdr);color:var(--accent);box-shadow:var(--sh2)}
 .ess a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .ess .ico{width:1.05em;height:1.05em}
 
-.sbar{display:flex;align-items:center;gap:.6rem;margin-bottom:1.2rem;padding:.55rem .9rem;background:var(--surface);
+.sbar{display:flex;align-items:center;gap:.6rem;margin-bottom:1.2rem;padding:.55rem .9rem;background:rgba(var(--sf),.72);
   border:1px solid var(--bdr);border-radius:var(--r);box-shadow:var(--sh);transition:border-color .2s,box-shadow .2s}
 .sbar:focus-within{border-color:var(--accent-bdr);box-shadow:0 0 0 3px var(--accent-dim)}
 .sbar .si{color:var(--t4);font-size:.9rem}
@@ -127,11 +154,17 @@ header .sub{color:var(--t3);font-size:.88rem;margin-top:.35rem}
 .nomatch-msg{text-align:center;color:var(--t3);font-size:.85rem;padding:2rem 1rem;border:1px dashed var(--bdr2);border-radius:var(--r);margin-bottom:.55rem}
 .unit.nomatch{display:none}
 
-.unit{margin-bottom:.55rem;border:1px solid var(--bdr);border-radius:var(--r);background:var(--surface);
+/* Units are glass: the background shows through. Each row carries its own
+   opacity (--ra0, set per day in dayRow): today and test days are solid,
+   the days either side nearly so, the rest fade with distance, past days
+   most of all. Hovering a row firms it up. */
+@property --ra{syntax:"<number>";inherits:true;initial-value:.5}
+@property --tint{syntax:"<color>";inherits:true;initial-value:transparent}
+.unit{margin-bottom:.55rem;border:1px solid var(--bdr);border-radius:var(--r);background:rgba(var(--sf),.34);
   box-shadow:var(--sh);transition:border-color .25s,box-shadow .25s}
 .unit:hover{border-color:var(--bdr2);box-shadow:var(--sh2)}
 .unit.current{border-color:var(--accent-bdr);box-shadow:0 0 0 3px var(--accent-dim),var(--sh2)}
-.uhead{display:flex;align-items:center;gap:.8rem;padding:.9rem 1.15rem;cursor:pointer;user-select:none;transition:background .15s,box-shadow .2s;width:100%;background:var(--surface);border:none;text-align:left;font-family:inherit;color:inherit;
+.uhead{display:flex;align-items:center;gap:.8rem;padding:.9rem 1.15rem;cursor:pointer;user-select:none;transition:background .15s,box-shadow .2s;width:100%;background:rgba(var(--sf),.84);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:none;text-align:left;font-family:inherit;color:inherit;
   border-radius:var(--r);position:sticky;top:var(--tbh,44px);z-index:5}
 .unit.open .uhead{border-radius:var(--r) var(--r) 0 0}
 .uhead.stuck{box-shadow:inset 0 -1px 0 var(--bdr),0 8px 16px -10px rgba(0,0,0,.3)}
@@ -159,17 +192,19 @@ header .sub{color:var(--t3);font-size:.88rem;margin-top:.35rem}
 
 .ltable{width:100%;border-collapse:collapse;font-size:.88rem}
 .ltable th{font-family:var(--mono);font-size:.6rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--t3);padding:.55rem 1rem;text-align:left;border-bottom:1px solid var(--bdr);white-space:nowrap;background:var(--bg)}
+  color:var(--t3);padding:.55rem 1rem;text-align:left;border-bottom:1px solid var(--bdr);white-space:nowrap;background:rgba(var(--bgrgb),.55)}
 .ltable th:first-child{width:2.6rem;text-align:center}
 .th-topic{min-width:250px}.th-extra{min-width:220px}
-.ltable td{padding:.65rem 1rem;vertical-align:top;border-bottom:1px solid var(--bdr)}
+.ltable td{padding:.65rem 1rem;vertical-align:top;border-bottom:1px solid var(--bdr);
+  background:linear-gradient(var(--tint),var(--tint)),rgba(var(--sf),var(--ra))}
 .ltable tr:last-child td{border-bottom:none}
-.ltable tbody tr{transition:background .15s}
-.ltable tbody tr:hover{background:var(--hover)}
-.ltable tr.is-test{background:var(--test-bg)}
-.ltable tr.is-quiz{background:var(--quiz-bg)}
-.ltable tr.is-review{background:var(--review-bg)}
-.ltable tr.is-today td{background:var(--accent-dim)}
+.ltable tbody tr{--ra:var(--ra0,.5);--tint:transparent;transition:--ra .2s,--tint .2s}
+.ltable tbody tr:hover{--ra:.9;--tint:var(--review-bg)}
+.ltable tr.is-test,.ltable tr.is-exam{--tint:var(--test-bg)}
+.ltable tbody tr.is-test,.ltable tbody tr.is-exam{--ra:.95}
+.ltable tr.is-quiz{--tint:var(--quiz-bg)}
+.ltable tr.is-review{--tint:var(--review-bg)}
+.ltable tbody tr.is-today{--ra:.97;--tint:var(--accent-dim)}
 .ltable tr.is-today td:first-child{box-shadow:inset 3px 0 0 var(--accent);border-radius:8px 0 0 8px}
 .ltable tr.is-today td:last-child{border-radius:0 8px 8px 0}
 .td-num{font-family:var(--mono);font-size:.72rem;color:var(--t4);text-align:center;font-variant-numeric:tabular-nums}
@@ -242,7 +277,7 @@ header .sub{color:var(--t3);font-size:.88rem;margin-top:.35rem}
 body.armed .fab{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(14px)}
 @keyframes sheetup{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 
-@keyframes rowflash{0%{background:var(--accent-dim)}100%{background:transparent}}
+@keyframes rowflash{0%{--tint:rgba(var(--curve),.3)}100%{--tint:transparent}}
 @keyframes fadein{from{opacity:0}to{opacity:1}}
 @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 @keyframes rowin{from{opacity:0;transform:translateX(-6px)}to{opacity:1;transform:none}}
@@ -264,7 +299,7 @@ body.armed .fab{opacity:0;visibility:hidden;pointer-events:none;transform:transl
 @media(max-width:768px){
   .page{padding:2rem .75rem}header h1{font-size:1.9rem}
   .top-bar{margin:-2rem -.75rem 1.5rem;padding:.5rem .75rem}
-  #bg{opacity:.55}
+  #bg{opacity:.6}#aurora{opacity:calc(var(--aur)*.6)}
   .urange{display:none}
   .fab{bottom:1rem;right:1rem}
   .uhead{padding:.8rem .9rem;gap:.5rem;flex-wrap:wrap}
@@ -272,9 +307,10 @@ body.armed .fab{opacity:0;visibility:hidden;pointer-events:none;transform:transl
   .ucontent{overflow:visible}
   .ltable,.ltable tbody{display:block}
   .ltable thead{display:none}
-  .ltable tr{display:grid;grid-template-columns:auto 1fr;column-gap:.55rem;row-gap:.1rem;align-items:center;padding:.85rem .9rem .95rem;border-bottom:1px solid var(--bdr)}
+  .ltable tr{display:grid;grid-template-columns:auto 1fr;column-gap:.55rem;row-gap:.1rem;align-items:center;padding:.85rem .9rem .95rem;border-bottom:1px solid var(--bdr);
+    background:linear-gradient(var(--tint),var(--tint)),rgba(var(--sf),var(--ra))}
   .ltable tr:last-child{border-bottom:none}
-  .ltable td{display:block;padding:0;border:none}
+  .ltable td{display:block;padding:0;border:none;background:none}
   .td-num{grid-row:1;grid-column:1;width:auto;text-align:left;font-size:.62rem;padding:.08rem .5rem;border:1px solid var(--bdr);border-radius:100px;color:var(--t3)}
   .td-num::before{content:"Day "}
   .td-date{grid-row:1;grid-column:2;display:flex;align-items:center;gap:.4rem;flex-wrap:wrap}
@@ -285,7 +321,7 @@ body.armed .fab{opacity:0;visibility:hidden;pointer-events:none;transform:transl
   .td-topic{grid-column:1/-1;margin-top:.4rem}
   .td-extra{grid-column:1/-1;margin-top:.5rem;padding-top:.5rem;border-top:1px dashed var(--bdr)}
   .td-extra.empty{display:none}
-  .ltable tr.is-today{background:var(--accent-dim);box-shadow:inset 3px 0 0 var(--accent)}
+  .ltable tr.is-today{box-shadow:inset 3px 0 0 var(--accent)}
   .ltable tr.is-today td,.ltable tr.is-today td:first-child,.ltable tr.is-today td:last-child{background:none;box-shadow:none;border-radius:0}
   .ltable tr.is-today .td-num{border-color:var(--accent-bdr);color:var(--accent)}
   .dlink{font-size:.86rem}.dlink.ans,.dlink.pend{font-size:.8rem}.dlink.vid,.dlink.doc,.dlink.eqao{font-size:.82rem}
@@ -299,7 +335,9 @@ body.armed .fab{opacity:0;visibility:hidden;pointer-events:none;transform:transl
 </style>
 </head>
 <body>
+<div id="aurora" aria-hidden="true"></div>
 <canvas id="bg" aria-hidden="true"></canvas>
+<svg id="vcur" aria-hidden="true"><g class="ghosts"></g><g class="theme"></g><text class="lbl"></text></svg>
 <div class="page">
   <div class="top-bar" style="--i:0">
     <span class="lbl">Course</span>
@@ -470,6 +508,18 @@ function noteLinks(day){
 }
 
 /* ══════════ Render units ══════════ */
+/* Glass opacity for a day: solid at today, nearly so either side, fading
+   with distance; past days thinnest. Quiz and review days a touch firmer.
+   Test, exam and today are pinned solid in CSS. */
+function rowAlpha(day,st){
+  if(!day.iso)return .5;
+  const n=Math.abs(daysAgo(day.iso));
+  let a=st==="past"?.4:.52;
+  if(n===1)a=.84;else if(n===2)a=.74;else if(n===3)a=.64;
+  if(day.flag==="quiz"||day.flag==="pquiz")a=Math.min(.9,a+.12);
+  if(day.flag==="review")a=Math.min(.9,a+.08);
+  return a;
+}
 function dayRow(day,i){
   const st=stateOf(day);
   const cls=[day.flag==="test"?"is-test":"",day.flag==="quiz"?"is-quiz":"",day.flag==="review"?"is-review":"",st==="today"?"is-today":""].join(" ");
@@ -479,7 +529,7 @@ function dayRow(day,i){
   const links=noteLinks(day);
   const extras=extrasHTML(day.extras||[]);
   const heroId=heroEntry&&day===heroEntry.day?' id="heroDayRow"':"";
-  return `<tr class="${cls}"${heroId} style="--i:${i}">
+  return `<tr class="${cls}"${heroId} style="--i:${i};--ra0:${rowAlpha(day,st)}">
     <td class="td-num">${day.d}</td>
     <td class="td-date">${fmtDate2(day.iso)}${st==="today"?'<br><span class="today-pill">Today</span>':""}</td>
     <td class="td-topic"><span class="topic">${day.topic}</span>${badge}<div class="lgroup">${links.join("")}</div></td>
@@ -729,20 +779,277 @@ dmBtn.addEventListener("click",()=>{
 });
 render();renderEssentials();renderHero();syncBtn();
 
-/* ══════════ Animated background: functions that play together ══════════
-   Curves plot themselves with a glowing pen head and get labelled.
-   Where two curves cross, an intersection point sparkles. Every so
-   often two curves drift onto shared axes and their SUM plots itself
-   (y = f(x) + g(x)). Curves dodge the cursor; clicking empty space
-   plots a point with its coordinates. */
+/* ══════════ Shared function vignettes ══════════
+   Used by more than one site; each site's kinds file lists which it wants
+   and in which colours. Every maker fits its box; every drawer takes
+   (v, p, f, hold, age): p = 0..1 through the build, f = fade, hold = ms
+   since the build finished, age = ms since birth. */
+/* a parent function morphing into a f(k(x − d)) + c, parameters shown */
+function makeTransform(v){
+  const parents=[["x²",x=>x*x],["√x",x=>x<0?NaN:Math.sqrt(x)],["|x|",x=>Math.abs(x)],["x³",x=>x*x*x/3]];
+  const i=Math.floor(rnd(0,parents.length));
+  Object.assign(v,{pname:parents[i][0],pf:parents[i][1],pa:rnd(0,6.28),pb:rnd(0,6.28)});
+}
+function drawTransform(v,p,f,hold){
+  const [c0,c1]=v.c,{px,py}=frame(v,f,c0,4,4);
+  const t=p<1?easeIO((p-.2)/.8):1,s=hold*.0005;
+  const a=1+(t*(.9*Math.sin(s+v.pa))),d=t*1.6*Math.sin(s*.7+v.pb),c=t*1.4*Math.cos(s*.9+v.pa),k=1+t*.5*Math.sin(s*1.3);
+  cx.save();cx.beginPath();cx.rect(v.x,v.y,v.w,v.h);cx.clip();
+  cx.strokeStyle=col(c0,ALPHA*1.8*f);cx.lineWidth=1.4;cx.setLineDash([3,4]);trace(v.pf,px,py,4,-4);cx.setLineDash([]);
+  cx.strokeStyle=col(c1,BOLD(f));cx.lineWidth=2.2;trace(x=>a*v.pf(k*(x-d))+c,px,py,4,-4);
+  cx.restore();
+  label("y = "+v.pname,v.x+4,v.y+12,f,c0);
+  if(t>0)label(`a = ${a.toFixed(1)}  k = ${k.toFixed(1)}  d = ${neg(d.toFixed(1))}  c = ${neg(c.toFixed(1))}`,v.x+4,v.y+v.h+2,f*t,c1);
+}
+/* the unit circle generating the sine wave; v.deg picks degrees or radians */
+function makeCircle(v){v.R=Math.min(v.h/2-16,v.w*.2);v.cx0=v.x+v.R+14;v.cy0=v.y+v.h/2}
+function drawCircle(v,p,f,hold,age){
+  const [c0,c1]=v.c,R=v.R,X=v.cx0,Y=v.cy0,x0=X+R+16,wl=v.x+v.w-x0-6;
+  ring(X,Y,R,col(c0,LINE(f)),1.6);
+  cx.strokeStyle=col(c0,ALPHA*1.4*f);cx.lineWidth=1;seg([X-R-6,Y],[X+R+6,Y]);seg([X,Y-R-6],[X,Y+R+6]);
+  seg([x0,Y],[x0+wl,Y]);
+  const T=(age-T_IN*.4)/7000;if(T<0)return;
+  const th=(T%1)*6.283,lap=Math.floor(T),upto=lap>0?1:T%1;
+  const Px=X+R*Math.cos(th),Py=Y-R*Math.sin(th);
+  cx.strokeStyle=col(c0,LINE(f));cx.lineWidth=1.6;seg([X,Y],[Px,Py]);
+  cx.setLineDash([2,4]);cx.strokeStyle=col(c1,ALPHA*1.8*f);seg([Px,Py],[x0+wl*(T%1),Py]);cx.setLineDash([]);
+  cx.strokeStyle=col(c1,BOLD(f));cx.lineWidth=2;cx.beginPath();
+  for(let i=0;i<=80;i++){const u=upto*i/80;const X2=x0+wl*u,Y2=Y-R*Math.sin(u*6.283);i?cx.lineTo(X2,Y2):cx.moveTo(X2,Y2)}cx.stroke();
+  dot(Px,Py,3.4,col(c0,BOLD(f)));dot(x0+wl*(T%1),Py,3.4,col(c1,BOLD(f)));
+  const marks=v.deg?["90°","180°","270°","360°"]:["π/2","π","3π/2","2π"];
+  marks.forEach((m,i)=>text(m,x0+wl*(i+1)/4,Y+R+14,f,c1,9));
+  label(v.deg?`θ = ${Math.round(th*57.2958)}°`:`θ = ${(th).toFixed(2)} rad`,X-R,v.y+12,f,c0);
+  label("y = sin θ",x0+wl-66,v.y+12,f,c1);
+}
+/* y = a sin(k(x − d)) + c with the parameters breathing; degrees or radians */
+function makeSinusoid(v){v.ph=rnd(0,6.28)}
+function drawSinusoid(v,p,f,hold){
+  const [c0,c1]=v.c,{px,py}=frame(v,f,c0,v.deg?540:9.42,2.6);
+  const t=p<1?easeO((p-.3)/.5):1,s=hold*.0005+v.ph;
+  const a=1+t*.8*Math.sin(s),k=1+t*.5*Math.sin(s*.7+1),d=t*(v.deg?60:1)*Math.sin(s*.4),c=t*.6*Math.cos(s*.9);
+  const per=v.deg?360:6.283;
+  cx.strokeStyle=col(c0,ALPHA*1.8*f);cx.lineWidth=1.3;cx.setLineDash([3,4]);
+  trace(x=>Math.sin(x/per*6.283),px,py,v.deg?540:9.42,v.deg?-540:-9.42);cx.setLineDash([]);
+  cx.strokeStyle=col(c1,BOLD(f));cx.lineWidth=2.2;
+  trace(x=>a*Math.sin(k*(x-d)/per*6.283)+c,px,py,v.deg?540:9.42,v.deg?-540:-9.42,140);
+  label("y = sin x",v.x+4,v.y+12,f,c0);
+  if(t>0)label(`amplitude ${Math.abs(a).toFixed(1)}  period ${v.deg?Math.round(360/k)+"°":(6.283/k).toFixed(1)}`,v.x+4,v.y+v.h+2,f*t,c1);
+}
+/* a function and its inverse, reflected in y = x, with a point and its mirror */
+function makeInverse(v){
+  const fs=[["2ˣ",x=>Math.pow(2,x),x=>Math.log2(x)],["x³",x=>x*x*x/4,x=>Math.cbrt(4*x)],["√x",x=>x<0?NaN:Math.sqrt(x)*2,x=>x<0?NaN:x*x/4]];
+  const i=Math.floor(rnd(0,fs.length));Object.assign(v,{fname:fs[i][0],fn:fs[i][1],inv:fs[i][2]});
+}
+function drawInverse(v,p,f,hold){
+  const [c0,c1]=v.c,sz=Math.min(v.w,v.h),ox=v.x+(v.w-sz)/2,oy=v.y+(v.h-sz)/2,r=4;
+  const px=x=>ox+sz/2+x/r*(sz/2),py=y=>oy+sz/2-y/r*(sz/2);
+  cx.strokeStyle=col(c0,ALPHA*1.5*f);cx.lineWidth=1.2;seg([ox,py(0)],[ox+sz,py(0)]);seg([px(0),oy],[px(0),oy+sz]);
+  cx.setLineDash([3,4]);cx.strokeStyle=col(c0,ALPHA*1.6*f);seg([px(-r),py(-r)],[px(r),py(r)]);cx.setLineDash([]);
+  label("y = x",px(r)-34,py(r)+12,f*.8,c0);
+  cx.save();cx.beginPath();cx.rect(ox,oy,sz,sz);cx.clip();
+  const p1=easeO(p/.35),p2=easeO((p-.35)/.35);
+  cx.strokeStyle=col(c0,LINE(f));cx.lineWidth=2;trace(v.fn,px,py,-r+2*r*p1,-r,120);
+  if(p2>0){cx.strokeStyle=col(c1,LINE(f));trace(v.inv,px,py,-r+2*r*p2,-r,120)}
+  cx.restore();
+  label("y = "+v.fname,ox+4,oy+12,f,c0);
+  if(p2>=1){
+    label("y = f⁻¹(x)",ox+sz-70,oy+sz-4,f,c1);
+    const a=-1.2+1.4*(1-Math.cos(hold*.0006))/2*2;
+    const b=v.fn(a);
+    if(isFinite(b)&&Math.abs(b)<r){
+      dot(px(a),py(b),3.4,col(c0,BOLD(f)));dot(px(b),py(a),3.4,col(c1,BOLD(f)));
+      dash([px(a),py(b)],[px(b),py(a)],col(c1,ALPHA*1.6*f));
+      label(`(${neg(a.toFixed(1))}, ${neg(b.toFixed(1))})`,px(a)+6,py(b)-6,f,c0);label(`(${neg(b.toFixed(1))}, ${neg(a.toFixed(1))})`,px(b)+6,py(a)+14,f,c1);
+    }
+  }
+}
+/* y = 1/(x − a) + b with its asymptotes; a slides on the hold */
+function makeRational(v){v.b=rnd(-.6,.6);v.a0=rnd(-1,1)}
+function drawRational(v,p,f,hold){
+  const [c0,c1]=v.c,{px,py}=frame(v,f,c0,4,4);
+  const t=p<1?easeO((p-.2)/.4):1,a=v.a0+t*1.2*Math.sin(hold*.0005),b=v.b;
+  cx.save();cx.beginPath();cx.rect(v.x,v.y,v.w,v.h);cx.clip();
+  if(p>.2){dash([px(a),v.y],[px(a),v.y+v.h],col(c1,ALPHA*2.2*f*t),1.2);dash([v.x,py(b)],[v.x+v.w,py(b)],col(c1,ALPHA*2.2*f*t),1.2)}
+  cx.strokeStyle=col(c0,BOLD(f));cx.lineWidth=2.2;
+  const cp=easeO(p/.5);
+  trace(x=>1/(x-a)+b,px,py,-4+(a-.02+4)*cp,-4,80);
+  trace(x=>1/(x-a)+b,px,py,(a+.02)+(4-(a+.02))*cp,a+.02,80);
+  cx.restore();
+  label("y = 1/(x − a) + b",v.x+4,v.y+12,f,c0);
+  if(p>.3)label(`x = ${neg(a.toFixed(1))}`,px(a)+5,v.y+v.h-4,f,c1);
+}
+/* a scatter plot growing its line of best fit, with its real r */
+function makeScatter(v){
+  const n=17,dir=Math.random()<.5?1:-1,noise=rnd(.08,.2),pts=[];
+  for(let i=0;i<n;i++){const x=rnd(.04,.96),y=Math.max(.02,Math.min(.98,.5+dir*(x-.5)*rnd(.7,.9)+gauss()*noise));pts.push({x,y,t:i/n})}
+  const mx=pts.reduce((s,p)=>s+p.x,0)/n,my=pts.reduce((s,p)=>s+p.y,0)/n;
+  let sxy=0,sxx=0,syy=0;pts.forEach(p=>{sxy+=(p.x-mx)*(p.y-my);sxx+=(p.x-mx)**2;syy+=(p.y-my)**2});
+  const b=sxy/sxx;Object.assign(v,{pts,b,a:my-b*mx,r:sxy/Math.sqrt(sxx*syy)});
+}
+function drawScatter(v,p,f){
+  const [c0,c1]=v.c,px=x=>v.x+x*v.w,py=y=>v.y+v.h-y*v.h;
+  axes(v,f,c0,true);
+  v.pts.forEach(pt=>{const k=(p/.62-pt.t*.95)/.08;if(k<=0)return;const r=2.8*(1+.5*Math.max(0,1-k)*Math.min(1,k*3));dot(px(pt.x),py(pt.y),r,col(c0,ALPHA*2.6*f*Math.min(1,k)))});
+  const lp=easeO((p-.66)/.24);
+  if(lp>0){
+    const x1=.02+.96*lp;cx.strokeStyle=col(c1,LINE(f));cx.lineWidth=2;seg([px(.02),py(v.a+v.b*.02)],[px(x1),py(v.a+v.b*x1)]);
+    if(lp>=1)label(v.grade9?(Math.abs(v.r)>.7?"strong ":"weak ")+(v.r>0?"positive":"negative"):"r = "+neg(v.r.toFixed(2)),v.x+v.w-(v.grade9?96:62),v.b>0?v.y+v.h-6:v.y+12,f,c1);
+  }
+}
+/* a secant swinging into the tangent as h → 0 (rates of change) */
+function makeTangent(v){
+  const a=rnd(.24,.32),k=rnd(3,4.2),ph=rnd(0,6.28),tilt=rnd(-.2,.2);
+  v.f=t=>.5+a*Math.sin(k*t+ph)+tilt*(t-.5);v.fp=t=>a*k*Math.cos(k*t+ph)+tilt;
+  v.t0=rnd(.38,.58);v.h0=(Math.random()<.5?-1:1)*rnd(.3,.36);
+}
+function drawTangent(v,p,f){
+  const [c0,c1]=v.c,px=t=>v.x+t*v.w,py=y=>v.y+v.h-y*v.h;
+  axes(v,f,c0,true);
+  cx.strokeStyle=col(c0,LINE(f));cx.lineWidth=2;trace(v.f,px,py,easeO(p/.3));
+  if(p<.32)return;
+  const k=clamp01((p-.32)/.06),q=easeIO((p-.42)/.46),h=v.h0*(1-q);
+  const t0=v.t0,t1=t0+h,y0=v.f(t0),m=Math.abs(h)>.002?(v.f(t1)-y0)/h:v.fp(t0),lc=mix(c1,c0,q);
+  cx.save();cx.beginPath();cx.rect(v.x,v.y-10,v.w,v.h+10);cx.clip();
+  cx.beginPath();cx.moveTo(px(-.1),py(y0+m*(-.1-t0)));cx.lineTo(px(1.1),py(y0+m*(1.1-t0)));
+  cx.strokeStyle=col(lc,BOLD(f)*k*.9);cx.lineWidth=1.6;cx.stroke();cx.restore();
+  dot(px(t0),py(y0),3.4,col(c0,BOLD(f)*k));
+  if(Math.abs(h)>.004)dot(px(t1),py(v.f(t1)),3,col(c1,BOLD(f)*k*clamp01(Math.abs(h)/.03)));
+  if(p>.42&&p<.9)label("average rate, h → 0",v.x+v.w-128,v.y+12,f*clamp01((p-.42)/.05)*clamp01((.9-p)/.05),c1);
+  if(p>=.9)label("instantaneous rate",px(t0)+8,py(y0)-10,f*clamp01((p-.9)/.06),c0);
+}
+/* doubling: 1, 2, 4, 8 … as stacked dots, with 2ⁿ */
+function makeDoubling(v){}
+function drawDoubling(v,p,f,hold){
+  const [c0,c1]=v.c,n=7,bw=v.w/n,base=v.y+v.h-16,unit=(v.h-44)/64;
+  axes(v,f,c0);
+  for(let i=0;i<n;i++){
+    const k=clamp01((p-i*.12)/.08);if(k<=0)break;
+    const cnt=Math.pow(2,i),h=cnt*unit*k;
+    cx.fillStyle=col(i%2?c1:c0,ALPHA*2.4*f);cx.fillRect(v.x+(i+.2)*bw,base-h,bw*.6,h);
+    text(String(cnt),v.x+(i+.5)*bw,base-h-5,f*k,i%2?c1:c0,9);
+  }
+  labelSup("y = 2","x",v.x+4,v.y+12,f,c1);
+  label("doubling",v.x+v.w-56,v.y+12,f,c0);
+}
+
+/* ══════════ MHF4U vignettes: advanced functions ══════════
+   A quartic with its zeros and end behaviour; a parent function morphing
+   into a f(k(x − d)) + c; a rational function with its sliding asymptote;
+   the unit circle generating sin θ in radians; a sinusoid breathing; 2ˣ
+   doubling every unit; a secant swinging into the tangent; f + g built by
+   adding ordinates; f(x) = g(x) solved and f > g shaded; one radian as an
+   arc of length r; a function and its inverse; powers of two. */
+const PALKEYS=["pu","tq","co","am","sk","gn"];
+const KINDS=["poly","transform","rational","circle","sinusoid","explog","rates","sum","solve","radian","inverse","doubling"];
+const KC={poly:["pu","co"],transform:["tq","pu"],rational:["pu","am"],circle:["sk","pu"],sinusoid:["tq","co"],explog:["gn","pu"],
+          rates:["pu","co"],sum:["sk","am","pu"],solve:["pu","tq","co"],radian:["am","pu"],inverse:["pu","gn"],doubling:["gn","am"]};
+const SIZE={poly:[[230,300],[150,200]],transform:[[220,290],[170,220]],rational:[[220,290],[170,220]],circle:[[280,360],[140,180]],
+            sinusoid:[[260,340],[130,170]],explog:[[220,290],[150,200]],rates:[[220,300],[140,180]],sum:[[240,320],[150,200]],
+            solve:[[240,320],[150,200]],radian:[[200,250],[170,210]],inverse:[[200,250],[200,250]],doubling:[[220,280],[130,170]]};
+const LOOPS={transform:1,rational:1,circle:1,sinusoid:1,explog:1,sum:1,radian:1,inverse:1};
+
+function makePoly(v){
+  const z=[rnd(-3.2,-2.2),rnd(-1.2,-.4),rnd(.2,1.2),rnd(2,3.2)],K=Math.random()<.5?1:-1;
+  const F=x=>K*(x-z[0])*(x-z[1])*(x-z[2])*(x-z[3]);
+  let m=0;for(let i=0;i<=80;i++)m=Math.max(m,Math.abs(F(-3.6+7.2*i/80)));
+  v.z=z;v.K=K;v.f=x=>F(x)/m*3.2;
+}
+function drawPoly(v,p,f){
+  const [c0,c1]=v.c,{px,py}=frame(v,f,c0,3.8,4);
+  cx.save();cx.beginPath();cx.rect(v.x,v.y,v.w,v.h);cx.clip();
+  cx.strokeStyle=col(c0,BOLD(f));cx.lineWidth=2.2;trace(v.f,px,py,-3.7+7.4*easeIO(p/.7),-3.7,120);
+  cx.restore();
+  v.z.forEach((z,i)=>{const k=clamp01((p-.3-i*.12)/.08);if(k>0){dot(px(z),py(0),3.4,col(c1,BOLD(f)*k));label("x"+sub(i+1),px(z)-6,py(0)+15,f*k,c1)}});
+  if(p>.8){const k=clamp01((p-.8)/.1);label("degree 4, "+(v.K>0?"a > 0":"a < 0"),v.x+4,v.y+12,f*k,c0);
+    const e=v.K>0?-1:1;arrow(px(-3.5),py(e*2.4),px(-3.75),py(e*3.4),col(c0,BOLD(f)*k),1.6);arrow(px(3.5),py(e*2.4),px(3.75),py(e*3.4),col(c0,BOLD(f)*k),1.6)}
+}
+function makeExplog(v){}
+function drawExplog(v,p,f,hold){
+  const [c0,c1]=v.c,px=x=>v.x+16+(x+3)/6*(v.w-24),py=y=>v.y+v.h-14-y/8.5*(v.h-30);
+  cx.strokeStyle=col(c0,ALPHA*1.5*f);cx.lineWidth=1.2;cx.lineCap="round";seg([px(-3),py(0)],[px(3),py(0)]);seg([px(0),py(0)],[px(0),py(8.5)]);
+  cx.strokeStyle=col(c0,BOLD(f));cx.lineWidth=2.2;trace(x=>Math.pow(2,x),px,py,-3+6*easeO(p/.5),-3,100);
+  labelSup("y = 2","x",v.x+4,v.y+12,f,c0);
+  if(p<.5)return;
+  const k=clamp01((p-.5)/.1),x=p<1?-1+2*easeIO((p-.5)/.5):1+1.3*Math.sin(hold*.0005);
+  const y1=Math.pow(2,x),y2=2*y1;
+  dash([px(x),py(0)],[px(x),py(y1)],col(c1,ALPHA*2*f*k));dash([px(x+1),py(0)],[px(x+1),py(y2)],col(c1,ALPHA*2*f*k));
+  dot(px(x),py(y1),3.4,col(c1,BOLD(f)*k));dot(px(x+1),py(y2),3.4,col(c1,BOLD(f)*k));
+  arrow(px(x)+6,py(y1),px(x+1)-6,py(y2),col(c1,BOLD(f)*k*.9),1.6);
+  label("× 2",px(x+.5)+2,py((y1+y2)/2)-10,f*k,c1);label("+1",px(x+.5)-8,py(0)+14,f*k,c1);
+}
+function makeSum(v){v.ph=rnd(0,6.28);v.m=rnd(.25,.45)*(Math.random()<.5?1:-1)}
+function drawSum(v,p,f,hold){
+  const [c0,c1,c2]=v.c,{px,py}=frame(v,f,c0,5,3);
+  const F=x=>Math.sin(x*1.3+v.ph)*1.1,G=x=>v.m*x,S=x=>F(x)+G(x);
+  cx.save();cx.beginPath();cx.rect(v.x,v.y,v.w,v.h);cx.clip();
+  cx.lineWidth=1.8;cx.strokeStyle=col(c0,LINE(f));trace(F,px,py,-5+10*easeO(p/.25),-5,100);
+  cx.strokeStyle=col(c1,LINE(f));trace(G,px,py,-5+10*easeO((p-.2)/.25),-5,40);
+  const sw=p<1?-5+10*easeIO((p-.45)/.55):5;
+  cx.strokeStyle=col(c2,BOLD(f));cx.lineWidth=2.4;trace(S,px,py,sw,-5,120);
+  cx.restore();
+  const xs=p<1?sw:-5+10*((hold*.00012)%1);
+  if(p>.45&&Math.abs(xs)<=5){
+    cx.strokeStyle=col(c1,BOLD(f));cx.lineWidth=3;seg([px(xs),py(0)],[px(xs),py(G(xs))]);
+    seg([px(xs)+4,py(F(xs))],[px(xs)+4,py(F(xs)+G(xs))]);
+    dot(px(xs),py(F(xs)),3,col(c0,BOLD(f)));dot(px(xs)+4,py(S(xs)),3.4,col(c2,BOLD(f)));
+  }
+  label("f",v.x+4,v.y+12,f,c0);label("g",v.x+18,v.y+12,f,c1);label("f + g",v.x+34,v.y+12,f,c2);
+}
+function makeSolve(v){v.ph=rnd(0,6.28);v.k=rnd(1.1,1.6)}
+function drawSolve(v,p,f){
+  const [c0,c1,c2]=v.c,{px,py}=frame(v,f,c0,5,3);
+  const F=x=>Math.sin(x*v.k+v.ph)*1.6,G=x=>.3*x;
+  cx.save();cx.beginPath();cx.rect(v.x,v.y,v.w,v.h);cx.clip();
+  cx.lineWidth=2;cx.strokeStyle=col(c0,LINE(f));trace(F,px,py,-5+10*easeO(p/.3),-5,120);
+  cx.strokeStyle=col(c1,LINE(f));trace(G,px,py,-5+10*easeO((p-.2)/.3),-5,40);
+  cx.restore();
+  if(p<.5)return;
+  const k=clamp01((p-.5)/.15),roots=[];
+  let prev=F(-5)-G(-5);
+  for(let i=1;i<=300;i++){const x=-5+10*i/300,d=F(x)-G(x);if(prev*d<0)roots.push(x-10/300/2);prev=d}
+  roots.forEach(r=>dot(px(r),py(G(r)),3.6,col(c2,BOLD(f)*k)));
+  const sh=clamp01((p-.7)/.2);
+  if(sh>0){
+    cx.strokeStyle=col(c2,BOLD(f)*sh);cx.lineWidth=5;cx.lineCap="butt";
+    let on=F(-5)>G(-5),start=-5;
+    for(let i=1;i<=300;i++){const x=-5+10*i/300,now=F(x)>G(x);if(now!==on||i===300){if(on)seg([px(start),py(0)],[px(x),py(0)]);start=x;on=now}}
+    cx.lineCap="round";
+  }
+  label("f(x) = g(x)",v.x+4,v.y+12,f*k,c2);if(sh>0)label("f(x) > g(x)",v.x+v.w-74,v.y+v.h-4,f*sh,c2);
+}
+function makeRadian(v){v.R=Math.min(v.w,v.h)/2-26;v.cx0=v.x+v.w/2;v.cy0=v.y+v.h/2+6}
+function drawRadian(v,p,f,hold){
+  const [c0,c1]=v.c,R=v.R,X=v.cx0,Y=v.cy0;
+  ring(X,Y,R,col(c1,ALPHA*1.8*f),1.2);
+  cx.strokeStyle=col(c1,LINE(f));cx.lineWidth=1.8;seg([X,Y],[X+R,Y]);label("r",X+R/2-4,Y+14,f,c1);
+  const th=p<1?easeIO((p-.2)/.6):1+(1-Math.cos(hold*.0004))*2.64;
+  cx.beginPath();cx.arc(X,Y,R,0,-th,true);cx.strokeStyle=col(c0,BOLD(f));cx.lineWidth=3;cx.stroke();
+  cx.strokeStyle=col(c1,LINE(f));cx.lineWidth=1.8;seg([X,Y],[X+R*Math.cos(th),Y-R*Math.sin(th)]);
+  cx.beginPath();cx.arc(X,Y,16,0,-th,true);cx.strokeStyle=col(c0,ALPHA*2.4*f);cx.lineWidth=1;cx.stroke();
+  label("s = "+th.toFixed(2)+"r",X+R*Math.cos(th/2)*1.1+(Math.cos(th/2)>0?4:-44),Y-R*Math.sin(th/2)*1.1,f,c0);
+  label(`θ = s/r = ${th.toFixed(2)} rad`,v.x+4,v.y+v.h+2,f,c0);
+  if(Math.abs(th-1)<.08)label("one radian",X-28,v.y+12,f*clamp01(1-Math.abs(th-1)/.08),c0);
+}
+const MAKE={poly:makePoly,transform:makeTransform,rational:makeRational,circle:makeCircle,sinusoid:makeSinusoid,explog:makeExplog,
+            rates:makeTangent,sum:makeSum,solve:makeSolve,radian:makeRadian,inverse:makeInverse,doubling:makeDoubling};
+const DRAW={poly:drawPoly,transform:drawTransform,rational:drawRational,circle:drawCircle,sinusoid:drawSinusoid,explog:drawExplog,
+            rates:drawTangent,sum:drawSum,solve:drawSolve,radian:drawRadian,inverse:drawInverse,doubling:drawDoubling};
+
+/* ══════════ Vignette engine (shared) ══════════
+   The site's kinds file above defines PALKEYS, KINDS, KC, SIZE, LOOPS, MAKE
+   and DRAW; this runs them: five or six vignettes on screen, each in its own
+   colours, building, resting, fading and being replaced, drifting a tenth
+   as fast as the page. Behind them an aurora (#aurora, CSS) breathes. */
 const cv=document.getElementById("bg"),cx=cv.getContext("2d");
-let W,H,DPR,RGB="74,26,158",ALPHA=.09;
-const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const MONO="12px 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace";
+let W,H,DPR,ALPHA=.13,SCY=0;
+const PAL={};
+const reduce=REDUCE;
+const MONO="11px 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace";
 function bgColors(){
   const s=getComputedStyle(document.documentElement);
-  RGB=(s.getPropertyValue("--curve")||RGB).trim();
+  PALKEYS.forEach(k=>PAL[k]=(s.getPropertyValue("--pal-"+k)||"120,120,120").trim());
   ALPHA=parseFloat(s.getPropertyValue("--curve-a"))||ALPHA;
+  if(reduce&&vigs.length)drawStatic();
 }
 function sizeBg(){
   DPR=Math.min(window.devicePixelRatio||1,2);
@@ -750,210 +1057,114 @@ function sizeBg(){
   cv.width=W*DPR;cv.height=H*DPR;
   cx.setTransform(DPR,0,0,DPR,0,0);
 }
-const FNS=[
-  {label:"y = sin x",      short:"sin x",      f:u=>Math.sin(u*Math.PI*4)},
-  {label:"y = x²",         short:"x²",         f:u=>{const x=u*2-1;return x*x*1.6-.8}},
-  {label:"y = x³ − 3x",    short:"x³ − 3x",    f:u=>{const x=(u*2-1)*1.9;return (x*x*x-3*x)/2.6}},
-  {label:"y = |x|",        short:"|x|",        f:u=>Math.abs(u*2-1)*1.6-.8},
-  {label:"y = √x",         short:"√x",         f:u=>Math.sqrt(u)*1.8-.9},
-  {label:"y = 2ˣ",         short:"2ˣ",         f:u=>Math.pow(2,(u*2-1)*3)/4-.9},
-  {label:"y = log x",      short:"log x",      f:u=>Math.log(u*4+.03)/2.2},
-  {label:"y = e⁻ˣ sin 4x", short:"e⁻ˣ sin 4x", f:u=>Math.exp(-2.2*u)*Math.sin(u*Math.PI*5)},
-  {label:"y = cos x",      short:"cos x",      f:u=>Math.cos(u*Math.PI*4)},
-];
-const N_CURVES=4,T_DRAW=2600,T_FADE=2000;
-const easeIO=p=>p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;
-const lerp=(a,b,k)=>a+(b-a)*k;
-const curves=[];
-function spawn(i,now,stagger){
-  const used=curves.filter((c,j)=>c&&j!==i).map(c=>c.fn.label);
-  const pool=FNS.filter(f=>!used.includes(f.label));
-  const fn=pool[Math.floor(Math.random()*pool.length)]||FNS[0];
-  const w=W*(.3+Math.random()*.32);
-  return{fn,x0:Math.random()*(W-w),w,
-    cy:H*(.1+Math.random()*.8),
-    scale:38+Math.random()*52,
-    flip:Math.random()<.5?-1:1,
-    born:now+(stagger||0),
-    hold:T_DRAW+4500+Math.random()*4000,
-    seed:Math.random()*6.28};
+const rnd=(a,b)=>a+Math.random()*(b-a);
+const clamp01=p=>Math.max(0,Math.min(1,p));
+const easeO=p=>1-Math.pow(1-clamp01(p),3);
+const easeIn=p=>clamp01(p)*clamp01(p);
+const easeIO=p=>{p=clamp01(p);return p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2};
+function gauss(){let s=0;for(let i=0;i<6;i++)s+=Math.random();return (s-3)/Math.SQRT1_2}
+const col=(k,a)=>`rgba(${PAL[k]||k},${Math.max(0,Math.min(1,a))})`;
+const mix=(k1,k2,t)=>{const a=(PAL[k1]||k1).split(","),b=(PAL[k2]||k2).split(",");return a.map((x,i)=>Math.round(+x+(+b[i]-x)*t)).join(",")};
+const LINE=f=>Math.min(ALPHA*3,.44)*f;
+const BOLD=f=>Math.min(ALPHA*3.8,.54)*f;
+const neg=s=>String(s).replace("-","−");
+const SUB="₀₁₂₃₄₅₆₇₈₉",sub=n=>String(n).split("").map(d=>SUB[+d]).join("");
+
+const T_IN=1200,T_OUT=2200,N_VIGS=window.innerWidth<700?3:window.innerWidth<1200?5:6;
+const vigs=[];
+function overlaps(a,list){
+  return list.some(b=>b&&a.x<b.x+b.w+40&&a.x+a.w+40>b.x&&a.y<b.y+b.h+40&&a.y+a.h+40>b.y);
 }
-let mx=-9999,my=-9999;
-window.addEventListener("mousemove",e=>{mx=e.clientX;my=e.clientY});
-window.addEventListener("mouseout",e=>{if(!e.relatedTarget){mx=-9999;my=-9999}});
-const POINTS=[];
-window.addEventListener("click",e=>{
-  if(reduce)return;
-  if(e.target instanceof Element&&e.target.closest("a,button,input,select,textarea,label,summary,.hero"))return;
-  POINTS.push({x:e.clientX,y:e.clientY,t0:performance.now()});
-  if(POINTS.length>10)POINTS.shift();
-});
-function bend(x,yBase){
-  const dx=x-mx,dy=yBase-my,d2=dx*dx+dy*dy;
-  const s=Math.exp(-d2/16200);
-  return (dy>=0?1:-1)*s*36;
-}
-function curveY(c,x,t){
-  const u=(x-c.x0)/c.w;
-  let y=c.cy - c.fn.f(u)*c.scale*c.flip;
-  y+=Math.sin(t*.0008 + x*.008 + c.seed)*2.5;
-  return y+bend(x,y);
-}
-const DUET_CONV=1700,DUET_DRAW=2300,DUET_HOLD=4200,DUET_FADE=1900;
-let DUET=null,lastDuet=0;
-function duetFadeOf(c){return DUET&&(c===DUET.a||c===DUET.b)?DUET.fade:1}
-function startDuet(t){
-  const ready=curves.filter(c=>c&&t-c.born>T_DRAW+600&&t-c.born<c.hold-2500);
-  if(ready.length<2)return;
-  ready.sort(()=>Math.random()-.5);
-  const a=ready[0],b=ready[1];
-  const w=Math.min(W*.46,620);
-  DUET={a,b,t0:t,fade:1,
-    ga:{x0:a.x0,w:a.w,cy:a.cy,scale:a.scale},
-    gb:{x0:b.x0,w:b.w,cy:b.cy,scale:b.scale},
-    tg:{x0:(W-w)*(.15+Math.random()*.7),w,cy:H*(.3+Math.random()*.4),scale:46}};
-}
-function duetUpdate(t){
-  if(!DUET){if(t-lastDuet>9500)startDuet(t);return}
-  const d=DUET,age=t-d.t0;
-  [d.a,d.b].forEach(c=>{c.born=t-T_DRAW-1;c.hold=1e9});
-  const end=DUET_CONV+DUET_DRAW+DUET_HOLD+DUET_FADE;
-  if(age>=end){
-    const ia=curves.indexOf(d.a),ib=curves.indexOf(d.b);
-    if(ia>-1)curves[ia]=spawn(ia,t,400);
-    if(ib>-1)curves[ib]=spawn(ib,t,1100);
-    lastDuet=t;DUET=null;return;
+function spawn(i,now,delay){
+  const used=vigs.filter((v,j)=>v&&j!==i).map(v=>v.kind);
+  const pool=KINDS.filter(k=>!used.includes(k));
+  const kind=pool[Math.floor(Math.random()*pool.length)]||KINDS[i%KINDS.length];
+  const sz=SIZE[kind],w=rnd(sz[0][0],sz[0][1]),h=rnd(sz[1][0],sz[1][1]);
+  let v;
+  for(let tries=0;tries<16;tries++){
+    v={kind,w,h,x:rnd(16,Math.max(17,W-w-16)),y:rnd(40,Math.max(41,H-h-30))};
+    if(!overlaps(v,vigs.filter((_,j)=>j!==i)))break;
   }
-  const k=easeIO(Math.min(age/DUET_CONV,1));
-  ["x0","w","cy","scale"].forEach(p=>{
-    d.a[p]=lerp(d.ga[p],d.tg[p],k);
-    d.b[p]=lerp(d.gb[p],d.tg[p],k);
-  });
-  d.fade=age>DUET_CONV+DUET_DRAW+DUET_HOLD?1-(age-DUET_CONV-DUET_DRAW-DUET_HOLD)/DUET_FADE:1;
+  v.c=KC[kind];
+  v.born=now+(delay||0);
+  v.build=rnd(5000,8000);
+  v.hold=LOOPS[kind]?rnd(9000,14000):rnd(4000,7000);
+  v.life=T_IN+v.build+v.hold+T_OUT;
+  MAKE[kind](v);
+  return v;
 }
-function duetSumY(d,x,t){
-  const u=(x-d.tg.x0)/d.tg.w;
-  let y=d.tg.cy-(d.a.fn.f(u)*d.a.flip+d.b.fn.f(u)*d.b.flip)*d.tg.scale*.62;
-  y+=Math.sin(t*.0008+x*.008)*2.5;
-  return y+bend(x,y);
+function phase(v,t){
+  const age=t-v.born;
+  if(v.fixed)return{p:1,f:1};
+  const f=age<T_IN?age/T_IN:age>v.life-T_OUT?(v.life-age)/T_OUT:1;
+  return{p:clamp01((age-T_IN*.4)/v.build),f:clamp01(f)};
 }
-function duetDraw(t){
-  if(!DUET)return;
-  const d=DUET,age=t-d.t0;
-  if(age<DUET_CONV)return;
-  const p=easeIO(Math.min((age-DUET_CONV)/DUET_DRAW,1));
-  const xEnd=d.tg.x0+d.tg.w*p;
-  cx.beginPath();let py=0;
-  for(let x=d.tg.x0;x<=xEnd;x+=6){
-    py=duetSumY(d,x,t);
-    x===d.tg.x0?cx.moveTo(x,py):cx.lineTo(x,py);
+
+/* ── drawing helpers; colours are palette keys or "r,g,b" strings ── */
+function label(text,x,y,f,k){cx.font="italic "+MONO;cx.fillStyle=col(k,Math.min(ALPHA*3.4,.4)*f);cx.fillText(text,x,y)}
+function text(s,x,y,f,k,size,align){cx.font=(size||10)+"px 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace";cx.textAlign=align||"center";cx.fillStyle=col(k,Math.min(ALPHA*3.4,.4)*f);cx.fillText(s,x,y);cx.textAlign="left"}
+function labelSup(base,sup,x,y,f,k){
+  cx.font="italic "+MONO;const w=cx.measureText(base).width;cx.fillStyle=col(k,Math.min(ALPHA*3.4,.4)*f);cx.fillText(base,x,y);
+  cx.font="italic 8px 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace";cx.fillText(sup,x+w+1,y-5);
+}
+function dot(x,y,r,c){cx.beginPath();cx.arc(x,y,r,0,Math.PI*2);cx.fillStyle=c;cx.fill()}
+function ring(x,y,r,c,w){cx.beginPath();cx.arc(x,y,r,0,Math.PI*2);cx.strokeStyle=c;cx.lineWidth=w||1.5;cx.stroke()}
+function seg(p,q){cx.beginPath();cx.moveTo(p[0],p[1]);cx.lineTo(q[0],q[1]);cx.stroke()}
+function dash(p,q,c,w){cx.setLineDash([3,4]);cx.strokeStyle=c;cx.lineWidth=w||1;seg(p,q);cx.setLineDash([])}
+function rrect(x,y,w,h,r){cx.beginPath();cx.moveTo(x+r,y);cx.arcTo(x+w,y,x+w,y+h,r);cx.arcTo(x+w,y+h,x,y+h,r);cx.arcTo(x,y+h,x,y,r);cx.arcTo(x,y,x+w,y,r);cx.closePath()}
+function arrow(x1,y1,x2,y2,c,w){
+  const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy);
+  if(L<1)return;
+  cx.strokeStyle=c;cx.fillStyle=c;cx.lineWidth=w||1.8;cx.lineCap="round";
+  cx.beginPath();cx.moveTo(x1,y1);cx.lineTo(x2,y2);cx.stroke();
+  const ux=dx/L,uy=dy/L,hs=Math.min(9,L*.4);
+  cx.beginPath();cx.moveTo(x2,y2);
+  cx.lineTo(x2-ux*hs-uy*hs*.45,y2-uy*hs+ux*hs*.45);
+  cx.lineTo(x2-ux*hs+uy*hs*.45,y2-uy*hs-ux*hs*.45);
+  cx.closePath();cx.fill();
+}
+/* trace fn over t in [t0,t1] (default [0,1]) through px/py; skips off-box jumps */
+function trace(fn,px,py,t1,t0,n){
+  t0=t0||0;n=n||90;cx.beginPath();let pen=false;
+  for(let i=0;i<=n;i++){
+    const t=t0+(t1-t0)*i/n,y=fn(t);
+    if(!isFinite(y)||Math.abs(y)>50){pen=false;continue}
+    const X=px(t),Y=py(y);
+    pen?cx.lineTo(X,Y):cx.moveTo(X,Y);pen=true;
   }
-  cx.strokeStyle=`rgba(${RGB},${Math.min(ALPHA*2.8,.42)*d.fade})`;
-  cx.lineWidth=2.8;cx.lineCap="round";
   cx.stroke();
-  if(p<1){
-    cx.beginPath();cx.arc(xEnd,py,4,0,Math.PI*2);
-    cx.fillStyle=`rgba(${RGB},${.8*d.fade})`;
-    cx.shadowColor=`rgba(${RGB},.9)`;cx.shadowBlur=18;
-    cx.fill();cx.shadowBlur=0;
-  }else{
-    const tA=(d.a.flip<0?"−":"")+d.a.fn.short;
-    const tB=(d.b.flip<0?" − ":" + ")+d.b.fn.short;
-    const lx=Math.min(Math.max(d.tg.x0+d.tg.w*.5-40,8),W-150);
-    const ly=Math.min(Math.max(duetSumY(d,d.tg.x0+d.tg.w*.5,t)-16,16),H-8);
-    cx.font="italic bold "+MONO;
-    cx.fillStyle=`rgba(${RGB},${Math.min(ALPHA*4,.42)*d.fade})`;
-    cx.fillText("y = "+tA+tB,lx,ly);
-  }
 }
-function fadeOf(c,t){
-  const age=t-c.born;
-  if(age<0)return 0;
-  const f=age>c.hold?Math.max(0,1-(age-c.hold)/T_FADE):1;
-  return f*duetFadeOf(c);
+function axes(v,f,k,vertical){
+  cx.strokeStyle=col(k,ALPHA*1.5*f);cx.lineWidth=1.2;cx.lineCap="round";cx.beginPath();
+  if(vertical){cx.moveTo(v.x,v.y);cx.lineTo(v.x,v.y+v.h)}else cx.moveTo(v.x,v.y+v.h);
+  cx.lineTo(v.x+v.w,v.y+v.h);cx.stroke();
 }
-function drawnFrac(c,t){return easeIO(Math.min(Math.max(t-c.born,0)/T_DRAW,1))}
-function drawIntersections(t){
-  for(let i=0;i<curves.length;i++)for(let j=i+1;j<curves.length;j++){
-    const a=curves[i],b=curves[j];
-    if(!a||!b)continue;
-    const fa=fadeOf(a,t)*drawnFrac(a,t),fb=fadeOf(b,t)*drawnFrac(b,t);
-    if(fa<.05||fb<.05)continue;
-    const x0=Math.max(a.x0,b.x0),x1=Math.min(a.x0+a.w*drawnFrac(a,t),b.x0+b.w*drawnFrac(b,t));
-    if(x1-x0<30)continue;
-    let px=x0,pd=curveY(a,x0,t)-curveY(b,x0,t),found=0;
-    for(let x=x0+12;x<=x1&&found<5;x+=12){
-      const dd=curveY(a,x,t)-curveY(b,x,t);
-      if((pd<0&&dd>=0)||(pd>0&&dd<=0)){
-        const xc=px+(x-px)*Math.abs(pd)/(Math.abs(pd)+Math.abs(dd)||1);
-        const yc=curveY(a,xc,t);
-        const pulse=2.3+Math.sin(t*.004+xc*.05)*.8;
-        cx.beginPath();cx.arc(xc,yc,pulse,0,Math.PI*2);
-        cx.fillStyle=`rgba(${RGB},${Math.min(fa,fb)*.55})`;
-        cx.shadowColor=`rgba(${RGB},.9)`;cx.shadowBlur=11;
-        cx.fill();cx.shadowBlur=0;
-        found++;
-      }
-      px=x;pd=dd;
-    }
-  }
+/* a centred Cartesian frame: xr,yr are half-ranges; returns px,py and draws the axes */
+function frame(v,f,k,xr,yr){
+  const px=x=>v.x+v.w/2+x/xr*(v.w/2),py=y=>v.y+v.h/2-y/yr*(v.h/2);
+  cx.strokeStyle=col(k,ALPHA*1.5*f);cx.lineWidth=1.2;cx.lineCap="round";
+  seg([v.x,py(0)],[v.x+v.w,py(0)]);seg([px(0),v.y],[px(0),v.y+v.h]);
+  return{px,py};
 }
-function drawCurve(c,t){
-  const age=t-c.born;
-  if(age<0)return true;
-  if(age>c.hold+T_FADE)return false;
-  const p=drawnFrac(c,t);
-  const fade=fadeOf(c,t);
-  const xEnd=c.x0+c.w*p;
-  cx.beginPath();
-  let penY=0;
-  for(let x=c.x0;x<=xEnd;x+=6){
-    penY=curveY(c,x,t);
-    x===c.x0?cx.moveTo(x,penY):cx.lineTo(x,penY);
-  }
-  cx.strokeStyle=`rgba(${RGB},${ALPHA*1.6*fade})`;
-  cx.lineWidth=2.2;cx.lineCap="round";
-  cx.stroke();
-  if(p<1){
-    cx.beginPath();cx.arc(xEnd,penY,3.4,0,Math.PI*2);
-    cx.fillStyle=`rgba(${RGB},${.65*fade})`;
-    cx.shadowColor=`rgba(${RGB},.8)`;cx.shadowBlur=14;
-    cx.fill();cx.shadowBlur=0;
-  }else{
-    const lx=Math.min(Math.max(xEnd-c.w*.22,8),W-110);
-    const ly=Math.min(Math.max(curveY(c,xEnd-c.w*.22,t)-12,16),H-8);
-    cx.font="italic "+MONO;
-    cx.fillStyle=`rgba(${RGB},${Math.min(ALPHA*3.4,.34)*fade})`;
-    cx.fillText(c.fn.label,lx,ly);
-  }
+
+function drawVig(v,t){
+  if(t<v.born)return true;
+  const age=v.fixed?6000:t-v.born;
+  if(!v.fixed&&age>v.life)return false;
+  const{p,f}=phase(v,t);
+  if(f<=0)return true;
+  const hold=v.fixed?4000:Math.max(0,age-T_IN*.4-v.build);
+  const span=H+v.h+80,yy=(((v.y-SCY*.1)+v.h+40)%span+span)%span-v.h-40;
+  cx.save();cx.translate(0,yy-v.y);
+  DRAW[v.kind](v,p,f,hold,age);
+  cx.restore();
   return true;
-}
-function drawPoints(t){
-  for(let i=POINTS.length-1;i>=0;i--){
-    const pt=POINTS[i],age=t-pt.t0;
-    if(age>2600){POINTS.splice(i,1);continue}
-    const k=age/2600,out=1-k;
-    cx.beginPath();cx.arc(pt.x,pt.y,6+k*44,0,Math.PI*2);
-    cx.strokeStyle=`rgba(${RGB},${out*.3})`;cx.lineWidth=1.5;cx.stroke();
-    cx.beginPath();cx.arc(pt.x,pt.y,3,0,Math.PI*2);
-    cx.fillStyle=`rgba(${RGB},${out*.8})`;
-    cx.shadowColor=`rgba(${RGB},.8)`;cx.shadowBlur=10;
-    cx.fill();cx.shadowBlur=0;
-    const a=((pt.x/W)*12-6).toFixed(1),b=((1-pt.y/H)*8-4).toFixed(1);
-    cx.font=MONO;
-    cx.fillStyle=`rgba(${RGB},${out*.55})`;
-    cx.fillText(`(${a}, ${b})`,Math.min(pt.x+10,W-80),Math.max(pt.y-10,14));
-  }
 }
 function draw(t){
   cx.clearRect(0,0,W,H);
-  if(!reduce)duetUpdate(t);
-  for(let i=0;i<curves.length;i++){
-    if(!drawCurve(curves[i],t))curves[i]=spawn(i,t,400+Math.random()*1200);
+  for(let i=0;i<vigs.length;i++){
+    if(!drawVig(vigs[i],t))vigs[i]=spawn(i,t,700+Math.random()*2200);
   }
-  duetDraw(t);
-  drawIntersections(t);
-  drawPoints(t);
 }
 let bgRaf=0;
 function loop(now){draw(now);bgRaf=requestAnimationFrame(loop)}
@@ -962,14 +1173,159 @@ document.addEventListener("visibilitychange",()=>{
   if(document.hidden){cancelAnimationFrame(bgRaf);bgRaf=0}
   else if(!bgRaf)bgRaf=requestAnimationFrame(loop);
 });
+window.addEventListener("scroll",()=>{SCY=window.scrollY},{passive:true});
 sizeBg();bgColors();
-for(let i=0;i<N_CURVES;i++)curves.push(spawn(i,performance.now(),i*1400));
+for(let i=0;i<N_VIGS;i++){
+  const v=spawn(i,performance.now(),0);
+  v.born-=v.life*i*.19;
+  vigs.push(v);
+}
 window.addEventListener("resize",()=>{sizeBg();if(reduce)drawStatic()});
 function drawStatic(){
-  curves.forEach(c=>{c.born=-1e9;c.hold=1e12});
+  vigs.forEach(v=>{v.fixed=true;v.born=-1e9});
   draw(0);
 }
 if(reduce)drawStatic();else bgRaf=requestAnimationFrame(loop);
+
+/* ══════════ MHF4U cursor: the point on a function ══════════
+   A point with a small set of axes. It drops samples along its path; move
+   fast and the secant from the oldest sample to the point appears with the
+   average rate of change Δy/Δx. Stop hard after a fast run and a unit
+   circle of points bursts outward. Over a link the link becomes a graph of
+   that unit's kind of function (polynomial, rational with an asymptote,
+   trigonometric, exponential), a point riding it at the pointer's x with
+   f(x) read out. */
+const THEME={
+  samples:true,
+  subject(name){return /polynomial/i.test(name)?"poly":/rational/i.test(name)?"rat":/trig/i.test(name)?"trig":/exponential|logarithm/i.test(name)?"exp":/function/i.test(name)?"fn":""},
+  init(S){
+    S.e={ax:S.el("path","ax"),sec:S.el("line","sec"),curve:S.el("path","fcurve"),base:S.el("line","fbase"),fdot:S.el("circle","fdot",{r:3.2}),pt:S.el("circle","pt",{r:4})};
+  },
+  burst(S){for(let i=0;i<12;i++){const a=i/12*6.283,v=2.2+Math.random();S.drop(S.mx+Math.cos(a)*14,S.my+Math.sin(a)*14,S.c,850,{vx:Math.cos(a)*v,vy:Math.sin(a)*v,burst:true,w:4.6})}},
+  frame(S){
+    const e=S.e,{mx,my,c,boost}=S;
+    e.pt.setAttribute("cx",mx);e.pt.setAttribute("cy",my);e.pt.setAttribute("r",4+1.5*boost);e.pt.setAttribute("fill",c);
+    const L=14+5*boost;e.ax.setAttribute("d",`M${mx-L} ${my}H${mx+L}M${mx} ${my-L}V${my+L}`);e.ax.setAttribute("stroke",c);
+    /* fast: the secant and the average rate of change */
+    if(S.fast>0&&S.samples.length>=6){
+      const A=S.samples[0],dx=mx-A.x,dy=A.y-my;
+      e.sec.setAttribute("x1",A.x);e.sec.setAttribute("y1",A.y);e.sec.setAttribute("x2",mx);e.sec.setAttribute("y2",my);e.sec.setAttribute("stroke",c);e.sec.style.opacity=S.fast*.85;
+      S.label=Math.abs(dx)<2?"Δy/Δx undefined":"Δy/Δx = "+(dy/dx).toFixed(2).replace("-","−");S.labelOp=S.fast;
+    }else e.sec.style.opacity=0;
+    /* a link is a graph */
+    if(S.on&&S.kind&&S.rect){
+      const r=S.rect,c0=(r.left+r.right)/2,hw=Math.max(20,r.width/2),h=10+4*boost,yb=r.bottom+3+h;
+      const F={poly:u=>(u+.8)*u*(u-.8)/.36*.9,rat:u=>Math.abs(u)<.05?NaN:Math.max(-1,Math.min(1,.12/u)),trig:u=>Math.sin(u*6.283),exp:u=>(Math.pow(2,3*u)-.125)/7.875*2-1,fn:u=>.5*Math.sin(3*u)+.45*Math.cos(5*u)}[S.kind];
+      let d="";
+      for(let i=0;i<=60;i++){const u=-1+2*i/60,y=F(u);if(!isFinite(y)){d+=" ";continue}d+=(d.endsWith(" ")||!d?"M":"L")+(c0+u*hw).toFixed(1)+" "+(yb-y*h).toFixed(1)}
+      e.curve.setAttribute("d",d.replace(/ (?=M)/g," "));e.curve.setAttribute("stroke",c);e.curve.style.opacity=boost*.9;
+      e.base.setAttribute("x1",c0-hw-8);e.base.setAttribute("x2",c0+hw+8);e.base.setAttribute("y1",yb);e.base.setAttribute("y2",yb);e.base.setAttribute("stroke",c);e.base.style.opacity=boost*.5;
+      const u=Math.max(-1,Math.min(1,(mx-c0)/hw)),y=F(u);
+      if(isFinite(y)){e.fdot.setAttribute("cx",c0+u*hw);e.fdot.setAttribute("cy",yb-y*h);e.fdot.setAttribute("fill",c);e.fdot.style.opacity=boost;
+        if(boost>.5){S.label=S.kind==="trig"?`sin x = ${y.toFixed(2).replace("-","−")}`:`f(x) = ${(y*4).toFixed(2).replace("-","−")}`;S.labelOp=(boost-.5)*2}}
+      else{e.fdot.style.opacity=0;if(boost>.5){S.label="f(x) → ∞";S.labelOp=(boost-.5)*2}}
+    }else{e.curve.style.opacity=0;e.base.style.opacity=0;e.fdot.style.opacity=0}
+  }
+};
+
+/* ══════════ Cursor framework (shared) ══════════
+   On a mouse-and-trackpad machine the pointer is replaced by the site's own
+   glyph, drawn by THEME (defined above). This part tracks the pointer and
+   its velocity, which link it is over and that link's unit, grows a
+   "boost" while over a link, drops samples along the path, spots a hard
+   stop after a fast run, keeps a pool of small particles, and places the
+   readout. Phones and tablets, text boxes, and reduced-motion users keep
+   the normal pointer. */
+(function(){
+  if(!window.matchMedia("(hover:hover) and (pointer:fine)").matches||REDUCE)return;
+  const NS="http://www.w3.org/2000/svg",svg=document.getElementById("vcur");
+  const Q=c=>svg.querySelector(c);
+  const gwrap=Q(".ghosts"),txt=Q(".lbl");
+  const SEL='a,button,[role="link"],.dlink.pend,.tipwrap',FAST=14;
+  const pool=[],live=[];
+  for(let i=0;i<96;i++){const r=document.createElementNS(NS,"rect");r.style.opacity=0;gwrap.appendChild(r);pool.push({el:r})}
+  const S={mx:-100,my:-100,vx:0,vy:0,sp:0,ang:-2.3,fast:0,boost:0,on:false,rect:null,kind:"",c:"",now:0,samples:[],label:"",layer:Q(".theme"),NS};
+  /* o: {vx,vy,w,h,rx,rot,grow,burst} */
+  S.drop=function(x,y,c,life,o){
+    const g=pool.pop();if(!g)return;
+    o=o||{};const w=o.w||5.2,h=o.h||w;
+    Object.assign(g,{x,y,born:S.now,life,vx:o.vx||0,vy:o.vy||0,w,h,rot:o.rot||0,grow:o.grow||0,sample:!o.burst&&!o.vx&&!o.vy});
+    g.el.setAttribute("rx",o.rx==null?Math.min(w,h)/2:o.rx);g.el.setAttribute("fill",c);
+    live.push(g);
+  };
+  S.gauss=()=>{let s=0;for(let i=0;i<6;i++)s+=Math.random();return (s-3)/Math.SQRT1_2};
+  S.el=(tag,cls,attrs)=>{const e=document.createElementNS(NS,tag);if(cls)e.setAttribute("class",cls);for(const k in attrs||{})e.setAttribute(k,attrs[k]);S.layer.appendChild(e);return e};
+  let px=-100,py=-100,ldx=-1e9,ldy=-1e9,pk=0,burst=false,seen=false,tgt=null,tcol="",hide=false,raf=0,last=0,acc="",accN=0;
+  function accent(){if(!accN--){accN=30;acc=getComputedStyle(document.documentElement).getPropertyValue("--accent").trim()}return acc}
+  function subject(t){
+    const u=t.closest(".unit");
+    const name=u?u.querySelector(".utitle").textContent:(t.closest("#hero")&&heroEntry)?COURSE.units[heroEntry.u].name:"";
+    return THEME.subject(name);
+  }
+  THEME.init(S);
+  document.addEventListener("mousemove",e=>{
+    S.mx=e.clientX;S.my=e.clientY;
+    if(!seen){seen=true;px=S.mx;py=S.my;ldx=S.mx;ldy=S.my;document.body.classList.add("vc");svg.classList.add("on")}
+    if(!raf)raf=requestAnimationFrame(tick);
+  },{passive:true});
+  document.addEventListener("mouseover",e=>{
+    if(!e.target||!e.target.closest)return;
+    const t=e.target.closest(SEL);
+    hide=!!e.target.closest("input,textarea,select");
+    if(t!==tgt){
+      tgt=t;tcol=t&&t.matches(".dlink,.xans,.ess a,.btn,.tgo")?getComputedStyle(t).color:"";
+      S.kind=t?subject(t):"";S.entered=performance.now();
+      if(t&&THEME.enter)THEME.enter(S);
+    }
+  });
+  document.addEventListener("mouseout",e=>{if(!e.relatedTarget){tgt=null;hide=false}});
+  document.documentElement.addEventListener("mouseleave",()=>{svg.classList.remove("on");tgt=null});
+  document.documentElement.addEventListener("mouseenter",()=>{if(seen){svg.classList.add("on");if(!raf)raf=requestAnimationFrame(tick)}});
+  window.addEventListener("blur",()=>svg.classList.remove("on"));
+  document.addEventListener("mousedown",()=>svg.classList.add("dn"));
+  document.addEventListener("mouseup",()=>svg.classList.remove("dn"));
+  function tick(now){
+    raf=0;S.now=now;
+    const dt=Math.min(now-last,64)||16;last=now;
+    const dx=S.mx-px,dy=S.my-py;px=S.mx;py=S.my;
+    S.vx+=(dx/dt*16-S.vx)*.4;S.vy+=(dy/dt*16-S.vy)*.4;
+    S.sp=Math.hypot(S.vx,S.vy);
+    if(S.sp>1.2){const ta=Math.atan2(S.vy,S.vx);let d=ta-S.ang;d=Math.atan2(Math.sin(d),Math.cos(d));S.ang+=d*.3}
+    S.on=false;S.rect=null;
+    if(tgt&&!hide){
+      const r=tgt.getBoundingClientRect();
+      if(S.mx<r.left-6||S.mx>r.right+6||S.my<r.top-6||S.my>r.bottom+6)tgt=null;
+      else{S.on=true;S.rect=r}
+    }
+    S.boost+=((S.on?1:0)-S.boost)*.2;
+    S.c=S.on&&tcol?tcol:accent();
+    S.fast=Math.max(0,Math.min(1,(S.sp-FAST)/12));
+    if(THEME.samples&&S.sp>.8&&!hide&&Math.hypot(S.mx-ldx,S.my-ldy)>=10){S.drop(S.mx,S.my,S.c,1400,THEME.sample?THEME.sample(S):null);ldx=S.mx;ldy=S.my}
+    pk=Math.max(S.sp,pk*.94);
+    if(pk>26&&S.sp<5&&!burst){burst=true;THEME.burst(S)}
+    if(pk<10)burst=false;
+    S.samples.length=0;
+    for(let i=live.length-1;i>=0;i--){
+      const g=live[i],age=now-g.born;
+      if(age>g.life){g.el.style.opacity=0;live.splice(i,1);pool.push(g);continue}
+      const t=age/g.life;g.x+=g.vx;g.y+=g.vy;g.vx*=.9;g.vy*=.9;
+      const k=1+g.grow*t,w=g.w*k,h=g.h*k;
+      g.el.setAttribute("x",g.x-w/2);g.el.setAttribute("y",g.y-h/2);g.el.setAttribute("width",w);g.el.setAttribute("height",h);
+      if(g.rot)g.el.setAttribute("transform",`rotate(${g.rot+t*50} ${g.x} ${g.y})`);else g.el.removeAttribute("transform");
+      g.el.style.opacity=(1-t)*.7;
+      if(g.sample)S.samples.unshift(g);   // oldest first
+    }
+    S.hide=hide;S.label="";S.labelAt=null;S.labelOp=null;S.labelColor=null;
+    THEME.frame(S);
+    if(S.label&&(S.labelOp==null||S.labelOp>0)){
+      txt.textContent=S.label;const at=S.labelAt||[S.mx+14,S.my-10];
+      txt.setAttribute("x",at[0]);txt.setAttribute("y",at[1]);txt.setAttribute("fill",S.labelColor||S.c);
+      txt.style.opacity=S.labelOp==null?1:S.labelOp;
+    }else txt.style.opacity=0;
+    svg.classList.toggle("hid",hide);
+    if(svg.classList.contains("on"))raf=requestAnimationFrame(tick);
+  }
+})();
 </script>
 </body>
 </html>
