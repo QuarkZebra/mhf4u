@@ -1308,7 +1308,7 @@ const THEME={
     S.boost+=((S.on?1:0)-S.boost)*.2;
     S.c=S.on&&tcol?tcol:accent();
     S.fast=Math.max(0,Math.min(1,(S.sp-FAST)/12));
-    if(THEME.samples&&S.sp>.8&&!hide&&Math.hypot(S.mx-ldx,S.my-ldy)>=10){S.drop(S.mx,S.my,S.c,1400,THEME.sample?THEME.sample(S):null);ldx=S.mx;ldy=S.my}
+    if(THEME.samples&&S.sp>.8&&!hide&&Math.hypot(S.mx-ldx,S.my-ldy)>=10){S.drop(S.mx,S.my,THEME.sampleColor?THEME.sampleColor(S):S.c,1400,THEME.sample?THEME.sample(S):null);ldx=S.mx;ldy=S.my}
     pk=Math.max(S.sp,pk*.94);
     if(pk>26&&S.sp<5&&!burst){burst=true;THEME.burst(S)}
     if(pk<10)burst=false;
