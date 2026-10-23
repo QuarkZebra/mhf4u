@@ -273,7 +273,7 @@ const COURSE = {
       ["Practice IROC","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ed5f65557fe87e3711c1f6/1642946406385/hw2s++1.6+instantaneous+rate+of+change.pdf","doc"],
       ["Answers","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ed5f6be05d8d4b38d4a1d6/1642946411452/hw2t++1.6+instantaneous+rate+of+change.pdf","ans"],
     ]},
-    {d:6, iso:"2026-10-22", topic:"Instantaneous Rates of Change", num:"3.5", note:D("1IMxJnzHKujUAvBAE3VKJERlJ9B9DQflj"), ans:"" /* key: D("10LGI5t_1gI4pC8c4ymcdexGAe8nXTqdF") */, extras:[
+    {d:6, iso:"2026-10-22", topic:"Instantaneous Rates of Change", num:"3.5", note:D("1IMxJnzHKujUAvBAE3VKJERlJ9B9DQflj"), ans:D("10LGI5t_1gI4pC8c4ymcdexGAe8nXTqdF") /* key: D("10LGI5t_1gI4pC8c4ymcdexGAe8nXTqdF") */, extras:[
       ["Forward Difference on Desmos","https://www.desmos.com/calculator/ckzy8wij4n","doc"],
     ]},
     {d:7, iso:"2026-10-23", topic:"Representing ROC & Graphing", num:"3.6", note:D("1Nw2EJCRdRzc9WtFaoEFDV5kr5Ll25DJ_"), ans:D("1Eez7rGEqkjGuB3-BvfQc3HDhehSg_nWM") /* key: D("1Eez7rGEqkjGuB3-BvfQc3HDhehSg_nWM") */, extras:[
