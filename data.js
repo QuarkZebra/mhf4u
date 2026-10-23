@@ -276,7 +276,7 @@ const COURSE = {
     {d:6, iso:"2026-10-22", topic:"Instantaneous Rates of Change", num:"3.5", note:D("1IMxJnzHKujUAvBAE3VKJERlJ9B9DQflj"), ans:"" /* key: D("10LGI5t_1gI4pC8c4ymcdexGAe8nXTqdF") */, extras:[
       ["Forward Difference on Desmos","https://www.desmos.com/calculator/ckzy8wij4n","doc"],
     ]},
-    {d:7, iso:"2026-10-23", topic:"Representing ROC & Graphing", num:"3.6", note:D("1Nw2EJCRdRzc9WtFaoEFDV5kr5Ll25DJ_"), ans:"" /* key: D("1Eez7rGEqkjGuB3-BvfQc3HDhehSg_nWM") */, extras:[
+    {d:7, iso:"2026-10-23", topic:"Representing ROC & Graphing", num:"3.6", note:D("1Nw2EJCRdRzc9WtFaoEFDV5kr5Ll25DJ_"), ans:D("1Eez7rGEqkjGuB3-BvfQc3HDhehSg_nWM") /* key: D("1Eez7rGEqkjGuB3-BvfQc3HDhehSg_nWM") */, extras:[
       ["Polynomial Inequalities (with solutions)",D("1PFSZJANtptlcvfcpjYn88cPJsIsEoaA6"),"doc"],
     ]},
     {d:8, iso:"2026-10-26", topic:"Problems Involving ROC", num:"3.7", note:D("1KZ9g64nEQeVFYP_9ERigRbHhQpR9tQGT"), ans:"" /* key: D("1cECWa3wx1ybkylh1R96hPrfleQ75KbgW") */, extras:[
