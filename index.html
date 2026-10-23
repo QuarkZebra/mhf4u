@@ -76,9 +76,13 @@ body.vc #vcur{display:block}
 #vcur.dn .pt{transform:scale(1.5)}
 #vcur .ax{fill:none;stroke-width:1.2;stroke-dasharray:2 3;opacity:.6}
 #vcur .sec{stroke-width:1.6;stroke-linecap:round;opacity:0}
-#vcur .bz{fill:none;stroke-width:1.5;opacity:0}
+#vcur .tr{stroke-width:1.4;stroke-linecap:round;opacity:0}
 #vcur .shock{fill:none;stroke-width:3;opacity:0}
 #vcur .ghosts rect{filter:drop-shadow(0 0 2px currentColor)}
+/* the bullseye over a link: a difference-blended disc outside the SVG, so it inverts whatever is under it */
+#bz{position:fixed;left:0;top:0;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;pointer-events:none;z-index:1001;mix-blend-mode:difference;opacity:0;transition:opacity .15s;will-change:transform;
+  background:radial-gradient(circle,#fff 0 2.4px,transparent 2.9px 5.8px,#fff 6.3px 8.2px,transparent 8.7px 11.6px,#fff 12.1px 13.8px,transparent 14px)}
+body:not(.vc) #bz{display:none}
 @media(hover:hover) and (pointer:fine){body.vc,body.vc *{cursor:none!important}body.vc input,body.vc textarea{cursor:auto!important}}
 .page{max-width:1080px;margin:0 auto;padding:2.5rem 1.5rem 4rem;position:relative;z-index:1}
 
@@ -1225,14 +1229,16 @@ function drawStatic(){
 if(reduce)drawStatic();else bgRaf=requestAnimationFrame(loop);
 
 /* ══════════ MHF4U cursor: the point on a function ══════════
-   A point with a small set of axes. It drops samples along its path; move
-   fast and the secant from the oldest sample to the point appears with the
-   average rate of change Δy/Δx. Stop hard after a fast run and a unit
-   circle of points bursts outward. Landing on a link sets off a firework
-   and the point becomes a bullseye in the link's colour: three rings open
-   out around it and the axes reach a little further. Landing on an answer
-   key (the ones with the skull warning) sets off a bomb instead: a flash,
-   a shockwave, debris and smoke. */
+   A point with a small set of axes. It drops samples along its path and a
+   line runs back through them from the point, so the path it just took
+   trails behind it; move fast and the secant from the oldest sample to the
+   point appears with the average rate of change Δy/Δx. Stop hard after a
+   fast run and confetti bursts out. Over a link the point becomes a small
+   bullseye drawn in reverse contrast (a difference-blended disc, so it
+   inverts whatever is under it) and the axes reach a little further.
+   Landing on an answer key (the ones with the skull warning) sets off a
+   bomb: a flash, a shockwave, debris and smoke. The header controls get
+   the unit-circle hello. */
 const THEME={
   samples:true,
   subject(name){return /polynomial/i.test(name)?"poly":/rational/i.test(name)?"rat":/trig/i.test(name)?"trig":/exponential|logarithm/i.test(name)?"exp":/function/i.test(name)?"fn":""},
@@ -1240,42 +1246,56 @@ const THEME={
     const cs=getComputedStyle(document.documentElement);
     S.pal=["pu","tq","co","am","sk","gn"].map(k=>"rgb("+cs.getPropertyValue("--pal-"+k).trim()+")");
     S.warn=cs.getPropertyValue("--warn-fg").trim()||"#b32642";S.ink=cs.getPropertyValue("--ink").trim();S.dark=document.documentElement.getAttribute("data-theme")==="dark";
-    S.e={shock:S.el("circle","shock"),ax:S.el("path","ax"),sec:S.el("line","sec"),bz:[0,1,2].map(()=>S.el("circle","bz")),pt:S.el("circle","pt",{r:4})};
+    S.svg=document.getElementById("vcur");
+    S.e={shock:S.el("circle","shock"),tr:Array.from({length:60},()=>S.el("line","tr")),ax:S.el("path","ax"),sec:S.el("line","sec"),pt:S.el("circle","pt",{r:4})};
+    /* the bullseye lives outside the SVG so its difference blend sees the page, not just the overlay */
+    S.bz=document.createElement("div");S.bz.id="bz";document.body.appendChild(S.bz);
   },
+  sample(){return{w:3.4}},
   enter(S){
-    const t=S.tgt;if(!t||t.closest("header"))return;   /* the header controls already get the unit-circle burst */
+    const t=S.tgt;if(!t||t.closest("header"))return;
+    if(!t.matches('.dlink.ans,.xans,.btn[data-warn]'))return;   /* an ordinary link: just the bullseye, nothing bursts */
     const {mx,my}=S,R=Math.random;
-    if(t.matches('.dlink.ans,.xans,.btn[data-warn]')){
-      /* a bomb: white flash, fireball, smoke, debris, shockwave, and the page shakes */
-      S.drop(mx,my,"rgb(255,250,225)",170,{burst:true,w:44,grow:4,op:1});
-      const fire=["rgb(255,225,100)","rgb(255,160,50)","rgb(255,95,45)","rgb(225,45,35)"];
-      for(let i=0;i<10;i++){const a=R()*6.283,v=.6+R()*1.8;S.drop(mx,my,fire[i%4],420+R()*260,{vx:Math.cos(a)*v,vy:Math.sin(a)*v-.6,burst:true,w:16+R()*18,grow:1.9,op:.95,drag:.96})}
-      const sm=S.dark?"rgb(150,150,165)":"rgb(70,70,82)";
-      for(let i=0;i<12;i++){const a=R()*6.283,v=.5+R()*1.1;S.drop(mx,my,sm,1300+R()*600,{vx:Math.cos(a)*v,vy:-.5-R()*1.1,burst:true,w:14+R()*14,grow:3.2,op:.5,drag:.985})}
-      for(let i=0;i<22;i++){const a=R()*6.283,v=5+R()*7;S.drop(mx,my,i%4?S.ink:"rgb(255,120,40)",1000+R()*500,{vx:Math.cos(a)*v,vy:Math.sin(a)*v-2.5,burst:true,w:6,h:2.6,rx:1,streak:1.6,gy:.32,op:.95,drag:.94})}
-      S.shock=S.now;S.shockX=mx;S.shockY=my;
-      const pg=document.querySelector(".page");pg.classList.remove("shake");void pg.offsetWidth;pg.classList.add("shake");
-    }else{
-      /* a firework: a flash, a shell of bright streaks that twinkle and fall, and lingering glitter */
-      const o=Math.floor(R()*S.pal.length),cols=[S.pal[o],S.pal[(o+1)%S.pal.length],S.pal[(o+3)%S.pal.length],"rgb(255,215,120)"];
-      S.drop(mx,my,"rgb(255,245,205)",200,{burst:true,w:16,grow:4,op:1});
-      for(let i=0;i<56;i++){const a=i/56*6.283+R()*.12,v=3.2+R()*6.2;S.drop(mx,my,cols[i%4],1200+R()*500,{vx:Math.cos(a)*v,vy:Math.sin(a)*v,burst:true,w:6,h:3.2,rx:1.6,streak:3,gy:.075,op:1,tw:true,drag:.972})}
-      for(let i=0;i<16;i++){const a=R()*6.283,v=.8+R()*2.2;S.drop(mx,my,"rgb(255,232,150)",1700,{vx:Math.cos(a)*v,vy:Math.sin(a)*v,burst:true,w:2.6,gy:.05,op:1,tw:true,drag:.97})}
-    }
+    /* a bomb: white flash, fireball, smoke, debris, shockwave, and the page shakes */
+    S.drop(mx,my,"rgb(255,250,225)",170,{burst:true,w:44,grow:4,op:1});
+    const fire=["rgb(255,225,100)","rgb(255,160,50)","rgb(255,95,45)","rgb(225,45,35)"];
+    for(let i=0;i<10;i++){const a=R()*6.283,v=.6+R()*1.8;S.drop(mx,my,fire[i%4],420+R()*260,{vx:Math.cos(a)*v,vy:Math.sin(a)*v-.6,burst:true,w:16+R()*18,grow:1.9,op:.95,drag:.96})}
+    const sm=S.dark?"rgb(150,150,165)":"rgb(70,70,82)";
+    for(let i=0;i<12;i++){const a=R()*6.283,v=.5+R()*1.1;S.drop(mx,my,sm,1300+R()*600,{vx:Math.cos(a)*v,vy:-.5-R()*1.1,burst:true,w:14+R()*14,grow:3.2,op:.5,drag:.985})}
+    for(let i=0;i<22;i++){const a=R()*6.283,v=5+R()*7;S.drop(mx,my,i%4?S.ink:"rgb(255,120,40)",1000+R()*500,{vx:Math.cos(a)*v,vy:Math.sin(a)*v-2.5,burst:true,w:6,h:2.6,rx:1,streak:1.6,gy:.32,op:.95,drag:.94})}
+    S.shock=S.now;S.shockX=mx;S.shockY=my;
+    const pg=document.querySelector(".page");pg.classList.remove("shake");void pg.offsetWidth;pg.classList.add("shake");
   },
-  burst(S){for(let i=0;i<12;i++){const a=i/12*6.283,v=2.2+Math.random();S.drop(S.mx+Math.cos(a)*14,S.my+Math.sin(a)*14,S.c,850,{vx:Math.cos(a)*v,vy:Math.sin(a)*v,burst:true,w:4.6})}},
+  /* a hard stop after a fast run: confetti (a flash, a shell of bright streaks that twinkle and fall, lingering glitter) */
+  burst(S){
+    const {mx,my}=S,R=Math.random;
+    const o=Math.floor(R()*S.pal.length),cols=[S.pal[o],S.pal[(o+1)%S.pal.length],S.pal[(o+3)%S.pal.length],"rgb(255,215,120)"];
+    S.drop(mx,my,"rgb(255,245,205)",200,{burst:true,w:16,grow:4,op:1});
+    for(let i=0;i<56;i++){const a=i/56*6.283+R()*.12,v=3.2+R()*6.2;S.drop(mx,my,cols[i%4],1200+R()*500,{vx:Math.cos(a)*v,vy:Math.sin(a)*v,burst:true,w:6,h:3.2,rx:1.6,streak:3,gy:.075,op:1,tw:true,drag:.972})}
+    for(let i=0;i<16;i++){const a=R()*6.283,v=.8+R()*2.2;S.drop(mx,my,"rgb(255,232,150)",1700,{vx:Math.cos(a)*v,vy:Math.sin(a)*v,burst:true,w:2.6,gy:.05,op:1,tw:true,drag:.97})}
+  },
+  /* a top-of-page control: a unit circle of twelve points says hello */
+  hello(S){for(let i=0;i<12;i++){const a=i/12*6.283,v=2.2+Math.random();S.drop(S.mx+Math.cos(a)*14,S.my+Math.sin(a)*14,S.c,850,{vx:Math.cos(a)*v,vy:Math.sin(a)*v,burst:true,w:4.6})}},
   frame(S){
     const e=S.e,{mx,my,c,boost}=S,warn=S.onAns||S.onHaz;
-    e.pt.style.opacity=warn?0:1;e.ax.style.opacity=warn?0:.6;
+    e.pt.style.opacity=warn?0:1-boost;e.ax.style.opacity=warn?0:.6;
     if(S.shock&&S.now-S.shock<650){const t=(S.now-S.shock)/650,q=1-Math.pow(1-t,3);e.shock.setAttribute("cx",S.shockX);e.shock.setAttribute("cy",S.shockY);e.shock.setAttribute("r",8+120*q);e.shock.setAttribute("stroke",S.warn);e.shock.setAttribute("stroke-width",6*(1-t)+1);e.shock.style.opacity=(1-t)}
     else e.shock.style.opacity=0;
-    e.pt.setAttribute("cx",mx);e.pt.setAttribute("cy",my);e.pt.setAttribute("r",4+1.5*boost);e.pt.setAttribute("fill",c);
-    const L=14+14*boost;e.ax.setAttribute("d",`M${mx-L} ${my}H${mx+L}M${mx} ${my-L}V${my+L}`);e.ax.setAttribute("stroke",c);
-    /* a link: the point becomes a bullseye */
-    e.bz.forEach((r,i)=>{r.setAttribute("cx",mx);r.setAttribute("cy",my);r.setAttribute("r",(9+7*i)*(0.6+.4*boost));r.setAttribute("stroke",c);r.style.opacity=warn?0:boost*(.85-.2*i)});
+    e.pt.setAttribute("cx",mx);e.pt.setAttribute("cy",my);e.pt.setAttribute("fill",c);
+    const L=14+6*boost;e.ax.setAttribute("d",`M${mx-L} ${my}H${mx+L}M${mx} ${my-L}V${my+L}`);e.ax.setAttribute("stroke",c);
+    /* a link: the point becomes a small reverse-contrast bullseye */
+    const on=S.svg.classList.contains("on")&&!S.hide&&!warn,dn=S.svg.classList.contains("dn");
+    S.bz.style.transform=`translate(${mx}px,${my}px) scale(${(.5+.5*boost)*(dn?1.3:1)})`;S.bz.style.opacity=on?boost:0;
+    /* the path just taken: a line back through the samples, newest segment on the point, fading with age */
+    const sm=S.samples,n=sm.length,T=e.tr;let k=0;
+    for(let i=n-1;i>=0&&k<T.length;i--,k++){
+      const a=sm[i],b=sm[i+1],l=T[k],t=(S.now-a.born)/a.life;
+      l.setAttribute("x1",a.x);l.setAttribute("y1",a.y);l.setAttribute("x2",b?b.x:mx);l.setAttribute("y2",b?b.y:my);l.setAttribute("stroke",c);l.style.opacity=(1-t)*.55;
+    }
+    for(;k<T.length;k++)T[k].style.opacity=0;
     /* fast: the secant and the average rate of change */
-    if(S.fast>0&&S.samples.length>=6){
-      const A=S.samples[0],dx=mx-A.x,dy=A.y-my;
+    if(S.fast>0&&n>=6){
+      const A=sm[0],dx=mx-A.x,dy=A.y-my;
       e.sec.setAttribute("x1",A.x);e.sec.setAttribute("y1",A.y);e.sec.setAttribute("x2",mx);e.sec.setAttribute("y2",my);e.sec.setAttribute("stroke",c);e.sec.style.opacity=S.fast*.85;
       S.label=Math.abs(dx)<2?"Δy/Δx undefined":"Δy/Δx = "+(dy/dx).toFixed(2).replace("-","−");S.labelOp=S.fast;
     }else e.sec.style.opacity=0;
@@ -1297,7 +1317,7 @@ const THEME={
   const gwrap=Q(".ghosts"),txt=Q(".lbl");
   const SEL='a,button,[role="link"],.dlink.pend,.tipwrap',FAST=14;
   const pool=[],live=[];
-  for(let i=0;i<180;i++){const r=document.createElementNS(NS,"rect");r.style.opacity=0;gwrap.appendChild(r);pool.push({el:r})}
+  for(let i=0;i<260;i++){const r=document.createElementNS(NS,"rect");r.style.opacity=0;gwrap.appendChild(r);pool.push({el:r})}
   const S={mx:-100,my:-100,vx:0,vy:0,sp:0,ang:-2.3,fast:0,boost:0,on:false,rect:null,kind:"",c:"",now:0,samples:[],label:"",layer:Q(".theme"),NS};
   /* o: {vx,vy,w,h,rx,rot,grow,gy,drag,op,tw,streak,burst} — streak orients the
      particle along its velocity with a length that follows its speed */
@@ -1354,7 +1374,7 @@ const THEME={
       S.mx=e.clientX;S.my=e.clientY;S.now=performance.now();   // the pointer may have jumped here before its move event
       S.tgt=t;if(t&&THEME.enter)THEME.enter(S);
       if(t&&t.matches(ANS)){const pg=document.querySelector(".page");pg.classList.remove("shake");void pg.offsetWidth;pg.classList.add("shake")}   // an answer key: the page shakes
-      if(t&&t.closest("header")){S.now=performance.now();S.mx=e.clientX;S.my=e.clientY;THEME.burst(S)}   // a top-of-page control: the site's burst says hello
+      if(t&&t.closest("header")){S.now=performance.now();S.mx=e.clientX;S.my=e.clientY;(THEME.hello||THEME.burst)(S)}   // a top-of-page control: the site's hello (or its burst) greets the pointer
     }
   });
   document.addEventListener("mouseout",e=>{if(!e.relatedTarget){tgt=null;hide=false}});
