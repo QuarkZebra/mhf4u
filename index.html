@@ -75,8 +75,6 @@ body.vc #vcur{display:block}
 #vcur .pt{stroke:var(--bg);stroke-width:1.5;transition:transform .12s;transform-origin:center;transform-box:fill-box}
 #vcur.dn .pt{transform:scale(1.5)}
 #vcur .ax{fill:none;stroke-width:1.2;stroke-dasharray:2 3;opacity:.6}
-#vcur .sec{stroke-width:1.6;stroke-linecap:round;opacity:0}
-#vcur .tr{stroke-width:1.4;stroke-linecap:round;opacity:0}
 #vcur .shock{fill:none;stroke-width:3;opacity:0}
 #vcur .ghosts rect{filter:drop-shadow(0 0 2px currentColor)}
 #vcur .bz{fill:none;stroke-width:1.5;opacity:0}
@@ -1226,10 +1224,9 @@ function drawStatic(){
 if(reduce)drawStatic();else bgRaf=requestAnimationFrame(loop);
 
 /* ══════════ MHF4U cursor: the point on a function ══════════
-   A point with a small set of axes. It drops samples along its path and a
-   line runs back through them from the point, so the path it just took
-   trails behind it; move fast and the secant from the oldest sample to the
-   point appears with the average rate of change Δy/Δx. Over a link the
+   A point with a small set of axes. It drops samples along its path and
+   nothing else: no line is ever drawn to the pointer (23 Oct 2026, Matt:
+   lines connecting to the pointer as it moves had to go). Over a link the
    point becomes a small bullseye in the link's colour (three rings) and
    the axes reach a little further. A hard stop draws nothing.
    Landing on an answer key (the ones with the skull warning) sets off a
@@ -1242,9 +1239,8 @@ const THEME={
     const cs=getComputedStyle(document.documentElement);
     S.pal=["pu","tq","co","am","sk","gn"].map(k=>"rgb("+cs.getPropertyValue("--pal-"+k).trim()+")");
     S.warn=cs.getPropertyValue("--warn-fg").trim()||"#b32642";S.ink=cs.getPropertyValue("--ink").trim();S.dark=document.documentElement.getAttribute("data-theme")==="dark";
-    S.e={shock:S.el("circle","shock"),tr:Array.from({length:60},()=>S.el("line","tr")),ax:S.el("path","ax"),sec:S.el("line","sec"),bz:[0,1,2].map(()=>S.el("circle","bz")),pt:S.el("circle","pt",{r:4})};
+    S.e={shock:S.el("circle","shock"),ax:S.el("path","ax"),bz:[0,1,2].map(()=>S.el("circle","bz")),pt:S.el("circle","pt",{r:4})};
   },
-  sample(){return{w:3.4}},
   enter(S){
     const t=S.tgt;if(!t||t.closest("header"))return;
     if(!t.matches('.dlink.ans,.xans,.btn[data-warn]'))return;   /* an ordinary link: just the bullseye, nothing bursts */
@@ -1271,19 +1267,6 @@ const THEME={
     const L=14+6*boost;e.ax.setAttribute("d",`M${mx-L} ${my}H${mx+L}M${mx} ${my-L}V${my+L}`);e.ax.setAttribute("stroke",c);
     /* a link: the point becomes a small bullseye */
     e.bz.forEach((r,i)=>{r.setAttribute("cx",mx);r.setAttribute("cy",my);r.setAttribute("r",(6+4*i)*(0.6+.4*boost));r.setAttribute("stroke",c);r.style.opacity=warn?0:boost*(.85-.2*i)});
-    /* the path just taken: a line back through the samples, newest segment on the point, fading with age */
-    const sm=S.samples,n=sm.length,T=e.tr;let k=0;
-    for(let i=n-1;i>=0&&k<T.length;i--,k++){
-      const a=sm[i],b=sm[i+1],l=T[k],t=(S.now-a.born)/a.life;
-      l.setAttribute("x1",a.x);l.setAttribute("y1",a.y);l.setAttribute("x2",b?b.x:mx);l.setAttribute("y2",b?b.y:my);l.setAttribute("stroke",c);l.style.opacity=(1-t)*.55;
-    }
-    for(;k<T.length;k++)T[k].style.opacity=0;
-    /* fast: the secant and the average rate of change */
-    if(S.fast>0&&n>=6){
-      const A=sm[0],dx=mx-A.x,dy=A.y-my;
-      e.sec.setAttribute("x1",A.x);e.sec.setAttribute("y1",A.y);e.sec.setAttribute("x2",mx);e.sec.setAttribute("y2",my);e.sec.setAttribute("stroke",c);e.sec.style.opacity=S.fast*.85;
-      S.label=Math.abs(dx)<2?"Δy/Δx undefined":"Δy/Δx = "+(dy/dx).toFixed(2).replace("-","−");S.labelOp=S.fast;
-    }else e.sec.style.opacity=0;
   }
 };
 
