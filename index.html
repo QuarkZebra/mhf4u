@@ -1228,8 +1228,8 @@ if(reduce)drawStatic();else bgRaf=requestAnimationFrame(loop);
    lines connecting to the pointer as it moves had to go). Over a link the
    point becomes a small bullseye in the link's colour (three rings) and
    the axes reach a little further. A hard stop draws nothing and so does
-   landing on a link, answer keys included. The header controls get the
-   unit-circle hello. */
+   landing on a link or a header control. The only particles left are
+   the path samples. */
 const THEME={
   samples:true,
   subject(name){return /polynomial/i.test(name)?"poly":/rational/i.test(name)?"rat":/trig/i.test(name)?"trig":/exponential|logarithm/i.test(name)?"exp":/function/i.test(name)?"fn":""},
@@ -1243,8 +1243,7 @@ const THEME={
      over an answer link") no bomb either. The shared skull pointer and page shake on an answer key remain. */
   enter(){},
   burst(){},   /* a hard stop after a fast run draws nothing (the confetti went, 23 Oct 2026) */
-  /* a top-of-page control: a unit circle of twelve points says hello */
-  hello(S){for(let i=0;i<12;i++){const a=i/12*6.283,v=2.2+Math.random();S.drop(S.mx+Math.cos(a)*14,S.my+Math.sin(a)*14,S.c,850,{vx:Math.cos(a)*v,vy:Math.sin(a)*v,burst:true,w:4.6})}},
+  hello(){},   /* a top-of-page control draws nothing either (23 Oct 2026, Matt: "purple dots on hover over top buttons") */
   frame(S){
     const e=S.e,{mx,my,c,boost}=S,warn=S.onAns||S.onHaz;
     e.pt.style.opacity=warn?0:1;e.ax.style.opacity=warn?0:.6;
