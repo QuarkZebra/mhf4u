@@ -75,7 +75,6 @@ body.vc #vcur{display:block}
 #vcur .pt{stroke:var(--bg);stroke-width:1.5;transition:transform .12s;transform-origin:center;transform-box:fill-box}
 #vcur.dn .pt{transform:scale(1.5)}
 #vcur .ax{fill:none;stroke-width:1.2;stroke-dasharray:2 3;opacity:.6}
-#vcur .shock{fill:none;stroke-width:3;opacity:0}
 #vcur .ghosts rect{filter:drop-shadow(0 0 2px currentColor)}
 #vcur .bz{fill:none;stroke-width:1.5;opacity:0}
 @media(hover:hover) and (pointer:fine){body.vc,body.vc *{cursor:none!important}body.vc input,body.vc textarea{cursor:auto!important}}
@@ -1228,10 +1227,9 @@ if(reduce)drawStatic();else bgRaf=requestAnimationFrame(loop);
    nothing else: no line is ever drawn to the pointer (23 Oct 2026, Matt:
    lines connecting to the pointer as it moves had to go). Over a link the
    point becomes a small bullseye in the link's colour (three rings) and
-   the axes reach a little further. A hard stop draws nothing.
-   Landing on an answer key (the ones with the skull warning) sets off a
-   bomb: a flash, a shockwave, debris and smoke. The header controls get
-   the unit-circle hello. */
+   the axes reach a little further. A hard stop draws nothing and so does
+   landing on a link, answer keys included. The header controls get the
+   unit-circle hello. */
 const THEME={
   samples:true,
   subject(name){return /polynomial/i.test(name)?"poly":/rational/i.test(name)?"rat":/trig/i.test(name)?"trig":/exponential|logarithm/i.test(name)?"exp":/function/i.test(name)?"fn":""},
@@ -1239,30 +1237,17 @@ const THEME={
     const cs=getComputedStyle(document.documentElement);
     S.pal=["pu","tq","co","am","sk","gn"].map(k=>"rgb("+cs.getPropertyValue("--pal-"+k).trim()+")");
     S.warn=cs.getPropertyValue("--warn-fg").trim()||"#b32642";S.ink=cs.getPropertyValue("--ink").trim();S.dark=document.documentElement.getAttribute("data-theme")==="dark";
-    S.e={shock:S.el("circle","shock"),ax:S.el("path","ax"),bz:[0,1,2].map(()=>S.el("circle","bz")),pt:S.el("circle","pt",{r:4})};
+    S.e={ax:S.el("path","ax"),bz:[0,1,2].map(()=>S.el("circle","bz")),pt:S.el("circle","pt",{r:4})};
   },
-  enter(S){
-    const t=S.tgt;if(!t||t.closest("header"))return;
-    if(!t.matches('.dlink.ans,.xans,.btn[data-warn]'))return;   /* an ordinary link: just the bullseye, nothing bursts */
-    const {mx,my}=S,R=Math.random;
-    /* a bomb: white flash, fireball, smoke, debris, shockwave, and the page shakes */
-    S.drop(mx,my,"rgb(255,250,225)",170,{burst:true,w:44,grow:4,op:1});
-    const fire=["rgb(255,225,100)","rgb(255,160,50)","rgb(255,95,45)","rgb(225,45,35)"];
-    for(let i=0;i<10;i++){const a=R()*6.283,v=.6+R()*1.8;S.drop(mx,my,fire[i%4],420+R()*260,{vx:Math.cos(a)*v,vy:Math.sin(a)*v-.6,burst:true,w:16+R()*18,grow:1.9,op:.95,drag:.96})}
-    const sm=S.dark?"rgb(150,150,165)":"rgb(70,70,82)";
-    for(let i=0;i<12;i++){const a=R()*6.283,v=.5+R()*1.1;S.drop(mx,my,sm,1300+R()*600,{vx:Math.cos(a)*v,vy:-.5-R()*1.1,burst:true,w:14+R()*14,grow:3.2,op:.5,drag:.985})}
-    for(let i=0;i<22;i++){const a=R()*6.283,v=5+R()*7;S.drop(mx,my,i%4?S.ink:"rgb(255,120,40)",1000+R()*500,{vx:Math.cos(a)*v,vy:Math.sin(a)*v-2.5,burst:true,w:6,h:2.6,rx:1,streak:1.6,gy:.32,op:.95,drag:.94})}
-    S.shock=S.now;S.shockX=mx;S.shockY=my;
-    const pg=document.querySelector(".page");pg.classList.remove("shake");void pg.offsetWidth;pg.classList.add("shake");
-  },
+  /* landing on anything draws nothing: no confetti, and (23 Oct 2026, Matt: "still getting confetti when the cursor hovers
+     over an answer link") no bomb either. The shared skull pointer and page shake on an answer key remain. */
+  enter(){},
   burst(){},   /* a hard stop after a fast run draws nothing (the confetti went, 23 Oct 2026) */
   /* a top-of-page control: a unit circle of twelve points says hello */
   hello(S){for(let i=0;i<12;i++){const a=i/12*6.283,v=2.2+Math.random();S.drop(S.mx+Math.cos(a)*14,S.my+Math.sin(a)*14,S.c,850,{vx:Math.cos(a)*v,vy:Math.sin(a)*v,burst:true,w:4.6})}},
   frame(S){
     const e=S.e,{mx,my,c,boost}=S,warn=S.onAns||S.onHaz;
     e.pt.style.opacity=warn?0:1;e.ax.style.opacity=warn?0:.6;
-    if(S.shock&&S.now-S.shock<650){const t=(S.now-S.shock)/650,q=1-Math.pow(1-t,3);e.shock.setAttribute("cx",S.shockX);e.shock.setAttribute("cy",S.shockY);e.shock.setAttribute("r",8+120*q);e.shock.setAttribute("stroke",S.warn);e.shock.setAttribute("stroke-width",6*(1-t)+1);e.shock.style.opacity=(1-t)}
-    else e.shock.style.opacity=0;
     e.pt.setAttribute("cx",mx);e.pt.setAttribute("cy",my);e.pt.setAttribute("fill",c);
     const L=14+6*boost;e.ax.setAttribute("d",`M${mx-L} ${my}H${mx+L}M${mx} ${my-L}V${my+L}`);e.ax.setAttribute("stroke",c);
     /* a link: the point becomes a small bullseye */
