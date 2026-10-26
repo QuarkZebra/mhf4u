@@ -279,7 +279,7 @@ const COURSE = {
     {d:7, iso:"2026-10-23", topic:"Representing ROC & Graphing", num:"3.6", note:D("1Nw2EJCRdRzc9WtFaoEFDV5kr5Ll25DJ_"), ans:D("1Eez7rGEqkjGuB3-BvfQc3HDhehSg_nWM") /* key: D("1Eez7rGEqkjGuB3-BvfQc3HDhehSg_nWM") */, extras:[
       ["Polynomial Inequalities (with solutions)",D("1PFSZJANtptlcvfcpjYn88cPJsIsEoaA6"),"doc"],
     ]},
-    {d:8, iso:"2026-10-26", topic:"Problems Involving ROC", num:"3.7", note:D("1KZ9g64nEQeVFYP_9ERigRbHhQpR9tQGT"), ans:"" /* key: D("1cECWa3wx1ybkylh1R96hPrfleQ75KbgW") */, extras:[
+    {d:8, iso:"2026-10-26", topic:"Problems Involving ROC", num:"3.7", note:D("1KZ9g64nEQeVFYP_9ERigRbHhQpR9tQGT"), ans:D("1cECWa3wx1ybkylh1R96hPrfleQ75KbgW") /* key: D("1cECWa3wx1ybkylh1R96hPrfleQ75KbgW") */, extras:[
       ["Solving Problems with ROC","https://www.youtube.com/watch?v=4SNAk2fSD58","vid"],
     ]},
     {d:9, iso:"2026-10-27", topic:"ROC in Polynomial Functions", num:"3.8", note:D("1gXvIIepA5MsDnjjJNRPA8XTLcUHKKoVo"), ans:"" /* key: D("1ZJvYO96RAjbX5s3M87Hfg0GuLHgMF2LR") */, extras:[
