@@ -287,7 +287,7 @@ const COURSE = {
       ["Answers",D("1aC4TJKD2T56iRg7KR7Qjj3yTo4AtPLc8"),"ans"],
     ]},
     {d:10, iso:"2026-10-28", topic:"Review", flag:"review", noteLabel:"Unit Review", ansLabel:"Answers",
-      note:D("1k5eP60CVoLjTEv0136fBr2AuzeJgEVCJ"), ans:"" /* key: D("1l7H1pC2Jfx0zHsHnr4QnpzWcBkdf7Rmn") */, extras:[
+      note:D("1k5eP60CVoLjTEv0136fBr2AuzeJgEVCJ"), ans:D("1l7H1pC2Jfx0zHsHnr4QnpzWcBkdf7Rmn") /* key: D("1l7H1pC2Jfx0zHsHnr4QnpzWcBkdf7Rmn") */, extras:[
       ["Ms. Havrot: Chapter 4 Practice Test","https://www.youtube.com/watch?v=d6mpf7rwVQo","vid"],
       ["Ms. Havrot: Rates of Change Summary (2.3–2.5)","https://www.youtube.com/watch?v=bctH4jVfFKY","vid"],
     ]},
