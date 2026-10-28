@@ -282,7 +282,7 @@ const COURSE = {
     {d:8, iso:"2026-10-26", topic:"Problems Involving ROC", num:"3.7", note:D("1KZ9g64nEQeVFYP_9ERigRbHhQpR9tQGT"), ans:D("1cECWa3wx1ybkylh1R96hPrfleQ75KbgW") /* key: D("1cECWa3wx1ybkylh1R96hPrfleQ75KbgW") */, extras:[
       ["Solving Problems with ROC","https://www.youtube.com/watch?v=4SNAk2fSD58","vid"],
     ]},
-    {d:9, iso:"2026-10-27", topic:"ROC in Polynomial Functions", num:"3.8", note:D("1gXvIIepA5MsDnjjJNRPA8XTLcUHKKoVo"), ans:"" /* key: D("1ZJvYO96RAjbX5s3M87Hfg0GuLHgMF2LR") */, extras:[
+    {d:9, iso:"2026-10-27", topic:"ROC in Polynomial Functions", num:"3.8", note:D("1gXvIIepA5MsDnjjJNRPA8XTLcUHKKoVo"), ans:D("1ZJvYO96RAjbX5s3M87Hfg0GuLHgMF2LR") /* key: D("1ZJvYO96RAjbX5s3M87Hfg0GuLHgMF2LR") */, extras:[
       ["Extra Question",D("1aBXsRzX4CcE-guWcFp-sip7J8gAH4a_0"),"doc"],
       ["Answers",D("1aC4TJKD2T56iRg7KR7Qjj3yTo4AtPLc8"),"ans"],
     ]},
