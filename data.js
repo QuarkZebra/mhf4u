@@ -288,6 +288,7 @@ const COURSE = {
     ]},
     {d:10, iso:"2026-10-28", topic:"Review", flag:"review", noteLabel:"Unit Review", ansLabel:"Answers",
       note:D("1k5eP60CVoLjTEv0136fBr2AuzeJgEVCJ"), ans:D("1l7H1pC2Jfx0zHsHnr4QnpzWcBkdf7Rmn") /* key: D("1l7H1pC2Jfx0zHsHnr4QnpzWcBkdf7Rmn") */, extras:[
+      ["Test 3 Additional Review (with solutions)",D("11_H-VG4ZK1amoFGAQr9QSbz4z7Njulk9"),"doc"],
       ["Ms. Havrot: Chapter 4 Practice Test","https://www.youtube.com/watch?v=d6mpf7rwVQo","vid"],
       ["Ms. Havrot: Rates of Change Summary (2.3–2.5)","https://www.youtube.com/watch?v=bctH4jVfFKY","vid"],
     ]},
