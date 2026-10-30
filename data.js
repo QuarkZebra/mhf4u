@@ -297,7 +297,7 @@ const COURSE = {
 
   /* ── UNIT 4 ─────────────────────────────────────────────── */
   {name:"Rational Functions", days:[
-    {d:1, iso:"2026-10-30", topic:"Graphs of Reciprocal Functions", num:"4.1", note:D("1v3uYh0ks822Fcu2m5xjxZAGVLksTXGb4"), ans:"" /* key: D("1UBof53_Zraqx8MZKqdxZmfIOsQ8ukrSo") */, extras:[
+    {d:1, iso:"2026-10-30", topic:"Graphs of Reciprocal Functions", num:"4.1", note:D("1v3uYh0ks822Fcu2m5xjxZAGVLksTXGb4"), ans:D("1UBof53_Zraqx8MZKqdxZmfIOsQ8ukrSo") /* key: D("1UBof53_Zraqx8MZKqdxZmfIOsQ8ukrSo") */, extras:[
       ["Unit 4 Prerequisite Skills (answers included)",D("1mPrTfSQfNBvrqUkivHVRDuA0uBjmgRGm"),"skills"],
       ["Ms. Havrot’s Videos: Rational Functions","https://www.youtube.com/watch?v=QT2hD5EnHAs&list=PLGinkJ_ZMO2FE8EzZwCSUIPxOmMxmrzVv","vid"],
       ["Jensen: Reciprocal Functions","https://www.youtube.com/watch?v=CoqCJQMt8JU","vid"],
