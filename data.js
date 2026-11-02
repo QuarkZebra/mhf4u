@@ -330,54 +330,55 @@ const COURSE = {
       ["Practice Solving Rational Inequalities",D("1befmdB8vadxFu9GD8gmcUqvcW9CLbQR_"),"doc"],
       ["Answers",D("1bwJUEgfAJcjL_xL_KtGBEIAf5C9oEpEi"),"ans"],
     ]},
-    {d:7, iso:"2026-11-09", topic:"ROC of Rational Functions", num:"4.6", note:D("1BeV9c6pNy4keGAvy5OQEc1W6WyJCENGT"), ans:"" /* key: D("1Aznrwdff0F847zqGImye8wusiKZnukPQ") */, extras:[
-      ["Ms. Havrot: Rates of Change in Rational Functions (5.6)","https://www.youtube.com/watch?v=T4GJeS4G9gc","vid"],
-    ]},
-    {d:8, iso:"2026-11-10", topic:"Review", flag:"review", noteLabel:"Unit Review", ansLabel:"Answers",
+    {d:7, iso:"2026-11-09", topic:"Review", flag:"review", noteLabel:"Unit Review", ansLabel:"Answers",
       note:D("11QfKVMMvpuMlT_0x8pkdsPZi8DpsAoGM"), ans:"" /* key: D("1DLPWZsEq_su7EidEkFEsM_65C8GNfq3Y") */, extras:[
       ["Challenge Questions",D("1es6G1-ukzAGTbwJ5Vv_nPvFkKEk7ltxc"),"doc"],
       ["Answers",D("10PWXTJC3uXKDcmb_l4CIvDhr2aPQ-R8k"),"ans"],
+      ["4.6 ROC of Rational Functions",D("1BeV9c6pNy4keGAvy5OQEc1W6WyJCENGT"),"doc"],
+      ["Answers",D("1Aznrwdff0F847zqGImye8wusiKZnukPQ"),"ans"],
+      ["Ms. Havrot: Rates of Change in Rational Functions (5.6)","https://www.youtube.com/watch?v=T4GJeS4G9gc","vid"],
     ]},
-    {d:9, iso:"2026-11-11", topic:"Unit Test", flag:"test", extras:[]},
+    {d:8, iso:"2026-11-10", topic:"Unit Test", flag:"test", extras:[]},
   ]},
 
   /* ── UNIT 5 ─────────────────────────────────────────────── */
   {name:"Trigonometric Functions", days:[
-    {d:1, iso:"2026-11-12", topic:"Trig Ratios with Radians", num:"5.1", note:D("1cpBf-ZAo3wBeYz_cD_8NmTjRBQkWzQuK"), ans:"" /* key: D("1VJ01PJlASW7IQonyXXCgjID7ktpIcI4b") */ /* v2 draft: note D("1te8V5N0hDsien243k54Km_QQhqe35SRx") key D("1FpF9cPMy814vCkLPAlTXnIhtOTBZ0_yz") */, extras:[
+    {d:1, iso:"2026-11-11", topic:"Trig Ratios with Radians", num:"5.1", note:D("1cpBf-ZAo3wBeYz_cD_8NmTjRBQkWzQuK"), ans:"" /* key: D("1VJ01PJlASW7IQonyXXCgjID7ktpIcI4b") */ /* v2 draft: note D("1te8V5N0hDsien243k54Km_QQhqe35SRx") key D("1FpF9cPMy814vCkLPAlTXnIhtOTBZ0_yz") */, extras:[
       ["Unit 5 Prerequisite Skills (answers included)",D("1gy_weoPahGxMsC6NKPvRVhcC8e3mD-Kd"),"skills"],
       ["SOH CAH TOA Song","https://www.youtube.com/watch?v=PIWJo5uK3Fo","vid"],
     ]},
-    {d:2, iso:"2026-11-13", topic:"Graphs of Trig Functions", num:"5.2", note:D("1PQeZqLfoUBYUJqciw9lIuTeAHeZ7XSkj"), ans:"" /* key: D("1XQpDtB3WzBuOT7RByKFLFbiY6QvqsKSH") */, extras:[
+    {d:2, iso:"2026-11-12", topic:"Graphs of Trig Functions", num:"5.2", note:D("1PQeZqLfoUBYUJqciw9lIuTeAHeZ7XSkj"), ans:"" /* key: D("1XQpDtB3WzBuOT7RByKFLFbiY6QvqsKSH") */, extras:[
       ["Trig Angles Simulation","https://phet.colorado.edu/sims/html/trig-tour/latest/trig-tour_en.html","doc"],
       ["Transformations Review",D("1R_qADObrxDzdGpxFfIlRo2uUdJdsdo9z"),"doc"],
       ["Answers",D("1RUav7ZtepkNj-XT8Z3Q1G_Qf1_wkyxBv"),"ans"],
     ]},
-    {d:3, iso:"2026-11-16", topic:"Practice Quiz", flag:"quiz",
+    {d:3, iso:"2026-11-13", topic:"Practice Quiz", flag:"quiz",
       noteLabel:"Practice Quiz", ansLabel:"Answers", note:D("1tvwsl0GfosQUaTvTnjCqMZO2ARUoId0r"), ans:"" /* key: D("1zbCDkQqXrRgmBgrODCS749jcahZtgwlA") */, extras:[
       ["Trig Ratios & Special Angles Worksheet","https://www.jensenmath.ca/s/hw2s-42-Trig-Ratios-and-Special-Angles.pdf","doc"],
       ["Answers","https://www.jensenmath.ca/s/hw2t-42-Trig-Ratios-and-Special-Angles.pdf","ans"],
     ]},
-    {d:4, iso:"2026-11-17", topic:"Transformations of Trig Functions", num:"5.3", note:D("1LHPj-C7CJRD72NMhpbGAHUYLQF75pXzK"), ans:"" /* key: D("1AcO7kAsXFy-nvyMq67dPFx1Zq5njHysx") */, extras:[
+    {d:4, iso:"2026-11-16", topic:"Transformations of Trig Functions", num:"5.3", note:D("1LHPj-C7CJRD72NMhpbGAHUYLQF75pXzK"), ans:"" /* key: D("1AcO7kAsXFy-nvyMq67dPFx1Zq5njHysx") */, extras:[
       ["Graphing Extra Practice (with answers)",D("1R8ytvzOWMppeLJhsje4RBBroGERjIdL5"),"doc"],
     ]},
-    {d:5, iso:"2026-11-18", topic:"Reciprocal Trig Functions", num:"5.4", note:D("12xbvlEsXneDTaxFcPfh4fCnJAN9gKHX_"), ans:"" /* key: D("1PLIPXSFCCtClYbfcX2pwl1ASbhq8Zd-F") */, extras:[
+    {d:5, iso:"2026-11-17", topic:"Reciprocal Trig Functions", num:"5.4", note:D("12xbvlEsXneDTaxFcPfh4fCnJAN9gKHX_"), ans:"" /* key: D("1PLIPXSFCCtClYbfcX2pwl1ASbhq8Zd-F") */, extras:[
       ["Graphing All Trig Functions Worksheet","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ed517c0e1ca17f50545404/1642942844717/hw3s++Graphing+Trig+Functions.pdf","doc"],
       ["Answers","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ed5182684ee5656cdedfea/1642942850446/hw3t++Graphing+Trig+Functions.pdf","ans"],
     ]},
-    {d:6, iso:"2026-11-19", topic:"Modelling with Trig Functions", num:"5.5", note:D("1BfMa7IWpbXSLuDuV2Yf9NB2l-uuIMs3R"), ans:"" /* key: D("1-WlIZ94TNAkcbg9BcFyADNKlT5CnXiba") */, extras:[
+    {d:6, iso:"2026-11-18", topic:"Modelling with Trig Functions", num:"5.5", note:D("1BfMa7IWpbXSLuDuV2Yf9NB2l-uuIMs3R"), ans:"" /* key: D("1-WlIZ94TNAkcbg9BcFyADNKlT5CnXiba") */, extras:[
       ["Trig Applications Worksheet","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ed520c2d3b9c7554d007c3/1642942988894/hw5s++Trig+Applications.pdf","doc"],
       ["Answers","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ed52117618b227cf316b53/1642942994194/hw5t++Trig+Applications.pdf","ans"],
     ]},
-    {d:7, iso:"2026-11-20", topic:"Review", flag:"review", noteLabel:"Unit Review", ansLabel:"Answers",
+    {d:7, iso:"2026-11-19", topic:"Work Period", note:"", ans:"", extras:[]},
+    {d:8, iso:"2026-11-20", topic:"Trig Rates of Change", num:"5.6", note:D("1WIvfHkdMB0-DS-JCB8KqHr150GWeYfwf"), ans:"" /* key: D("1e4rjqZ_2_I2qwl1Va-LK0GQpRUZs4gbC") */, extras:[
+      ["Ms. Havrot: Rates of Change in Trig Functions (6.7)","https://www.youtube.com/watch?v=_wvW1D-EBuQ","vid"],
+    ]},
+    {d:9, iso:"2026-11-24", topic:"Review", flag:"review", noteLabel:"Unit Review", ansLabel:"Answers",
       note:D("1N7_8Ab3iv1zEAZi4hD4mzpNDQn4nz82j"), ans:"" /* key: D("1JFR7n-bSlIMg46fqeI90IcYMOpRCm3qF") */, extras:[
       ["Extra Review Questions","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ed524a1f188b0ab84d4079/1642943050935/Unit+4+Review++Trig+in+Radians.pdf","doc"],
       ["Answers","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ed525acc0eeb42ab7837de/1642943066952/Unit+4+Review++Trig+in+Radians+SOLUTIONS.pdf","ans"],
     ]},
-    {d:8, iso:"2026-11-24", topic:"Trig Rates of Change", num:"5.6", note:D("1WIvfHkdMB0-DS-JCB8KqHr150GWeYfwf"), ans:"" /* key: D("1e4rjqZ_2_I2qwl1Va-LK0GQpRUZs4gbC") */, extras:[
-      ["Ms. Havrot: Rates of Change in Trig Functions (6.7)","https://www.youtube.com/watch?v=_wvW1D-EBuQ","vid"],
-    ]},
-    {d:9, iso:"2026-11-25", topic:"Trig Functions Test (without calculators)", flag:"test", extras:[]},
-    {d:10, iso:"2026-11-26", topic:"Trig Functions Test (with calculators)", flag:"test", extras:[]},
+    {d:10, iso:"2026-11-25", topic:"Trig Functions Test (without calculators)", flag:"test", extras:[]},
+    {d:11, iso:"2026-11-26", topic:"Trig Functions Test (with calculators)", flag:"test", extras:[]},
   ]},
 
   /* ── UNIT 6 ─────────────────────────────────────────────── */
