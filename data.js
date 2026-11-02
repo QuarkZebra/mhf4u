@@ -303,7 +303,7 @@ const COURSE = {
       ["Jensen: Reciprocal Functions","https://www.youtube.com/watch?v=CoqCJQMt8JU","vid"],
       ["Practice Problems","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ed62523ad0a2796cf8ce9a/1642947155249/hw1t+3.1+reciprocal+of+linear+and+quadratic.pdf","doc"],
     ]},
-    {d:2, iso:"2026-11-02", topic:"Quotients of Polynomials", num:"4.2", note:D("1u9Nq16zcFvx14-wkn29AZP1mskKvoycT"), ans:"" /* key: D("1eCUo0YIJF3nj8sYRuwS1aeXXSLe6vv6V") */, extras:[
+    {d:2, iso:"2026-11-02", topic:"Quotients of Polynomials", num:"4.2", note:D("1u9Nq16zcFvx14-wkn29AZP1mskKvoycT"), ans:D("1eCUo0YIJF3nj8sYRuwS1aeXXSLe6vv6V") /* key: D("1eCUo0YIJF3nj8sYRuwS1aeXXSLe6vv6V") */, extras:[
       ["Completing the Square","https://www.youtube.com/watch?v=JIoW2AnQyXQ","vid"],
       ["Visual Explanation of Completing the Square","https://www.youtube.com/watch?v=McDdEw_Fb5E","vid"],
       ["Fun Quotients Questions",D("1_jtA6W6U0wv2zYZAmW91WyTRv9wAMV4U"),"doc"],
