@@ -309,7 +309,7 @@ const COURSE = {
       ["Fun Quotients Questions",D("1_jtA6W6U0wv2zYZAmW91WyTRv9wAMV4U"),"doc"],
       ["Answers",D("1jKzPJVo_AvVXglVr5jLT3bLyUhtm8uJ8"),"ans"],
     ]},
-    {d:3, iso:"2026-11-03", topic:"Graphs of Rational Functions", num:"4.3", note:D("1DEeUe-E2jh7d7OWaj4YFpaKBNadu94fh"), ans:"" /* key: D("1U3fMF6QS2l934V7U4-2LCmfRVWOXjV2W") */, extras:[
+    {d:3, iso:"2026-11-03", topic:"Graphs of Rational Functions", num:"4.3", note:D("1DEeUe-E2jh7d7OWaj4YFpaKBNadu94fh"), ans:D("1U3fMF6QS2l934V7U4-2LCmfRVWOXjV2W") /* key: D("1U3fMF6QS2l934V7U4-2LCmfRVWOXjV2W") */, extras:[
       ["Practice Problems (Linear)","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ed62a13e485b16c508d2bb/1642947233229/hw2s++3.3+quotient+of+linear+functions.pdf","doc"],
       ["Answers","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ed62a70a718a6aa7c0bdaf/1642947240026/hw2t++3.3+quotient+of+linear+functions.pdf","ans"],
     ]},
