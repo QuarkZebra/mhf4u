@@ -320,15 +320,15 @@ const COURSE = {
       ["Solving Rational Equations Extra Practice",D("1be_IW9jyXjymPKMs8ysSCxmbIKdTdgsW"),"doc"],
       ["Answers",D("1bijU5OfLsC9aKn-jomwvgCqXa_MGNMBS"),"ans"],
     ]},
-    {d:5, iso:"2026-11-05", topic:"Practice Quiz", flag:"quiz",
-      noteLabel:"Practice Quiz", ansLabel:"Answers", note:D("12wy0AHs1s7eyUwKQfMcuilLW_rR3C8ND"), ans:"" /* key: D("1tDJWaoQ-9lFXilup013ULs9b1FEocW6Q") */, extras:[
-      ["Graphing Quotients Extra Practice",D("1ci6x8Ho84QyRjt2Md36oG0eMYbmTAtsy"),"doc"],
-      ["Answers",D("1cj4bBx3CRvnfRXAb9EFQ-LOPLjsmGjoJ"),"ans"],
-    ]},
-    {d:6, iso:"2026-11-06", topic:"Solving Rational Inequalities", num:"4.5", note:D("17lV1ceNe0A1SSiUezlT29zaKCS77oDV2"), ans:"" /* key: D("1Pi4ikNGUpII811Vtj6MoLBtdVfYmnh1R") */, extras:[
+    {d:5, iso:"2026-11-05", topic:"Solving Rational Inequalities", num:"4.5", note:D("17lV1ceNe0A1SSiUezlT29zaKCS77oDV2"), ans:"" /* key: D("1Pi4ikNGUpII811Vtj6MoLBtdVfYmnh1R") */, extras:[
       ["Jensen: Solving Rational Inequalities","https://www.youtube.com/watch?v=_U8lOBTvfNs","vid"],
       ["Practice Solving Rational Inequalities",D("1befmdB8vadxFu9GD8gmcUqvcW9CLbQR_"),"doc"],
       ["Answers",D("1bwJUEgfAJcjL_xL_KtGBEIAf5C9oEpEi"),"ans"],
+    ]},
+    {d:6, iso:"2026-11-06", topic:"Practice Quiz", flag:"quiz",
+      noteLabel:"Practice Quiz", ansLabel:"Answers", note:D("12wy0AHs1s7eyUwKQfMcuilLW_rR3C8ND"), ans:"" /* key: D("1tDJWaoQ-9lFXilup013ULs9b1FEocW6Q") */, extras:[
+      ["Graphing Quotients Extra Practice",D("1ci6x8Ho84QyRjt2Md36oG0eMYbmTAtsy"),"doc"],
+      ["Answers",D("1cj4bBx3CRvnfRXAb9EFQ-LOPLjsmGjoJ"),"ans"],
     ]},
     {d:7, iso:"2026-11-09", topic:"Review", flag:"review", noteLabel:"Unit Review", ansLabel:"Answers",
       note:D("11QfKVMMvpuMlT_0x8pkdsPZi8DpsAoGM"), ans:"" /* key: D("1DLPWZsEq_su7EidEkFEsM_65C8GNfq3Y") */, extras:[
