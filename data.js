@@ -313,7 +313,7 @@ const COURSE = {
       ["Practice Problems (Linear)","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ed62a13e485b16c508d2bb/1642947233229/hw2s++3.3+quotient+of+linear+functions.pdf","doc"],
       ["Answers","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ed62a70a718a6aa7c0bdaf/1642947240026/hw2t++3.3+quotient+of+linear+functions.pdf","ans"],
     ]},
-    {d:4, iso:"2026-11-04", topic:"Solving Rational Equations", num:"4.4", note:D("123k_oXfImSYXnP7mCd96mv9O3SdRBP2O"), ans:"" /* key: D("1UjxLzPO0X8UtcYNxJgpw0tC0XNLo8Atv") */, extras:[
+    {d:4, iso:"2026-11-04", topic:"Solving Rational Equations", num:"4.4", note:D("123k_oXfImSYXnP7mCd96mv9O3SdRBP2O"), ans:D("1UjxLzPO0X8UtcYNxJgpw0tC0XNLo8Atv") /* key: D("1UjxLzPO0X8UtcYNxJgpw0tC0XNLo8Atv") */, extras:[
       ["Jensen: Solving Rational Equations","https://www.youtube.com/watch?v=i2WksNaT4wQ","vid"],
       ["Rational Equations with Word Problems",D("1dK64Bgy3Ihi8pkdWfSd_9GPsB_JGb7bR"),"doc"],
       ["Answers",D("1dCjIgI2sgSf_AerOVxZiRDdgo5JBbCnP"),"ans"],
