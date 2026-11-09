@@ -331,7 +331,7 @@ const COURSE = {
       ["Answers",D("1cj4bBx3CRvnfRXAb9EFQ-LOPLjsmGjoJ"),"ans"],
     ]},
     {d:7, iso:"2026-11-09", topic:"Review", flag:"review", noteLabel:"Unit Review", ansLabel:"Answers",
-      note:D("11QfKVMMvpuMlT_0x8pkdsPZi8DpsAoGM"), ans:"" /* key: D("1DLPWZsEq_su7EidEkFEsM_65C8GNfq3Y") */, extras:[
+      note:D("11QfKVMMvpuMlT_0x8pkdsPZi8DpsAoGM"), ans:D("1DLPWZsEq_su7EidEkFEsM_65C8GNfq3Y") /* key: D("1DLPWZsEq_su7EidEkFEsM_65C8GNfq3Y") */, extras:[
       ["Challenge Questions",D("1es6G1-ukzAGTbwJ5Vv_nPvFkKEk7ltxc"),"doc"],
       ["Answers",D("10PWXTJC3uXKDcmb_l4CIvDhr2aPQ-R8k"),"ans"],
       ["4.6 ROC of Rational Functions",D("1BeV9c6pNy4keGAvy5OQEc1W6WyJCENGT"),"doc"],
