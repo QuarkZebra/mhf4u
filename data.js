@@ -347,7 +347,7 @@ const COURSE = {
       ["Unit 5 Prerequisite Skills (answers included)",D("1gy_weoPahGxMsC6NKPvRVhcC8e3mD-Kd"),"skills"],
       ["SOH CAH TOA Song","https://www.youtube.com/watch?v=PIWJo5uK3Fo","vid"],
     ]},
-    {d:2, iso:"2026-11-12", topic:"Graphs of Trig Functions", num:"5.2", note:D("1PQeZqLfoUBYUJqciw9lIuTeAHeZ7XSkj"), ans:"" /* key: D("1XQpDtB3WzBuOT7RByKFLFbiY6QvqsKSH") */, extras:[
+    {d:2, iso:"2026-11-12", topic:"Graphs of Trig Functions", num:"5.2", note:D("1PQeZqLfoUBYUJqciw9lIuTeAHeZ7XSkj"), ans:D("1XQpDtB3WzBuOT7RByKFLFbiY6QvqsKSH") /* key: D("1XQpDtB3WzBuOT7RByKFLFbiY6QvqsKSH") */, extras:[
       ["Trig Angles Simulation","https://phet.colorado.edu/sims/html/trig-tour/latest/trig-tour_en.html","doc"],
       ["Transformations Review",D("1R_qADObrxDzdGpxFfIlRo2uUdJdsdo9z"),"doc"],
       ["Answers",D("1RUav7ZtepkNj-XT8Z3Q1G_Qf1_wkyxBv"),"ans"],
