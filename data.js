@@ -343,7 +343,7 @@ const COURSE = {
 
   /* ── UNIT 5 ─────────────────────────────────────────────── */
   {name:"Trigonometric Functions", days:[
-    {d:1, iso:"2026-11-11", topic:"Trig Ratios with Radians", num:"5.1", note:D("1cpBf-ZAo3wBeYz_cD_8NmTjRBQkWzQuK"), ans:D("1VJ01PJlASW7IQonyXXCgjID7ktpIcI4b") /* key: D("1VJ01PJlASW7IQonyXXCgjID7ktpIcI4b") */ /* v2 draft: note D("1te8V5N0hDsien243k54Km_QQhqe35SRx") key D("1FpF9cPMy814vCkLPAlTXnIhtOTBZ0_yz") */, extras:[
+    {d:1, iso:"2026-11-11", topic:"Trig Ratios with Radians", num:"5.1", note:D("1cpBf-ZAo3wBeYz_cD_8NmTjRBQkWzQuK"), ans:D("1FpF9cPMy814vCkLPAlTXnIhtOTBZ0_yz") /* key: D("1FpF9cPMy814vCkLPAlTXnIhtOTBZ0_yz") (v2, taught 11 Nov) */ /* v2 note D("1te8V5N0hDsien243k54Km_QQhqe35SRx"); v1 key D("1VJ01PJlASW7IQonyXXCgjID7ktpIcI4b") */, extras:[
       ["Unit 5 Prerequisite Skills (answers included)",D("1gy_weoPahGxMsC6NKPvRVhcC8e3mD-Kd"),"skills"],
       ["SOH CAH TOA Song","https://www.youtube.com/watch?v=PIWJo5uK3Fo","vid"],
     ]},
