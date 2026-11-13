@@ -31,7 +31,7 @@
 
    To SAVE TIME:
 
-   git add . && git commit -m "4.4 key and pquiz answers added" && git push origin main
+   git add . && git commit -m "5.2 Hudgin Practice added" && git push origin main
 
    ═══════════════════════════════════════════════════════════ */
 
@@ -356,6 +356,7 @@ const COURSE = {
       noteLabel:"Practice Quiz", ansLabel:"Answers", note:D("1tvwsl0GfosQUaTvTnjCqMZO2ARUoId0r"), ans:D("1zbCDkQqXrRgmBgrODCS749jcahZtgwlA") /* key: D("1zbCDkQqXrRgmBgrODCS749jcahZtgwlA") */, extras:[
       ["Trig Ratios & Special Angles Worksheet","https://www.jensenmath.ca/s/hw2s-42-Trig-Ratios-and-Special-Angles.pdf","doc"],
       ["Answers","https://www.jensenmath.ca/s/hw2t-42-Trig-Ratios-and-Special-Angles.pdf","ans"],
+      ["Extra Graphing Practice","https://docs.google.com/document/d/1g7IspVmT7y9jwEq7_lJvg4z0DyjXStocTNEVHClrSdM/edit?tab=t.0","doc"],
     ]},
     {d:4, iso:"2026-11-16", topic:"Transformations of Trig Functions", num:"5.3", note:D("1LHPj-C7CJRD72NMhpbGAHUYLQF75pXzK"), ans:"" /* key: D("1AcO7kAsXFy-nvyMq67dPFx1Zq5njHysx") */, extras:[
       ["Graphing Extra Practice (with answers)",D("1R8ytvzOWMppeLJhsje4RBBroGERjIdL5"),"doc"],
