@@ -353,7 +353,7 @@ const COURSE = {
       ["Answers",D("1RUav7ZtepkNj-XT8Z3Q1G_Qf1_wkyxBv"),"ans"],
     ]},
     {d:3, iso:"2026-11-13", topic:"Practice Quiz", flag:"quiz",
-      noteLabel:"Practice Quiz", ansLabel:"Answers", note:D("1tvwsl0GfosQUaTvTnjCqMZO2ARUoId0r"), ans:"" /* key: D("1zbCDkQqXrRgmBgrODCS749jcahZtgwlA") */, extras:[
+      noteLabel:"Practice Quiz", ansLabel:"Answers", note:D("1tvwsl0GfosQUaTvTnjCqMZO2ARUoId0r"), ans:D("1zbCDkQqXrRgmBgrODCS749jcahZtgwlA") /* key: D("1zbCDkQqXrRgmBgrODCS749jcahZtgwlA") */, extras:[
       ["Trig Ratios & Special Angles Worksheet","https://www.jensenmath.ca/s/hw2s-42-Trig-Ratios-and-Special-Angles.pdf","doc"],
       ["Answers","https://www.jensenmath.ca/s/hw2t-42-Trig-Ratios-and-Special-Angles.pdf","ans"],
     ]},
