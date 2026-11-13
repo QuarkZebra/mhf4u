@@ -346,11 +346,17 @@ const COURSE = {
     {d:1, iso:"2026-11-11", topic:"Trig Ratios with Radians", num:"5.1", note:D("1cpBf-ZAo3wBeYz_cD_8NmTjRBQkWzQuK"), ans:D("1FpF9cPMy814vCkLPAlTXnIhtOTBZ0_yz") /* key: D("1FpF9cPMy814vCkLPAlTXnIhtOTBZ0_yz") (v2, taught 11 Nov) */ /* v2 note D("1te8V5N0hDsien243k54Km_QQhqe35SRx"); v1 key D("1VJ01PJlASW7IQonyXXCgjID7ktpIcI4b") */, extras:[
       ["Unit 5 Prerequisite Skills (answers included)",D("1gy_weoPahGxMsC6NKPvRVhcC8e3mD-Kd"),"skills"],
       ["SOH CAH TOA Song","https://www.youtube.com/watch?v=PIWJo5uK3Fo","vid"],
+      ["Exact Values from Special Angles in Radians (8 min)","https://www.youtube.com/watch?v=dVVTXQnnKic","vid"],
+      ["Mr. Cioffi: Angles in Radians on the Coordinate Plane (17 min)","https://www.youtube.com/watch?v=gMrLoHPxv94","vid"],
+      ["JensenMath: Exact Trig Ratios in Radians (full lesson, 32 min)","https://www.youtube.com/watch?v=o5QlSEHoULk","vid"],
     ]},
     {d:2, iso:"2026-11-12", topic:"Graphs of Trig Functions", num:"5.2", note:D("1PQeZqLfoUBYUJqciw9lIuTeAHeZ7XSkj"), ans:D("1XQpDtB3WzBuOT7RByKFLFbiY6QvqsKSH") /* key: D("1XQpDtB3WzBuOT7RByKFLFbiY6QvqsKSH") */, extras:[
       ["Trig Angles Simulation","https://phet.colorado.edu/sims/html/trig-tour/latest/trig-tour_en.html","doc"],
       ["Transformations Review",D("1R_qADObrxDzdGpxFfIlRo2uUdJdsdo9z"),"doc"],
       ["Answers",D("1RUav7ZtepkNj-XT8Z3Q1G_Qf1_wkyxBv"),"ans"],
+      ["Watch a Circle Draw the Sine Graph (30 sec)","https://www.youtube.com/watch?v=Q55T6LeTvsA","vid"],
+      ["Khan Academy: Midline, Amplitude and Period (5 min)","https://www.youtube.com/watch?v=s4cLM0l1gd4","vid"],
+      ["Mr. Cioffi: Graphing Trig Functions (9 min)","https://www.youtube.com/watch?v=WWmnVUFu3Iw","vid"],
     ]},
     {d:3, iso:"2026-11-13", topic:"Practice Quiz", flag:"quiz",
       noteLabel:"Practice Quiz", ansLabel:"Answers", note:D("1tvwsl0GfosQUaTvTnjCqMZO2ARUoId0r"), ans:D("1zbCDkQqXrRgmBgrODCS749jcahZtgwlA") /* key: D("1zbCDkQqXrRgmBgrODCS749jcahZtgwlA") */, extras:[
@@ -360,23 +366,33 @@ const COURSE = {
     ]},
     {d:4, iso:"2026-11-16", topic:"Transformations of Trig Functions", num:"5.3", note:D("1LHPj-C7CJRD72NMhpbGAHUYLQF75pXzK"), ans:"" /* key: D("1AcO7kAsXFy-nvyMq67dPFx1Zq5njHysx") */, extras:[
       ["Graphing Extra Practice (with answers)",D("1R8ytvzOWMppeLJhsje4RBBroGERjIdL5"),"doc"],
+      ["Mr. Cioffi: Transformations of Trig Functions (15 min)","https://www.youtube.com/watch?v=1e3SsvEF-wQ","vid"],
+      ["Ms. Havrot: Transformations of Trig Functions (6.4, 27 min)","https://www.youtube.com/watch?v=jJ0LR8qb1Hs","vid"],
     ]},
     {d:5, iso:"2026-11-17", topic:"Reciprocal Trig Functions", num:"5.4", note:D("12xbvlEsXneDTaxFcPfh4fCnJAN9gKHX_"), ans:"" /* key: D("1PLIPXSFCCtClYbfcX2pwl1ASbhq8Zd-F") */, extras:[
       ["Graphing All Trig Functions Worksheet","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ed517c0e1ca17f50545404/1642942844717/hw3s++Graphing+Trig+Functions.pdf","doc"],
       ["Answers","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ed5182684ee5656cdedfea/1642942850446/hw3t++Graphing+Trig+Functions.pdf","ans"],
+      ["Mr. Cioffi: Graphs of the Reciprocal Trig Functions (6 min)","https://www.youtube.com/watch?v=ZAPtc4GvJDs","vid"],
+      ["How to Graph Secant and Cosecant (8 min)","https://www.youtube.com/watch?v=2o_dxyKAXLQ","vid"],
+      ["Ms. Havrot: Graphs of the Reciprocal Trig Functions (6.5, 13 min)","https://www.youtube.com/watch?v=RDlnbfA0He8","vid"],
     ]},
     {d:6, iso:"2026-11-18", topic:"Modelling with Trig Functions", num:"5.5", note:D("1BfMa7IWpbXSLuDuV2Yf9NB2l-uuIMs3R"), ans:"" /* key: D("1-WlIZ94TNAkcbg9BcFyADNKlT5CnXiba") */, extras:[
       ["Trig Applications Worksheet","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ed520c2d3b9c7554d007c3/1642942988894/hw5s++Trig+Applications.pdf","doc"],
       ["Answers","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ed52117618b227cf316b53/1642942994194/hw5t++Trig+Applications.pdf","ans"],
+      ["Ferris Wheel & Temperature Word Problems (17 min)","https://www.youtube.com/watch?v=KOOORDz_AYw","vid"],
+      ["Mr. Cioffi: Modelling with Trig Functions (17 min)","https://www.youtube.com/watch?v=mFSZV4qgs6k","vid"],
     ]},
     {d:7, iso:"2026-11-19", topic:"Work Period", note:"", ans:"", extras:[]},
     {d:8, iso:"2026-11-20", topic:"Trig Rates of Change", num:"5.6", note:D("1WIvfHkdMB0-DS-JCB8KqHr150GWeYfwf"), ans:"" /* key: D("1e4rjqZ_2_I2qwl1Va-LK0GQpRUZs4gbC") */, extras:[
+      ["Khan Academy: Secant Lines & Average Rate of Change (5 min)","https://www.youtube.com/watch?v=0z_MDIWMBwU","vid"],
+      ["Average Rate of Change in a Trig Function (11 min)","https://www.youtube.com/watch?v=nmXlBZkSYxM","vid"],
       ["Ms. Havrot: Rates of Change in Trig Functions (6.7)","https://www.youtube.com/watch?v=_wvW1D-EBuQ","vid"],
     ]},
     {d:9, iso:"2026-11-24", topic:"Review", flag:"review", noteLabel:"Unit Review", ansLabel:"Answers",
       note:D("1N7_8Ab3iv1zEAZi4hD4mzpNDQn4nz82j"), ans:"" /* key: D("1JFR7n-bSlIMg46fqeI90IcYMOpRCm3qF") */, extras:[
       ["Extra Review Questions","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ed524a1f188b0ab84d4079/1642943050935/Unit+4+Review++Trig+in+Radians.pdf","doc"],
       ["Answers","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ed525acc0eeb42ab7837de/1642943066952/Unit+4+Review++Trig+in+Radians+SOLUTIONS.pdf","ans"],
+      ["Ms. Havrot: Trig Functions Review, Worked Through (42 min)","https://www.youtube.com/watch?v=Zs4tkhIaoRE","vid"],
     ]},
     {d:10, iso:"2026-11-25", topic:"Trig Functions Test (without calculators)", flag:"test", extras:[]},
     {d:11, iso:"2026-11-26", topic:"Trig Functions Test (with calculators)", flag:"test", extras:[]},
