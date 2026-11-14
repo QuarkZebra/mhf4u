@@ -463,7 +463,7 @@ const COURSE = {
       ["Transformations of Exp & Log Functions Worksheet","https://www.jensenmath.ca/s/hw7s-63-transformations-of-expo-and-log.pdf","doc"],
       ["Answers","https://www.jensenmath.ca/s/hw7t-63-transformations-of-expo-and-log.pdf","ans"],
     ]},
-    {d:3, iso:"2026-12-17", topic:"Exploring Graphs of Log Functions", num:"7.3", note:"", ans:"", extras:[
+    {d:3, iso:"2026-12-17", topic:"Exploring Graphs of Log Functions", num:"7.3", note:D("1Vh4yMx0xuE1VCt-HujJYW_ZoyD8v65T1"), ans:"" /* key: D("1nBA0PaKHKSwdmR0gUnkrTRyL7G6aeAky") */, extras:[
       ["Distance vs Loudness Data","https://docs.google.com/spreadsheets/d/1OgkZH9FMYJVyvrgC8vwtPE4-Mu4557iTJfTDcoIydb4/edit","doc"],
       ["Santa’s Chaotic Workshop Challenge",D("1jIIr6PjZ_w66MxFeNeXYxWYJC2coJdIc"),"doc"],
     ]},
