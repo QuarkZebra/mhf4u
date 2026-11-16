@@ -364,7 +364,7 @@ const COURSE = {
       ["Answers","https://www.jensenmath.ca/s/hw2t-42-Trig-Ratios-and-Special-Angles.pdf","ans"],
       ["Extra Graphing Practice","https://docs.google.com/document/d/1g7IspVmT7y9jwEq7_lJvg4z0DyjXStocTNEVHClrSdM/edit?tab=t.0","doc"],
     ]},
-    {d:4, iso:"2026-11-16", topic:"Transformations of Trig Functions", num:"5.3", note:D("1LHPj-C7CJRD72NMhpbGAHUYLQF75pXzK"), ans:"" /* key: D("1AcO7kAsXFy-nvyMq67dPFx1Zq5njHysx") */, extras:[
+    {d:4, iso:"2026-11-16", topic:"Transformations of Trig Functions", num:"5.3", note:D("1LHPj-C7CJRD72NMhpbGAHUYLQF75pXzK"), ans:D("1AcO7kAsXFy-nvyMq67dPFx1Zq5njHysx") /* key: D("1AcO7kAsXFy-nvyMq67dPFx1Zq5njHysx") */, extras:[
       ["Graphing Extra Practice (with answers)",D("1R8ytvzOWMppeLJhsje4RBBroGERjIdL5"),"doc"],
       ["Mr. Cioffi: Transformations of Trig Functions (15 min)","https://www.youtube.com/watch?v=1e3SsvEF-wQ","vid"],
       ["Ms. Havrot: Transformations of Trig Functions (6.4, 27 min)","https://www.youtube.com/watch?v=jJ0LR8qb1Hs","vid"],
