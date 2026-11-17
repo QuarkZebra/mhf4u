@@ -369,7 +369,7 @@ const COURSE = {
       ["Mr. Cioffi: Transformations of Trig Functions (15 min)","https://www.youtube.com/watch?v=1e3SsvEF-wQ","vid"],
       ["Ms. Havrot: Transformations of Trig Functions (6.4, 27 min)","https://www.youtube.com/watch?v=jJ0LR8qb1Hs","vid"],
     ]},
-    {d:5, iso:"2026-11-17", topic:"Reciprocal Trig Functions", num:"5.4", note:D("12xbvlEsXneDTaxFcPfh4fCnJAN9gKHX_"), ans:"" /* key: D("1PLIPXSFCCtClYbfcX2pwl1ASbhq8Zd-F") */, extras:[
+    {d:5, iso:"2026-11-17", topic:"Reciprocal Trig Functions", num:"5.4", note:D("12xbvlEsXneDTaxFcPfh4fCnJAN9gKHX_"), ans:D("1PLIPXSFCCtClYbfcX2pwl1ASbhq8Zd-F") /* key: D("1PLIPXSFCCtClYbfcX2pwl1ASbhq8Zd-F") */, extras:[
       ["Graphing All Trig Functions Worksheet","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ed517c0e1ca17f50545404/1642942844717/hw3s++Graphing+Trig+Functions.pdf","doc"],
       ["Answers","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ed5182684ee5656cdedfea/1642942850446/hw3t++Graphing+Trig+Functions.pdf","ans"],
       ["Mr. Cioffi: Graphs of the Reciprocal Trig Functions (6 min)","https://www.youtube.com/watch?v=ZAPtc4GvJDs","vid"],
