@@ -382,7 +382,7 @@ const COURSE = {
       ["Ferris Wheel & Temperature Word Problems (17 min)","https://www.youtube.com/watch?v=KOOORDz_AYw","vid"],
       ["Mr. Cioffi: Modelling with Trig Functions (17 min)","https://www.youtube.com/watch?v=mFSZV4qgs6k","vid"],
     ]},
-    {d:7, iso:"2026-11-19", topic:"Work Period", note:"", ans:"", extras:[]},
+    {d:7, iso:"2026-11-19", topic:"Work Period", noteLabel:"Modelling Practice", note:D("1zLVTqIAUcuXl1G3JiRQP-7XK6RHWPD9w"), ans:"" /* key: D("1egxSnjDg5xb8qgowozyL5ccWSjvwl4RQ") */, extras:[]},
     {d:8, iso:"2026-11-20", topic:"Trig Rates of Change", num:"5.6", note:D("1WIvfHkdMB0-DS-JCB8KqHr150GWeYfwf"), ans:"" /* key: D("1e4rjqZ_2_I2qwl1Va-LK0GQpRUZs4gbC") */, extras:[
       ["Khan Academy: Secant Lines & Average Rate of Change (5 min)","https://www.youtube.com/watch?v=0z_MDIWMBwU","vid"],
       ["Average Rate of Change in a Trig Function (11 min)","https://www.youtube.com/watch?v=nmXlBZkSYxM","vid"],
