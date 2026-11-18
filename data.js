@@ -376,7 +376,7 @@ const COURSE = {
       ["How to Graph Secant and Cosecant (8 min)","https://www.youtube.com/watch?v=2o_dxyKAXLQ","vid"],
       ["Ms. Havrot: Graphs of the Reciprocal Trig Functions (6.5, 13 min)","https://www.youtube.com/watch?v=RDlnbfA0He8","vid"],
     ]},
-    {d:6, iso:"2026-11-18", topic:"Modelling with Trig Functions", num:"5.5", note:D("1BfMa7IWpbXSLuDuV2Yf9NB2l-uuIMs3R"), ans:"" /* key: D("1-WlIZ94TNAkcbg9BcFyADNKlT5CnXiba") */, extras:[
+    {d:6, iso:"2026-11-18", topic:"Modelling with Trig Functions", num:"5.5", note:D("1BfMa7IWpbXSLuDuV2Yf9NB2l-uuIMs3R"), ans:D("1-WlIZ94TNAkcbg9BcFyADNKlT5CnXiba") /* key: D("1-WlIZ94TNAkcbg9BcFyADNKlT5CnXiba") */, extras:[
       ["Trig Applications Worksheet","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ed520c2d3b9c7554d007c3/1642942988894/hw5s++Trig+Applications.pdf","doc"],
       ["Answers","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ed52117618b227cf316b53/1642942994194/hw5t++Trig+Applications.pdf","ans"],
       ["Ferris Wheel & Temperature Word Problems (17 min)","https://www.youtube.com/watch?v=KOOORDz_AYw","vid"],
