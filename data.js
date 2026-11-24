@@ -389,7 +389,7 @@ const COURSE = {
       ["Ms. Havrot: Rates of Change in Trig Functions (6.7)","https://www.youtube.com/watch?v=_wvW1D-EBuQ","vid"],
     ]},
     {d:9, iso:"2026-11-24", topic:"Review", flag:"review", noteLabel:"Unit Review", ansLabel:"Answers",
-      note:D("1N7_8Ab3iv1zEAZi4hD4mzpNDQn4nz82j"), ans:"" /* key: D("1JFR7n-bSlIMg46fqeI90IcYMOpRCm3qF") */, extras:[
+      note:D("1N7_8Ab3iv1zEAZi4hD4mzpNDQn4nz82j"), ans:D("1JFR7n-bSlIMg46fqeI90IcYMOpRCm3qF") /* key: D("1JFR7n-bSlIMg46fqeI90IcYMOpRCm3qF") */, extras:[
       ["Extra Review Questions","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ed524a1f188b0ab84d4079/1642943050935/Unit+4+Review++Trig+in+Radians.pdf","doc"],
       ["Answers","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ed525acc0eeb42ab7837de/1642943066952/Unit+4+Review++Trig+in+Radians+SOLUTIONS.pdf","ans"],
       ["Ms. Havrot: Trig Functions Review, Worked Through (42 min)","https://www.youtube.com/watch?v=Zs4tkhIaoRE","vid"],
