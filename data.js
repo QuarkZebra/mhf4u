@@ -24,6 +24,9 @@
            kind = "doc" (worksheet/handout), "ans" (solutions,
            shows the ☠︎ warning), "vid" (video), "skills" (a
            Prerequisite Skills sheet: teal, answers on the sheet).
+   - summary (on a unit, beside name): D("id") of that unit's Unit
+           Summary. Shows a teal "Summary" pill on the unit header
+           and a banner above the unit's days.
    - essentials (top of COURSE): the links pinned under the title.
 
    D(id) is shorthand for a Google Drive link — paste either a
@@ -244,7 +247,7 @@ const COURSE = {
   ]},
 
   /* ── UNIT 3 ─────────────────────────────────────────────── */
-  {name:"Polynomial Equations & Inequalities", days:[
+  {name:"Polynomial Equations & Inequalities", summary:D("1sx6J314lzyAR7bTuOrag1F24uwVmgRUM"), days:[
     {d:1, iso:"2026-10-15", topic:"Solving Polynomial Equations", num:"3.1", note:D("1WylEmcyNZdwCwdfGNMJFou7nwEN1Vpj5"), ans:D("1vgGk1yv2gJbw6J0kwYW8bT-Ed7ObhWcZ") /* key: D("1vgGk1yv2gJbw6J0kwYW8bT-Ed7ObhWcZ") */, extras:[
       ["Unit 3 Prerequisite Skills (answers included)",D("1lmPE_m23qefjD5f_BJW6c9ilr4Eoio2W"),"skills"],
       ["Jensen: Solving Polynomial Equations","https://www.youtube.com/watch?v=3DXn0v55KSY","vid"],
@@ -296,7 +299,7 @@ const COURSE = {
   ]},
 
   /* ── UNIT 4 ─────────────────────────────────────────────── */
-  {name:"Rational Functions", days:[
+  {name:"Rational Functions", summary:D("1dmtimlhzVHtQLSgXngyNwMmsgBKqnDav"), days:[
     {d:1, iso:"2026-10-30", topic:"Graphs of Reciprocal Functions", num:"4.1", note:D("1v3uYh0ks822Fcu2m5xjxZAGVLksTXGb4"), ans:D("1UBof53_Zraqx8MZKqdxZmfIOsQ8ukrSo") /* key: D("1UBof53_Zraqx8MZKqdxZmfIOsQ8ukrSo") */, extras:[
       ["Unit 4 Prerequisite Skills (answers included)",D("1mPrTfSQfNBvrqUkivHVRDuA0uBjmgRGm"),"skills"],
       ["Ms. Havrot’s Videos: Rational Functions","https://www.youtube.com/watch?v=QT2hD5EnHAs&list=PLGinkJ_ZMO2FE8EzZwCSUIPxOmMxmrzVv","vid"],
@@ -342,7 +345,7 @@ const COURSE = {
   ]},
 
   /* ── UNIT 5 ─────────────────────────────────────────────── */
-  {name:"Trigonometric Functions", days:[
+  {name:"Trigonometric Functions", summary:D("1hv7iPwfKVUktjTCXcCQmB9-paJaLgYIz"), days:[
     {d:1, iso:"2026-11-11", topic:"Trig Ratios with Radians", num:"5.1", note:D("1cpBf-ZAo3wBeYz_cD_8NmTjRBQkWzQuK"), ans:D("1FpF9cPMy814vCkLPAlTXnIhtOTBZ0_yz") /* key: D("1FpF9cPMy814vCkLPAlTXnIhtOTBZ0_yz") (v2, taught 11 Nov) */ /* v2 note D("1te8V5N0hDsien243k54Km_QQhqe35SRx"); v1 key D("1VJ01PJlASW7IQonyXXCgjID7ktpIcI4b") */, extras:[
       ["Unit 5 Prerequisite Skills (answers included)",D("1gy_weoPahGxMsC6NKPvRVhcC8e3mD-Kd"),"skills"],
       ["SOH CAH TOA Song","https://www.youtube.com/watch?v=PIWJo5uK3Fo","vid"],
