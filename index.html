@@ -251,18 +251,8 @@ header .sub{color:var(--t3);font-size:.88rem;margin-top:.35rem}
 .dlink.vid{color:var(--vid);font-size:.78rem}
 .dlink.doc{color:var(--t2);font-size:.78rem}
 .dlink.skills{color:var(--skills);font-size:.78rem;font-weight:600}
-/* Unit Summary: a unit-level study guide (u.summary in data.js). A pill in the unit header and a banner above the days. */
+/* Unit Summary: an extras entry of kind "summary". Teal link with a Summary pill, and a pill on the unit header. */
 .utag.sum{background:var(--skills);color:#fff;border-color:transparent;font-weight:700}
-.usum{display:flex;align-items:center;gap:.8rem;margin:.75rem .9rem .2rem;padding:.7rem 1rem;border-radius:12px;text-decoration:none;
-  background:linear-gradient(90deg,color-mix(in srgb,var(--skills) 16%,transparent),color-mix(in srgb,var(--skills) 5%,transparent));
-  border:1.5px solid var(--skills);color:var(--ink);box-shadow:var(--sh);transition:transform .15s,box-shadow .15s}
-.usum:hover{transform:translateY(-1px);box-shadow:var(--sh2)}
-.usum:focus-visible{outline:2px solid var(--skills);outline-offset:2px}
-.usum .ico{width:1.5em;height:1.5em;color:var(--skills);flex:none}
-.usum b{display:block;font-size:.95rem;color:var(--skills)}
-.usum small{display:block;font-size:.76rem;color:var(--t3);margin-top:.1rem}
-.usum .go{margin-left:auto;font-size:.76rem;font-weight:700;color:#fff;background:var(--skills);padding:.34rem .8rem;border-radius:100px;white-space:nowrap}
-@media(max-width:640px){.usum{margin:.6rem .5rem .2rem;padding:.6rem .7rem;gap:.55rem}.usum .go{display:none}}
 .dlink:hover .ico.layers{transform:translateY(-1px)}
 
 /* Hover tooltips */
@@ -496,6 +486,7 @@ function extraLink(e){
   if(kind==="vid")return live(t,url,"vid","play",false);
   if(kind==="ans")return live(t,url,"ans","check",true);
   if(kind==="skills")return live(t,url,"skills","layers",false);
+  if(kind==="summary")return `<div class="xitem">${live(t,url,"skills","layers",false)}<span class="utag sum">Summary</span></div>`;
   return live(t,url,"doc","arrow",false);
 }
 /* A worksheet's answers ride along as a chip on the same line instead of a stray "Answers" row */
@@ -607,11 +598,10 @@ function render(){
         <span class="utitle">${u.name}</span>
         <span class="urange">${unitRange(u)}</span>
         <span class="umeta">${unitMeta(u)}</span>
-        ${u.summary?'<span class="utag sum">Summary</span>':''}${freshTag(u)}${unitTag(u,i)}
+        ${u.days.some(d=>(d.extras||[]).some(e=>e&&e[2]==="summary"))?'<span class="utag sum">Summary</span>':''}${freshTag(u)}${unitTag(u,i)}
         <svg class="chev" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
       </button>
       <div class="ubody"><div class="ubody-inner">
-        ${u.summary?`<a class="usum" href="${u.summary}" target="_blank" rel="noopener">${ico("layers")}<span><b>${unitLabel(u,i)} Summary</b><small>One page per lesson: the idea, a worked example step by step, the mistake to watch for, and two to try.</small></span><span class="go">Open</span></a>`:""}
         <div class="ucontent"><table class="ltable">
           <thead><tr><th>Day</th><th>Date</th><th class="th-topic">Topic · Note &amp; Practice Problems</th><th class="th-extra">Extra Practice &amp; Resources</th></tr></thead>
           <tbody>${u.days.map(dayRow).join("")}</tbody>
@@ -707,7 +697,7 @@ function renderHero(){
   h.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();jump()}});
 }
 
-const LEGEND_HTML=`<div class="ht">What the links mean</div><div class="hi"><span class="dlink note">${ico("arrow")}<span class="lt">1.4 Blank Note &amp; Practice Problems</span></span><small>the day's note</small></div><div class="hi"><span class="dlink ans">${ico("check")}<span class="lt">Answers</span></span><small>posted after class · do the practice first</small></div><div class="hi"><span class="dlink vid">${ico("play")}<span class="lt">Video</span></span></div><div class="hi"><span class="dlink doc">${ico("arrow")}<span class="lt">Worksheet</span></span><span class="xans">${ico("check")}Answers</span><small>a resource with its own answers</small></div><div class="hi"><span class="dlink skills">${ico("layers")}<span class="lt">Prerequisite Skills</span></span><small>earlier-course skills a unit leans on · answers on the sheet</small></div><div class="hi"><span class="dlink pend">${ico("arrow")}<span class="lt">Greyed out</span></span><small>coming soon</small></div><div class="hi"><span class="newp">New</span><small>answers released in the last few days</small></div><div class="hi"><span class="swatch"></span><small>today's lesson</small></div>`;
+const LEGEND_HTML=`<div class="ht">What the links mean</div><div class="hi"><span class="dlink note">${ico("arrow")}<span class="lt">1.4 Blank Note &amp; Practice Problems</span></span><small>the day's note</small></div><div class="hi"><span class="dlink ans">${ico("check")}<span class="lt">Answers</span></span><small>posted after class · do the practice first</small></div><div class="hi"><span class="dlink vid">${ico("play")}<span class="lt">Video</span></span></div><div class="hi"><span class="dlink doc">${ico("arrow")}<span class="lt">Worksheet</span></span><span class="xans">${ico("check")}Answers</span><small>a resource with its own answers</small></div><div class="hi"><span class="dlink skills">${ico("layers")}<span class="lt">Core Concepts / Review</span></span><small>prerequisite skills, unit summaries and core concepts reviews</small></div><div class="hi"><span class="dlink pend">${ico("arrow")}<span class="lt">Greyed out</span></span><small>coming soon</small></div><div class="hi"><span class="newp">New</span><small>answers released in the last few days</small></div><div class="hi"><span class="swatch"></span><small>today's lesson</small></div>`;
 /* ══════════ Controls ══════════ */
 document.getElementById("expBtn").addEventListener("click",function(){
   const units=[...document.querySelectorAll(".unit")];

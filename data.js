@@ -24,9 +24,9 @@
            kind = "doc" (worksheet/handout), "ans" (solutions,
            shows the ☠︎ warning), "vid" (video), "skills" (a
            Prerequisite Skills sheet: teal, answers on the sheet).
-   - summary (on a unit, beside name): D("id") of that unit's Unit
-           Summary. Shows a teal "Summary" pill on the unit header
-           and a banner above the unit's days.
+           "summary" (a Unit Summary: teal with a Summary pill, and
+           a Summary pill on the unit header). Goes first on the
+           unit's Review day.
    - essentials (top of COURSE): the links pinned under the title.
 
    D(id) is shorthand for a Google Drive link — paste either a
@@ -247,7 +247,7 @@ const COURSE = {
   ]},
 
   /* ── UNIT 3 ─────────────────────────────────────────────── */
-  {name:"Polynomial Equations & Inequalities", summary:D("1sx6J314lzyAR7bTuOrag1F24uwVmgRUM"), days:[
+  {name:"Polynomial Equations & Inequalities", days:[
     {d:1, iso:"2026-10-15", topic:"Solving Polynomial Equations", num:"3.1", note:D("1WylEmcyNZdwCwdfGNMJFou7nwEN1Vpj5"), ans:D("1vgGk1yv2gJbw6J0kwYW8bT-Ed7ObhWcZ") /* key: D("1vgGk1yv2gJbw6J0kwYW8bT-Ed7ObhWcZ") */, extras:[
       ["Unit 3 Prerequisite Skills (answers included)",D("1lmPE_m23qefjD5f_BJW6c9ilr4Eoio2W"),"skills"],
       ["Jensen: Solving Polynomial Equations","https://www.youtube.com/watch?v=3DXn0v55KSY","vid"],
@@ -291,6 +291,9 @@ const COURSE = {
     ]},
     {d:10, iso:"2026-10-28", topic:"Review", flag:"review", noteLabel:"Unit Review", ansLabel:"Answers",
       note:D("1k5eP60CVoLjTEv0136fBr2AuzeJgEVCJ"), ans:D("1l7H1pC2Jfx0zHsHnr4QnpzWcBkdf7Rmn") /* key: D("1l7H1pC2Jfx0zHsHnr4QnpzWcBkdf7Rmn") */, extras:[
+      ["Unit 3 Summary",D("1sx6J314lzyAR7bTuOrag1F24uwVmgRUM"),"summary"],
+      ["Core Concepts Review",D("1t_Tyca6yhERRGBUA7vSzvorE08IxLhEp"),"skills"],
+      ["Solutions",D("1zl-7cdH2MocykFOVM_H9jSTmKL6zjVDr"),"ans"],
       ["Test 3 Additional Review (with solutions)",D("11_H-VG4ZK1amoFGAQr9QSbz4z7Njulk9"),"doc"],
       ["Ms. Havrot: Chapter 4 Practice Test","https://www.youtube.com/watch?v=d6mpf7rwVQo","vid"],
       ["Ms. Havrot: Rates of Change Summary (2.3–2.5)","https://www.youtube.com/watch?v=bctH4jVfFKY","vid"],
@@ -299,7 +302,7 @@ const COURSE = {
   ]},
 
   /* ── UNIT 4 ─────────────────────────────────────────────── */
-  {name:"Rational Functions", summary:D("1dmtimlhzVHtQLSgXngyNwMmsgBKqnDav"), days:[
+  {name:"Rational Functions", days:[
     {d:1, iso:"2026-10-30", topic:"Graphs of Reciprocal Functions", num:"4.1", note:D("1v3uYh0ks822Fcu2m5xjxZAGVLksTXGb4"), ans:D("1UBof53_Zraqx8MZKqdxZmfIOsQ8ukrSo") /* key: D("1UBof53_Zraqx8MZKqdxZmfIOsQ8ukrSo") */, extras:[
       ["Unit 4 Prerequisite Skills (answers included)",D("1mPrTfSQfNBvrqUkivHVRDuA0uBjmgRGm"),"skills"],
       ["Ms. Havrot’s Videos: Rational Functions","https://www.youtube.com/watch?v=QT2hD5EnHAs&list=PLGinkJ_ZMO2FE8EzZwCSUIPxOmMxmrzVv","vid"],
@@ -335,6 +338,9 @@ const COURSE = {
     ]},
     {d:7, iso:"2026-11-09", topic:"Review", flag:"review", noteLabel:"Unit Review", ansLabel:"Answers",
       note:D("11QfKVMMvpuMlT_0x8pkdsPZi8DpsAoGM"), ans:D("1DLPWZsEq_su7EidEkFEsM_65C8GNfq3Y") /* key: D("1DLPWZsEq_su7EidEkFEsM_65C8GNfq3Y") */, extras:[
+      ["Unit 4 Summary",D("1dmtimlhzVHtQLSgXngyNwMmsgBKqnDav"),"summary"],
+      ["Core Concepts Review",D("1PqMQlBXn8-JL28MOVHxXbfbZs0TCjyct"),"skills"],
+      ["Solutions",D("11ULokJAsN8j9ULVOjzgIP_2pcqoXMJ2Y"),"ans"],
       ["Challenge Questions",D("1es6G1-ukzAGTbwJ5Vv_nPvFkKEk7ltxc"),"doc"],
       ["Answers",D("10PWXTJC3uXKDcmb_l4CIvDhr2aPQ-R8k"),"ans"],
       ["4.6 ROC of Rational Functions",D("1BeV9c6pNy4keGAvy5OQEc1W6WyJCENGT"),"doc"],
@@ -345,7 +351,7 @@ const COURSE = {
   ]},
 
   /* ── UNIT 5 ─────────────────────────────────────────────── */
-  {name:"Trigonometric Functions", summary:D("1hv7iPwfKVUktjTCXcCQmB9-paJaLgYIz"), days:[
+  {name:"Trigonometric Functions", days:[
     {d:1, iso:"2026-11-11", topic:"Trig Ratios with Radians", num:"5.1", note:D("1cpBf-ZAo3wBeYz_cD_8NmTjRBQkWzQuK"), ans:D("1FpF9cPMy814vCkLPAlTXnIhtOTBZ0_yz") /* key: D("1FpF9cPMy814vCkLPAlTXnIhtOTBZ0_yz") (v2, taught 11 Nov) */ /* v2 note D("1te8V5N0hDsien243k54Km_QQhqe35SRx"); v1 key D("1VJ01PJlASW7IQonyXXCgjID7ktpIcI4b") */, extras:[
       ["Unit 5 Prerequisite Skills (answers included)",D("1gy_weoPahGxMsC6NKPvRVhcC8e3mD-Kd"),"skills"],
       ["SOH CAH TOA Song","https://www.youtube.com/watch?v=PIWJo5uK3Fo","vid"],
@@ -393,6 +399,7 @@ const COURSE = {
     ]},
     {d:9, iso:"2026-11-24", topic:"Review", flag:"review", noteLabel:"Unit Review", ansLabel:"Answers",
       note:D("1N7_8Ab3iv1zEAZi4hD4mzpNDQn4nz82j"), ans:D("1JFR7n-bSlIMg46fqeI90IcYMOpRCm3qF") /* key: D("1JFR7n-bSlIMg46fqeI90IcYMOpRCm3qF") */, extras:[
+      ["Unit 5 Summary",D("1hv7iPwfKVUktjTCXcCQmB9-paJaLgYIz"),"summary"],
       ["Core Concepts Review",D("1fokBD37q9FP2B9bNaS_t0nvcHsBBpC3o"),"skills"],
       ["Solutions",D("1irfuJFP37DmnwUn8J4jjxxsKOv6plBR-"),"ans"],
       ["Extra Review Questions","https://static1.squarespace.com/static/61de416a3e2596709a9237f6/t/61ed524a1f188b0ab84d4079/1642943050935/Unit+4+Review++Trig+in+Radians.pdf","doc"],
