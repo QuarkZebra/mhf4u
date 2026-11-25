@@ -455,6 +455,7 @@ const COURSE = {
     {d:10, iso:"2026-12-10", topic:"Review", flag:"review", noteLabel:"Unit Review", ansLabel:"Answers",
       note:D("1uJx3N_X6mKxbAb8XT_pL9mipogQUqMeU"), ans:"" /* key: D("1b582rBAF_MYPpYrQc9Io9W7CJXUzhCNI") */, extras:[
       /* summary: ["Unit 6 Summary",D("1rWIPu9wwE9cWdGxgzA1YVETeyPs6_thF"),"summary"], */
+      /* core: ["Core Concepts Review",D("1TyZLPVzYatr0yEJDWBm3LqSg4tXr9-Es"),"skills"], ["Solutions",D("1bF6mkDdQTJYqMjeqhjISuwQN65QxS1Cp"),"ans"], */
       ["Practice Tests (Hudgin)",D("1VLV6ITAq9IWBPbJSdsq7pi8pbk2b9plT"),"doc"],
       ["Answers",D("16nDXz6px2P8KvPCcWEcVTxbvwvFQUHu0"),"ans"],
     ]},
@@ -516,6 +517,7 @@ const COURSE = {
     ]},
     {d:13, iso:"2027-01-14", topic:"Review", flag:"review", noteLabel:"Unit Review", ansLabel:"Answers",
       note:D("1cm1AvRoBoWyJu-9GPIUJElTpevDQohu-"), ans:"" /* key: D("1R1AOje26qC3tUhunqRbSEc_YkPz8vg_S") */, extras:[
+      /* core: ["Core Concepts Review",D("1YRjjcs6_faGSWZHdP6mdav7rMeBLAeR-"),"skills"], ["Solutions",D("1JeYeNDDglT8Yc1atcmjKtbS6mPkEO9nV"),"ans"], */
       ["Practice Test",D("1iY7Fv4H4pvzIvH_DLZLPvPTvbUUQ1s9T"),"doc"],
       ["Answers",D("1iYTNlBzH-RTyQhQvvJOgV8ifTnTqBbJD"),"ans"],
     ]},
