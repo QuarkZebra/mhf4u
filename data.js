@@ -416,6 +416,7 @@ const COURSE = {
       ["Unit 6 Prerequisite Skills (answers included)",D("1Ztq316NIicDiPzGp2p03rFjhGjwH4BlG"),"skills"],
       ["Review: Trig Identities",D("1YI0Zr7DZkqQc6hdEzJChXoMJbCP0Mo1w"),"doc"],
       ["Answers",D("1-bzNcIKgWX7rfzqmbfDr2CpYS7zi0NNr"),"ans"],
+      ["Khan Academy: The Pythagorean Identity from the Unit Circle (6 min)","https://www.youtube.com/watch?v=n0DLSIOYBsQ","vid"],
       ["Solving Trig Identities","https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:trig/x9e81a4f98389efdf:using-trig-id/v/examples-using-pythagorean-identities-to-simplify-trigonometric-expressions","vid"],
       ["Verifying a Trig Identity","https://www.youtube.com/watch?v=AzP3-KLqy8k","vid"],
       ["Trigonometry Review","https://www.youtube.com/watch?v=mhd9FXYdf4s","vid"],
@@ -423,13 +424,19 @@ const COURSE = {
     ]},
     {d:2, iso:"2026-11-30", topic:"Equivalent Trig Functions", num:"6.2", note:D("1ELwi1OrzH0sTgDod8ets-8WqV0jSDlxv"), ans:"" /* key: D("1pORaiLhsfDekXtUmGZhyXSTAbfWVm2Tb") */, extras:[
       ["Lesson Video","https://youtu.be/TyZBzrScTy0","vid"],
+      ["Cofunction Identities, Explained (4 min)","https://www.youtube.com/watch?v=AYuSNvDWsHM","vid"],
+      ["Mr. Cioffi: Exploring Equivalent Trig Functions (10 min)","https://www.youtube.com/watch?v=u11mAXy-u9k","vid"],
     ]},
     {d:3, iso:"2026-12-01", topic:"Compound Angle Formulas", num:"6.3", note:D("1OEooe5ssfaX5nYtddw2CKdRanFwHW0D6"), ans:"" /* key: D("1sNg8aOicWr4-MF0h1kLS9cl3eZeb1-KR") */, extras:[
       ["Trig Formula Sheet (given on test)","https://docs.google.com/document/d/1gyyytcT3ASFSil86hQ84eD7yX9DD2_iU4d2CCzgui9I/edit","doc"],
+      ["Sum and Difference Formulas (7 min)","https://www.youtube.com/watch?v=6raOSn1dl4A","vid"],
+      ["Mr. Cioffi: Compound Angle Formulas (16 min)","https://www.youtube.com/watch?v=PuNWzz3Asg4","vid"],
       ["Proving Compound Angle Formulas","https://www.youtube.com/watch?v=zpyPTBgUqkQ","vid"],
       ["Using Compound Angles to Solve Problems","https://www.youtube.com/watch?v=sU2pyMR8GZ4","vid"],
     ]},
     {d:4, iso:"2026-12-02", topic:"Double Angle Formula", num:"6.4", note:D("1U2wjAsyDjIhPXm5KqTjlYSv4IrXLas_k"), ans:"" /* key: D("1DhO0vzkdSt_9E2L-DArnoJDAUCx2wOZw") */, extras:[
+      ["How to Use Double Angle Formulas (8 min)","https://www.youtube.com/watch?v=PIvs1k-PV_s","vid"],
+      ["Mr. Cioffi: Double Angle Formulas (11 min)","https://www.youtube.com/watch?v=kHa9zOxEQ6I","vid"],
       ["Double Angle Identities & Examples","https://www.youtube.com/watch?v=SE5SBTgrwH8","vid"],
     ]},
     {d:5, iso:"2026-12-03", topic:"Practice Quiz", flag:"quiz",
@@ -437,6 +444,8 @@ const COURSE = {
       ["Trig Identities Check-in Answers",D("18_76pPLZVhYuaka0JyO-pr3pnX7PZovZ"),"ans"],
     ]},
     {d:6, iso:"2026-12-04", topic:"Proving Trig Identities", num:"6.5", note:D("1Qs4QCd-Cw1YBduSUpx01uYVRpD135657"), ans:"" /* key: D("122Ndao4yP2mlKPYRJf4TQ60FVLI5xSC0") */, extras:[
+      ["4 Tips for Simplifying Trig Identities (10 min)","https://www.youtube.com/watch?v=DVvoBrX83Y8","vid"],
+      ["Mr. Cioffi: Proving Trig Identities (14 min)","https://www.youtube.com/watch?v=hdPiKg4Ibrs","vid"],
       ["Proving Trig Identities","https://www.youtube.com/watch?v=iG5KxwvOINQ","vid"],
       ["Proving More Trig Identities","https://www.youtube.com/watch?v=rqOynMOkAXQ","vid"],
     ]},
@@ -445,11 +454,15 @@ const COURSE = {
       ["Answers",D("1aXSMy1NrcpMiX3HuSC0NwWUAfkYrblxT"),"ans"],
       ["Level 5 Trig Identities",D("1ehIH3B6lwez7d03K2_XIc-IjOSHkgIs9"),"doc"],
       ["Answers",D("1fJ_IjgjEK8NXMVhjlg2WMfGleUcJ3WNM"),"ans"],
+      ["Professor Dave: Verifying Trig Identities (9 min)","https://www.youtube.com/watch?v=YYKGkYkKeMM","vid"],
     ]},
     {d:8, iso:"2026-12-08", topic:"Solving Linear Trig Equations", num:"6.7", note:D("1xW-ARnAbyATAGYQY-d4y6TlbwMaO_-YS"), ans:"" /* key: D("1a-IyCdKuPTSp9TU-Ro6IE91IT_bIlX6S") */, extras:[
+      ["Solving Trig Equations with the Unit Circle (6 min)","https://www.youtube.com/watch?v=GCX7k3ildN0","vid"],
+      ["Mr. Cioffi: Solving Linear Trig Equations (19 min)","https://www.youtube.com/watch?v=WW-Bb4MlQgU","vid"],
       ["Solving Linear Trig Equations","https://www.youtube.com/watch?v=Z2z5zm-sCFE","vid"],
     ]},
     {d:9, iso:"2026-12-09", topic:"Solving Quadratic Trig Equations", num:"6.8", note:D("1SBTGaXhhlp1psDTaLqmUCjJncLOasp9D"), ans:"" /* key: D("1D0INtlTpRHaLohs-0v9O_jNPzzUbmd4M") */, extras:[
+      ["Mr. Cioffi: Solving Quadratic Trig Equations (19 min)","https://www.youtube.com/watch?v=W2g6n6o0emE","vid"],
       ["Solving Quadratic Trig Equations","https://www.youtube.com/watch?v=NqxLu7E00uE","vid"],
     ]},
     {d:10, iso:"2026-12-10", topic:"Review", flag:"review", noteLabel:"Unit Review", ansLabel:"Answers",
@@ -469,10 +482,12 @@ const COURSE = {
   {name:"Exponentials & Logarithms", days:[
     {d:1, iso:"2026-12-15", topic:"Log Review", num:"7.1", note:D("17g_TdvGCblRGAC7l1xb63KZUgtPXaXLn"), ans:"" /* key: D("1ZQL_FSBBJsillhQZUvsbEYzPEijx1Exb") */, extras:[
       ["Unit 7 Prerequisite Skills (answers included)",D("14b4QE3lHaR-0bmitGCG-SJa_WcPIS4OK"),"skills"],
+      ["Khan Academy: What Is a Logarithm? (7 min)","https://www.youtube.com/watch?v=Z5myJ8dg_rM","vid"],
       ["Short-cut to Solve ANY Problem","https://www.youtube.com/watch?v=dQw4w9WgXcQ","vid"],
       ["Ms. Havrot’s Videos: Exponentials & Logs","https://www.youtube.com/watch?v=w-2ku9QNYlA&list=PLGinkJ_ZMO2HQwGf8mAmHGPQTJr1_faeF","vid"],
     ]},
     {d:2, iso:"2026-12-16", topic:"Transformations of Log Functions", num:"7.2", note:D("13GOiPK5boMj3sWbcmcJg4zxp3xS1dkzx"), ans:"" /* key: D("1GbWlKu3l3Wxj8E3eqgRmJCj4eSYyZ-uL") */, extras:[
+      ["Mr. Cioffi: The Log Function and Its Transformations (9 min)","https://www.youtube.com/watch?v=t9eVYrIMm9o","vid"],
       ["Ms. Havrot: Transformations of Log Functions (8.2)","https://www.youtube.com/watch?v=VkzUJunpmgs","vid"],
       ["Transformations of Exp & Log Functions Worksheet","https://www.jensenmath.ca/s/hw7s-63-transformations-of-expo-and-log.pdf","doc"],
       ["Answers","https://www.jensenmath.ca/s/hw7t-63-transformations-of-expo-and-log.pdf","ans"],
@@ -480,12 +495,15 @@ const COURSE = {
     {d:3, iso:"2026-12-17", topic:"Exploring Graphs of Log Functions", num:"7.3", note:D("1Vh4yMx0xuE1VCt-HujJYW_ZoyD8v65T1"), ans:"" /* key: D("1nBA0PaKHKSwdmR0gUnkrTRyL7G6aeAky") */, extras:[
       ["Distance vs Loudness Data","https://docs.google.com/spreadsheets/d/1OgkZH9FMYJVyvrgC8vwtPE4-Mu4557iTJfTDcoIydb4/edit","doc"],
       ["Santa’s Chaotic Workshop Challenge",D("1jIIr6PjZ_w66MxFeNeXYxWYJC2coJdIc"),"doc"],
+      ["Khan Academy: Graphs of Logarithmic Functions (6 min)","https://www.youtube.com/watch?v=LqyA96oYtwE","vid"],
     ]},
     {d:4, iso:"2026-12-18", topic:"Work Period", note:"", ans:"", extras:[
       ["Old Note: Log Rates of Change",D("1gnuqeN1WbbUjxIX9tLh_tb5tg3sXRIws"),"doc"],
       ["Answers",D("1h7v7Zj_wGTyAIri-PhlrY2ZEmlv88zrA"),"ans"],
     ]},
     {d:5, iso:"2027-01-04", topic:"Evaluating Logs", num:"7.4", note:D("1QfuP6rJMxqeXOHv1qE5UaC7Nxbja21vP"), ans:"" /* key: D("18VPreJkgoufWHNsm6HniWOoSaYBdPBMG") */, extras:[
+      ["How to Evaluate Logarithms, Quick Method (2 min)","https://www.youtube.com/watch?v=LUTmyuR1pto","vid"],
+      ["Mr. Cioffi: Evaluating Logarithms (10 min)","https://www.youtube.com/watch?v=MRJ-yTqQ6jw","vid"],
       ["Ms. Havrot: Evaluating Logarithms (8.3)","https://www.youtube.com/watch?v=QpM1d3eEwxk","vid"],
       ["Change of Base Rule","https://www.khanacademy.org/math/algebra2/x2ec2f6f830c9fb89:logs/x2ec2f6f830c9fb89:change-of-base/v/change-of-base-formula","vid"],
     ]},
@@ -496,14 +514,20 @@ const COURSE = {
       ["Ms. Havrot: Chapter 8 Practice Test","https://www.youtube.com/watch?v=KiiSCpaPdj8","vid"],
     ]},
     {d:7, iso:"2027-01-06", topic:"Laws of Logs", num:"7.5", note:D("1_2W01Ch6TbxS6LdQrM51dXQ1-5Shn2qA"), ans:"" /* key: D("1yjfmYTvg2RGK4vlUxTDaZa_44Z-LAizM") */, extras:[
+      ["Mr. Cioffi: Laws of Logarithms (8 min)","https://www.youtube.com/watch?v=sUcgjaN78i4","vid"],
+      ["Ms. Havrot: Laws of Logarithms (8.4, 16 min)","https://www.youtube.com/watch?v=0hWFXTZyEZA","vid"],
       ["Logarithm Fundamentals","https://www.youtube.com/watch?v=cEvgcoyZvB4","vid"],
     ]},
     {d:8, iso:"2027-01-07", topic:"Solving Exponential Equations", num:"7.6", note:D("1pru8L9Q0bSjRkSCQEmYeHLW8ZjuuRn81"), ans:"" /* key: D("1n_8CGUzH2NO4Zukqu_vtUNqoU3gbYMA9") */, extras:[
+      ["Khan Academy: Solving an Exponential Equation with Logs (3 min)","https://www.youtube.com/watch?v=R443Db-wJ5o","vid"],
+      ["Mr. Cioffi: Solving Exponential Equations (12 min)","https://www.youtube.com/watch?v=jvBrGs01VHc","vid"],
       ["Ms. Havrot: Solving Exponential Equations (8.5)","https://www.youtube.com/watch?v=jcuJ05GbtDM","vid"],
       ["Solving Exponential Equations Worksheet","https://www.jensenmath.ca/s/hw4s-71-and-72-solving-exponential-equations.pdf","doc"],
       ["Answers","https://www.jensenmath.ca/s/hw4t3-71-and-72-solving-exponential-equations.pdf","ans"],
     ]},
     {d:9, iso:"2027-01-08", topic:"Solving Logarithmic Equations", num:"7.7", note:D("1fBTwREDutzztfmUI0o53y1-5pmV8DRVJ"), ans:"" /* key: D("1Idya7RXInf_3LCldpxtSttUj9xz3Q3U1") */, extras:[
+      ["Solving Log Equations: Easy, Medium, Hard (6 min)","https://www.youtube.com/watch?v=HFO6E2eylo8","vid"],
+      ["Solving Logarithmic Equations, 5 Examples (11 min)","https://www.youtube.com/watch?v=kBeHeTIcZ98","vid"],
       ["Ms. Havrot: Solving Logarithmic Equations (8.6)","https://www.youtube.com/watch?v=vlDKADJsnXk","vid"],
       ["Solving Logarithmic Equations Worksheet","https://www.jensenmath.ca/s/hw5s-74-solving-logarithmic-equations.pdf","doc"],
       ["Answers","https://www.jensenmath.ca/s/hw5t-74-solving-logarithmic-equations.pdf","ans"],
@@ -511,9 +535,13 @@ const COURSE = {
     {d:10, iso:"2027-01-11", topic:"Work Period", note:"", ans:"", extras:[]},
     {d:11, iso:"2027-01-12", topic:"Solving Problems with Log & Exp Functions", num:"7.8", note:D("18T8fp54x1aOBlmrjpGQNC_25DMnNEKLm"), ans:"" /* key: D("1PxdOQAmMqVg2X9atSYlPMFWv6DV_esMN") */, extras:[
       ["Extra Word Problems",D("1gYzFpvAb-EpoETfuOBKKMdGAGuzYaWt9"),"doc"],
+      ["Khan Academy: Exponential Growth and Decay Word Problems (7 min)","https://www.youtube.com/watch?v=m5Tf6vgoJtQ","vid"],
+      ["JensenMath: Applications of Logarithms (full lesson, 13 min)","https://www.youtube.com/watch?v=KNEdVMCQIYY","vid"],
     ]},
     {d:12, iso:"2027-01-13", topic:"Combining, Changing & Modelling with Log/Exp", num:"7.9", note:D("11DRJooLSkD4IV3elQna5Rxqf2SILXVrr"), ans:"" /* key: D("10_v64nKqmEeg8YS4q_ax6k0WKYId_-4K") */, extras:[
       ["Desmos Gas Model (from class)","https://www.desmos.com/calculator/q7zzmwdqy1","doc"],
+      ["Khan Academy: Average Rate of Change from a Table (4 min)","https://www.youtube.com/watch?v=FQtcvJiVmWQ","vid"],
+      ["Ms. Havrot: Rates of Change of Exponential & Log Functions (8.8, 20 min)","https://www.youtube.com/watch?v=O9ftXe0goD0","vid"],
     ]},
     {d:13, iso:"2027-01-14", topic:"Review", flag:"review", noteLabel:"Unit Review", ansLabel:"Answers",
       note:D("1cm1AvRoBoWyJu-9GPIUJElTpevDQohu-"), ans:"" /* key: D("1R1AOje26qC3tUhunqRbSEc_YkPz8vg_S") */, extras:[
@@ -529,14 +557,17 @@ const COURSE = {
     {d:1, iso:"2027-01-18", topic:"Cumulative Review", note:"", ans:"", extras:[
       ["Exam Review",D("1m-RX1xdcaSuMp1bSJqrGqNvlZMiSzp1N"),"doc"],
       ["Answers",D("1m5U4kMUP8Uhzw2j55FfoPa4WSImO1JjO"),"ans"],
+      ["JensenMath: All of Advanced Functions, Part 1: Polynomials (27 min)","https://www.youtube.com/watch?v=5NadGZg4lfI","vid"],
     ]},
     {d:2, iso:"2027-01-19", topic:"Exam Review", note:"", ans:"", extras:[
       ["Practice Test",D("1OnVgCckFxoISEBjxHrOhhOS_r96E2AzH"),"doc"],
       ["Answers",D("140pzzW2_QfeWExTQpXM3tPP9jIzaPV94"),"ans"],
+      ["JensenMath: All of Advanced Functions, Part 2: Trig (31 min)","https://www.youtube.com/watch?v=vQyHXUuDrxI","vid"],
     ]},
     {d:3, iso:"2027-01-20", topic:"Exam Review", note:"", ans:"", extras:[
       ["Practice Exam",D("1mIASdnvrZmnTukk7fkT0gY9qqpECVupa"),"doc"],
       ["Answers",D("1m7jOpO_t5Xtb4W1VJb-6mFB9CA4y0vGt"),"ans"],
+      ["JensenMath: All of Advanced Functions, Part 3: Logs & Rational Functions (23 min)","https://www.youtube.com/watch?v=8VmcsRunGjQ","vid"],
     ]},
     {d:4, iso:"2027-01-21", topic:"Exam Review", note:"", ans:"", extras:[
       ["Exam Formula Sheet",D("1mwsClOqwXVcosKmqVRLTtenujljkhGND"),"doc"],
