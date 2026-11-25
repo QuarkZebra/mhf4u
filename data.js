@@ -454,6 +454,7 @@ const COURSE = {
     ]},
     {d:10, iso:"2026-12-10", topic:"Review", flag:"review", noteLabel:"Unit Review", ansLabel:"Answers",
       note:D("1uJx3N_X6mKxbAb8XT_pL9mipogQUqMeU"), ans:"" /* key: D("1b582rBAF_MYPpYrQc9Io9W7CJXUzhCNI") */, extras:[
+      /* summary: ["Unit 6 Summary",D("1rWIPu9wwE9cWdGxgzA1YVETeyPs6_thF"),"summary"], */
       ["Practice Tests (Hudgin)",D("1VLV6ITAq9IWBPbJSdsq7pi8pbk2b9plT"),"doc"],
       ["Answers",D("16nDXz6px2P8KvPCcWEcVTxbvwvFQUHu0"),"ans"],
     ]},
