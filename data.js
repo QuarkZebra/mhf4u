@@ -412,7 +412,7 @@ const COURSE = {
 
   /* ── UNIT 6 ─────────────────────────────────────────────── */
   {name:"Trig Identities & Equations", days:[
-    {d:1, iso:"2026-11-27", topic:"Trig & Equivalent Functions Review", num:"6.1", note:D("1A3toLNq8yTAbDxIRizPybUdOi1zkMq8r"), ans:"" /* key: D("1Yc0VQhaeeN4uF1NpOBTWt-CQES-oa5Jo") */, extras:[
+    {d:1, iso:"2026-11-27", topic:"Trig & Equivalent Functions Review", num:"6.1", note:D("1A3toLNq8yTAbDxIRizPybUdOi1zkMq8r"), ans:D("1Yc0VQhaeeN4uF1NpOBTWt-CQES-oa5Jo") /* key: D("1Yc0VQhaeeN4uF1NpOBTWt-CQES-oa5Jo") */, extras:[
       ["Unit 6 Prerequisite Skills (answers included)",D("1Ztq316NIicDiPzGp2p03rFjhGjwH4BlG"),"skills"],
       ["Review: Trig Identities",D("1YI0Zr7DZkqQc6hdEzJChXoMJbCP0Mo1w"),"doc"],
       ["Answers",D("1-bzNcIKgWX7rfzqmbfDr2CpYS7zi0NNr"),"ans"],
